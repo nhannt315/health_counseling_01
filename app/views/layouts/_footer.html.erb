@@ -1,0 +1,22 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul id="additional_links">
+          <li>
+            <%= link_to t("global.term"), "#{root_url}pages/term" %>
+          </li>
+          <li>
+            <%= link_to t("global.privacy"), "#{root_url}pages/privacy" %>
+          </li>
+          <li>
+            <%= link_to t("global.about"), "#{root_url}pages/about" %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div id="copy"><%= Settings.global.copyright %></div>
+      </div>
+    </div>
+  </div>
+</footer>

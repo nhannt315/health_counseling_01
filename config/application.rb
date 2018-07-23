@@ -16,5 +16,9 @@ module MfCare
   class Application < Rails::Application
     config.load_defaults 5.2
     config.generators.system_tests = nil
+    config.i18n.available_locales = [:en, :vi]
+    config.i18n.default_locale = :vi
+    config.assets.paths << Rails.root.join("vendor", "assets", "fonts")
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
   end
 end

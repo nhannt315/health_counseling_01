@@ -1,2 +1,21 @@
-en:
-  hello: "Xin chào"
+vi:
+  global:
+    logo: MFCare
+    slogan: Tìm kiếm câu hỏi về sức khỏe của bạn
+    base_title: MFCare hãy bảo vệ sức khỏe theo cách của bạn
+    term: Điều khoản sử dụng
+    privacy: Chính sách bảo mật
+    about: Về chúng tôi
+    menu:
+      search: Tìm kiếm
+      search_placeholder: Tìm kiếm...
+      make_question: Đặt câu hỏi?
+  pages:
+    home:
+      title: Trang chủ
+    term:
+      title: Điều khoản sử dụng
+    privacy:
+      title: Chính sách bảo mật
+    about:
+      title: Về chúng tôi
