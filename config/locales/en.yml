@@ -1,2 +1,21 @@
 en:
-  hello: "Hello world"
+  global:
+    logo: MFCare
+    slogan: Make your heath greet again
+    base_title: MFCare protect your heath by you way
+    term: Terms an coditions
+    privacy: Privacy
+    about: About
+    menu:
+      search: Search
+      search_placeholder: Search...
+      make_question: Make a questions?
+  pages:
+    home:
+      title: Home page
+    term:
+      title: Terms an coditions
+    privacy:
+      title: Privacy
+    about:
+      title: About

@@ -45,13 +45,16 @@ ActiveRecord::Schema.define(version: 2018_07_23_081016) do
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "receiver_id"
+    t.bigint "user_id"
+    t.bigint "question_id"
+    t.bigint "major_id"
     t.boolean "checked"
-    t.string "content"
     t.integer "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["major_id"], name: "index_notifications_on_major_id"
+    t.index ["question_id"], name: "index_notifications_on_question_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "question_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -99,6 +102,9 @@ ActiveRecord::Schema.define(version: 2018_07_23_081016) do
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "doctor_majors", "users"
+  add_foreign_key "notifications", "majors"
+  add_foreign_key "notifications", "questions"
+  add_foreign_key "notifications", "users"
   add_foreign_key "question_categories", "majors"
   add_foreign_key "question_categories", "questions"
   add_foreign_key "questions", "users"

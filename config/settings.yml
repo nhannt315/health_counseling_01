@@ -1,3 +1,6 @@
+global:
+  copyright: © 2018 MFCare Jsc.
+  site_title: MFCare
 user:
   name_maximum_length: 50
   email_maximum_length: 255
