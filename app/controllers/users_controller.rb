@@ -25,11 +25,23 @@ class UsersController < ApplicationController
 
   def show; end
 
+  def edit; end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t ".user_updated"
+      redirect_to @user
+    else
+      flash[:warning] = t ".user_update_failed"
+      render :edit
+    end
+  end
+
   private
 
   def user_params
     params.require(:user)
-          .permit :name, :email, :password, :password_confirmation
+      .permit :name, :email, :password, :password_confirmation
   end
 
   def find_user
@@ -40,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    redirect_to root_url unless current_user? @user
+    redirect_to root_url unless @user.current_user? current_user
   end
 
   def request_doctor_check
