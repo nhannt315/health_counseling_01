@@ -19,3 +19,6 @@ en:
       title: Privacy
     about:
       title: About
+  error:
+    page_not_found: Page not found
+    user_not_found: The user you are looking for is not found
