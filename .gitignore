@@ -57,3 +57,9 @@ node_modules/
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+
+# IDEA
+/.idea
+.idea/
+# Ignore application configuration
+config/application.yml

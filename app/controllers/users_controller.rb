@@ -8,9 +8,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      @user.send_activation_mail
+      @user.send_mail :activation
       @messages = [t("users.create.thank"), t("users.create.email_sent")]
-      render "utilities/confirm"
+      render "shared/confirm"
     else
       render :new
     end
