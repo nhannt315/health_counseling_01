@@ -19,3 +19,6 @@ vi:
       title: Chính sách bảo mật
     about:
       title: Về chúng tôi
+  error:
+    page_not_found: Trang không tìm thấy
+    user_not_found: Người dùng bạn đang tìm kiếm không tồn tại
