@@ -4,6 +4,7 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "2.5.1"
 
 gem "config"
+gem "owlcarousel-rails"
 gem "modernizr-rails"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "puma", "~> 3.11"
@@ -12,6 +13,7 @@ gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 
+gem "bcrypt"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap", "~> 4.1.1"
 gem "bootstrap-datepicker-rails"
@@ -23,6 +25,7 @@ gem "wow-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "faker"
 end
 
 group :development do
