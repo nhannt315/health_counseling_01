@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
+  before_action :find_user, only: [:edit, :update, :show]
+  before_action :logged_in_user,
+    only: [:index, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
+
   def index; end
 
   def new
+    redirect_to root_url if logged_in?
     @user = User.new
   end
 
@@ -17,21 +23,34 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def show; end
+
+  private
+
+  def user_params
+    params.require(:user)
+      .permit :name, :email, :password, :password_confirmation
+  end
+
+  def find_user
     @user = User.find_by id: params[:id]
     return if @user
     flash[:message] = I18n.t "error.user_not_found"
     render "shared/404"
   end
 
-  private
+  def correct_user
+    redirect_to root_url unless current_user? @user
+  end
 
   def request_doctor_check
     params[:user][:request_doctor] == "1"
   end
 
-  def user_params
-    params.require(:user).permit :name, :email, :password,
-      :password_confirmation
+  def logged_in_user
+    return if logged_in?
+    store_location
+    flash[:success] = t "global.auth.login_please"
+    redirect_to login_url
   end
 end

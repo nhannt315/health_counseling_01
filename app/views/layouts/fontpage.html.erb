@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title><%= full_title yield :title %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "vendors", media: "all",
+    "data-turbolinks-track": "reload" %>
+  <%= stylesheet_link_tag "application", media: "all",
+    "data-turbolinks-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+  <%= javascript_include_tag :modernizr %>
+  <%= render "layouts/shim" %>
+  </head>
+  <body class="mf_home">
+    <header class="header_sticky home_header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <div class="left_menu">
+              <%= link_to "#" do %>
+                <%= t "global.menu.language" %> <i class="icon-down-open-mini"></i>
+              <% end %>
+            </div>
+          </div>
+          <nav class="col-lg-9 col-6">
+            <div class="main-menu">
+              <ul>
+                <li>
+                  <%= link_to "#", class: "show-submenu" do %>
+                    <i class="icon-question"></i><%= t "global.menu.make_question" %>
+                  <% end %>
+                </li>
+                <% unless logged_in? %>
+                  <li>
+                    <%= link_to signup_url, class: "show-submenu" do %>
+                      <i class="icon-user-add-outline"></i><%= t "global.menu.signup" %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <%= yield %>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <ul id="additional_links">
+              <li>
+                <%= link_to t("global.term"), "#{root_url}pages/term" %>
+              </li>
+              <li>
+                <%= link_to t("global.privacy"), "#{root_url}pages/privacy" %>
+              </li>
+              <li>
+                <%= link_to t("global.about"), "#{root_url}pages/about" %>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <div id="copy"><%= Settings.global.copyright %></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

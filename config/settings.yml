@@ -8,3 +8,5 @@ user:
   gravatar_size: 50
   password_reset_expired: 2
   gravatar_size_follow: 30
+default:
+  avatar: logo.png
