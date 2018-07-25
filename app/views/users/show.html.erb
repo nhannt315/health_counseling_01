@@ -1,1 +1,99 @@
-<%= provide :title, @user.name %>
+<% provide :title, t(".title")%>
+<main>
+  <div class="container margin_60">
+    <div class="row">
+      <aside class="col-xl-4 col-lg-4" id="sidebar">
+        <div class="box_general_3 mf_user_profile">
+          <div class="title">
+            <div class="avatar_wrap">
+              <%= image_tag @user.avatar, class: "avatar" %>
+            </div>
+            <div class="user_info">
+              <h3><%= @user.name %></h3>
+              <small><%= @user.email %></small>
+              <ul class="statistic">
+                <li>10 <%= t ".questions" %>
+                </li>
+                <li>124 <%= t ".comments" %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <ul class="treatments clearfix">
+            <li><%= link_to t(".account_info"), @user %></li>
+            <li><%= link_to t(".change_password"), "#" %></li>
+          </ul>
+          <hr/>
+          <%= link_to t(".edit"), edit_user_path(@user) ,
+            class:"btn_1 full-width"%>
+        </div>
+      </aside>
+      <div class="col-xl-8 col-lg-8">
+        <nav id="secondary_nav">
+          <div class="container">
+            <ul class="clearfix nav" role="tablist">
+              <li>
+                <%= link_to t(".general_info"), "#info",
+                  class: "active nav-link", id: "info-tab",
+                  data: {toggle:"tab"}, aria: {controls: "info"}  %>
+              </li>
+              <li>
+                <%= link_to t(".all_questions"), "#question",
+                  class: "nav-link", id: "question-tab",
+                  data: {toggle:"tab"}, aria: {controls: "question"}  %>
+              </li>
+            </ul>
+            </ul>
+          </div>
+        </nav>
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="info"
+            role="tabpanel" aria-labelledby="info-tab">
+            <div class="box_general_3">
+              <div class="profile">
+                <div class="row">
+                  <div class="col-lg-7 col-md-8">
+                    <small><%= t ".full_name" %></small>
+                    <h1><%= @user.name %></h1>
+                    <ul class="contacts">
+                      <li>
+                        <h6><%= t ".address" %></h6>
+                        <%= @user.prof_place %> -
+                        <%= link_to "https://www.google.com/maps/dir/#{@user.prof_place}",
+                          target: "_blank" do %>
+                            <strong><%= t (".view_on_map") %></strong>
+                        <% end %>
+                      </li>
+                      <li>
+                        <h6><%= t ".phone" %></h6>
+                        <%= link_to @user.phone_number,
+                          "tel://#{@user.phone_number}" %>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-5 col-md-4">
+                    <figure>
+                      <%= image_tag @user.avatar, class:"img-fluid"%>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="indent_title_in">
+                <i class="pe-7s-user"></i>
+                <h3><%= t ".bio" %></h3>
+              </div>
+              <div class="wrapper_indent">
+                <p><%= @user.bio %></p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="question" role="tabpanel"
+            aria-labelledby="question-tab">
+            <div class="box_general_3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>

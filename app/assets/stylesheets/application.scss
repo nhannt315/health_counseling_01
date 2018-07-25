@@ -1,2 +1,11 @@
+/*
+ *= require all_icons_min
+ */
+
 @import 'bootstrap';
+@import 'variables';
 @import 'main';
+@import 'components/menu';
+@import 'components/header';
+@import 'components/home';
+@import 'components/user_profile';
