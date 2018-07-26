@@ -45,3 +45,65 @@ vi:
   error:
     page_not_found: Trang không tìm thấy
     user_not_found: Người dùng bạn đang tìm kiếm không tồn tại
+    page_not_found_content: Chúng tôi không thể tìm thấy trang bạn yêu cầu
+  users:
+    new:
+      signup: Đăng ký người dùng
+      title: Đăng ký để bắt đầu đặt câu hỏi
+      name: Họ tên
+      your_name: Họ tên của bạn
+      email: Địa chỉ Email
+      your_email: Địa chỉ email của bạn
+      password: Mật khẩu
+      your_password: Mật khẩu của bạn
+      password_confirm: Xác nhận mật khẩu
+      submit: Xác nhận
+    create:
+      success: Đăng ký thành công. Chào mừng đến với MFCare!
+      thank: Cám ơn bạn đã đăng ký !
+      email_sent: Bạn sẽ nhận được email với đường dẫn kích hoạt
+  sessions:
+    new:
+      login: Đăng nhập
+      title: Đăng nhập để bắt đầu đặt câu hỏi cho các bác sĩ!
+      your_email: Địa chỉ email của bạn
+      your_password: Mật khẩu của bạn
+      no_account: Chưa có tài khoản MFCare?
+      register_now_html: <strong>Đăng ký ngay bây giờ!</strong>
+      forgot_password_html: <small>Quên mật khẩu?</small>
+      fb_login: Đăng nhập với Facebook
+      gg_login: Đăng nhập với Google
+      lk_login: Đăng nhập với Linkedin
+      remember: Nhớ đăng nhập
+      error: Sai tài khoản hoặc mật khẩu
+    create:
+      need_activate: Tài khoản chưa được kích hoạt. Hãy kiểm tra email của bạn!
+  activate_mail:
+    title: Kích hoạt tài khoản
+    activate: Kích hoạt
+    greeting: Xin chào
+    content: Chào mừng bạn đến với MFCare, vui lòng truy cập vào đường dẫn dưới đây để kích hoạt tài khoản của bạn
+    noti: Chúng tôi đã gửi email kích hoạt. Hãy kiểm tra hòm thư của bạn.
+    success: Tài khoản đã được kích hoạt!
+    fail: Link kích hoạt sai.
+  reset_mail:
+    title: Thiết lập mới mật khẩu
+    click_link: Để thiết lập lại mật khẩu của bạn hãy truy cập vào link dưới đây
+    link_expire: Đường link sẽ hết hạn sau 2 tiếng
+    info: Nếu bạn không yêu cầu thiết lập lại mật khẩu thì vui lòng hãy bỏ qua thư này!
+  forgot_password:
+    email: Địa chỉ Email
+    your_email: Nhập địa chỉ email của bạn
+    title: Quên mật khẩu?
+    password: Mật khẩu
+    your_password: Mật khẩu của bạn
+    password_confirm: Xác nhận mật khẩu
+    submit: Xác nhận
+    confirmation: Xác nhận
+    update: Cập nhật mật khẩu
+    info: Một email chứa hướng dẫn đổi mật khẩu đã được gửi đến hòm thư của bạn
+    not_found: Địa chỉ email không tồn tại
+    user_error_add: không thể để trống
+    success: Mật khẩu đã được thiết lập lại
+    expired: Thiết lập lại mật khẩu đã hết hạn
+

@@ -11,6 +11,10 @@ a:hover {
   color: $default-a-hover;
 }
 
+#confirm {
+  text-align: center;
+}
+
 .reccomended {
   .owl-item,
   .owl-item.active.center {
@@ -3318,8 +3322,9 @@ label.css-label strong {
 }
 
 #login-2 .forgot {
-  display: inline-block;
-  margin-top: 5px
+  display: inline;
+  margin-top: 5px;
+  float: right;
 }
 
 @media (max-width: 767px) {
