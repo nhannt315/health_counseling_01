@@ -121,3 +121,17 @@ en:
       phone: Số điện thoại
       major: Chuyên môn
       submit: Xác nhận
+    show:
+      question: Question
+      doctor_name_html: DR. %{name}
+      general_info: General Info
+      profile: Profile
+      major: Specializations
+      address: Address
+      phone: Phone
+      recommend: Recommended by MFCare
+      position: Position
+      place: Place
+      view_on_map: View on map
+      asked: "Question : %{count}"
+      answer: "Answer : %{count}"
