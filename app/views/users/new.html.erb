@@ -29,6 +29,12 @@
                     class: "form-control",
                     placeholder: t(".password_confirm") %>
                 </div>
+                <div class="form-group">
+                  <%= f.label :request_doctor, class: "inline" do %>
+                    <%= f.check_box :request_doctor %>
+                    <strong><%= t ".request_doctor" %></strong>
+                  <% end %>
+                </div>
                 <div class="form-group text-center add_top_30">
                   <%= f.submit t(".submit"), class: "btn_1" %>
                 </div>

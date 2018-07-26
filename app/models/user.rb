@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :notifcations, dependent: :destroy
 
+  mount_uploader :avatar, ImageUploader
+
   validates :email, presence: true,
     length: {maximum: Settings.user.email_maximum_length},
     format: {with: VALID_EMAIL_REGEX},
