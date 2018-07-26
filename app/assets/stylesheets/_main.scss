@@ -1,6 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i);
-@import 'variables';
-
 a,
 a:focus,
 a:hover {
@@ -10,7 +8,7 @@ a:hover {
 
 a:forcus,
 a:hover {
-  color: #333
+  color: $default-a-hover;
 }
 
 .reccomended {
@@ -65,10 +63,10 @@ footer h5 {
   -moz-animation: circle infinite .95s linear;
   -o-animation: circle infinite .95s linear;
   animation: circle infinite .95s linear;
-  border: 2px solid #3f4079;
-  border-top-color: rgba(0, 0, 0, .2);
-  border-right-color: rgba(0, 0, 0, .2);
-  border-bottom-color: rgba(0, 0, 0, .2);
+  border: 2px solid $primary-color;
+  border-top-color: $loading-border;
+  border-right-color: $loading-border;
+  border-bottom-color: $loading-border;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -83,6 +81,18 @@ main {
   z-index: 1
 }
 
+.app {
+  main {
+    padding-top: 30px;
+  }
+  footer {
+    background: $main-bg-color;
+    hr {
+      margin: 0 0 10px 0;
+    }
+  }
+}
+
 @import 'animations';
 html * {
   -webkit-font-smoothing: antialiased;
@@ -90,12 +100,12 @@ html * {
 }
 
 body {
-  background: #fff;
+  background: white;
   font-size: 14px;
   font-size: .875rem;
   line-height: 1.4;
   font-family: Poppins, Helvetica, sans-serif;
-  color: #555;
+  color: $default-text-color;
 }
 
 .list_home ul li a:after,
@@ -110,11 +120,11 @@ h3,
 h4,
 h5,
 h6 {
-  color: #333
+  color: $default-a-hover;
 }
 
 hr {
-  border-color: #ededed;
+  border-color: $hr-color;
   margin: 15px 0 30px
 }
 
@@ -150,7 +160,7 @@ strong {
   p {
     font-weight: 300;
     font-size: 20px;
-    color: #777;
+    color: $default-p-color;
     padding: 0 10%
   }
 }
@@ -196,12 +206,12 @@ strong {
     font-weight: 300;
     font-size: 20px;
     font-size: 1.25rem;
-    color: #777
+    color: $default-p-color;
   }
 }
 
 .main_title_3 {
-  background-color: #3f4079;
+  background-color: $violent-color;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -213,10 +223,10 @@ strong {
     font-size: 16px;
     font-size: 1rem;
     margin: 5px 0 0;
-    color: #fff;
+    color: white;
     strong {
-      background-color: #e74e84;
-      color: #fff;
+      background-color: $pink-color;
+      color: white;
       text-align: center;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
@@ -253,16 +263,16 @@ strong {
 
 .main_title_3 h3:before {
   left: 25%;
-  background: url(../img/arrow_left.png) no-repeat
+  background: url('arrow_left.png') no-repeat
 }
 
 .main_title_3 h3:after {
   right: 25%;
-  background: url(../img/arrow_right.png) no-repeat
+  background: url('arrow_right.png') no-repeat
 }
 
 .main_title_4 {
-  background-color: #3f4079;
+  background-color: $violent-color;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -275,7 +285,7 @@ strong {
     font-size: 16px;
     font-size: 1rem;
     margin: 0;
-    color: #fff;
+    color: white;
     i {
       position: relative;
       top: 1px;
@@ -297,7 +307,7 @@ strong {
 }
 
 a {
-  color: #e74e84;
+  color: $pink-color;
   -moz-transition: all .5s ease-in-out;
   -o-transition: all .5s ease-in-out;
   -webkit-transition: all .5s ease-in-out;
@@ -311,14 +321,15 @@ header.header_sticky {
   -moz-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   -webkit-transition: all .3s ease-in-out;
-  -ms-transition: all .3s ease-in-out
+  -ms-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .btn_1,
 a.btn_1 {
   border: none;
-  color: #fff;
-  background: #e74e84;
+  color: white;
+  background: $pink-color;
   cursor: pointer;
   padding: 7px 20px;
   display: inline-block;
@@ -351,28 +362,24 @@ a.btn_1.full-width {
 
 .btn_1:hover,
 a.btn_1:hover {
-  background: #74d1c6
+  background: $green-gray-color
 }
 
 .btn_1.outline,
 a.btn_1.outline {
   background: 0 0;
-  border: 2px solid #e74e84;
-  color: #e74e84
+  border: 2px solid $pink-color;
+  color: $pink-color
 }
 
 .btn_1.outline:hover,
 a.btn_1.outline:hover {
-  background: #e74e84;
-  color: #fff
-}
-
-footer {
-  background-color: $home-bg-color;
+  background: $pink-color;
+  color: white
 }
 
 header {
-  background-color: #fff
+  background-color: white
 }
 
 header {
@@ -392,7 +399,7 @@ header.header_map,
 header.header_sticky.sticky {
   position: fixed;
   left: 0;
-  border-bottom: 1px solid #ededed;
+  border-bottom: 1px solid $hr-color;
   z-index: 999;
   top: 0
 }
@@ -402,7 +409,7 @@ header.header_map {
 }
 
 header.static {
-  border-bottom: 1px solid #ededed;
+  border-bottom: 1px solid $hr-color;
   z-index: 999;
   position: relative
 }
@@ -427,11 +434,11 @@ ul#top_access li i {
 }
 
 ul#top_access li a {
-  color: #3f4079
+  color: $violent-color
 }
 
 ul#top_access li a:hover {
-  color: #333
+  color: $default-a-hover;
 }
 
 ul#top_access li#user {
@@ -473,28 +480,28 @@ ul#top_access li#user figure img {
   }
 }
 
-#logo_home h1 {
+.logo_home h1 {
   margin: 0;
   padding: 0;
-  line-height: 1
+  line-height: 1;
+  a {
+    width: 136px;
+    height: 36px;
+    display: block;
+    background: url('./logo.png') no-repeat;
+    background-size: 36px 36px;
+    text-indent: 40px;
+    font-size: 14px;
+  }
 }
 
-#logo_home h1 a {
-  width: 163px;
-  height: 36px;
-  display: block;
-  background: url(../img/logo.png) no-repeat;
-  background-size: 163px 36px;
-  text-indent: -9999px
-}
-
-@media only screen and (min--moz-device-pixel-ratio: 2),
-only screen and (-o-min-device-pixel-ratio: 2 / 1),
-only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (min-device-pixel-ratio: 2) {
-  #logo_home h1 a {
-    background-image: url(../img/logo_2x.png);
-    background-size: 163px 36px
+@media only screen and (min--moz-device-pixel-ratio:2),
+only screen and (-o-min-device-pixel-ratio:2 / 1),
+only screen and (-webkit-min-device-pixel-ratio:2),
+only screen and (min-device-pixel-ratio:2) {
+  .logo_home h1 a {
+    background-image: url('./logo_2x.png');
+    background-size: 163px 36px;
   }
 }
 
@@ -502,7 +509,7 @@ footer h5 {
   font-size: 14px;
   font-size: .875rem;
   font-weight: 600;
-  color: #999;
+  color: $white-gray;
   margin-bottom: 20px
 }
 
@@ -518,16 +525,16 @@ footer ul li a {
   transition: all .3s ease-in-out;
   display: inline-block;
   position: relative;
-  color: #fff
+  color: $footer-copy-default-color;
 }
 
 footer ul li a:hover {
-  color: #e74e84
+  color: $footer-li-hover;
 }
 
 footer ul li a i {
   margin-right: 10px;
-  color: #fff
+  color: white
 }
 
 footer ul.links li a:hover {
@@ -564,14 +571,14 @@ ul#additional_links li a {
 
 footer ul.contacts li a i {
   margin-right: 10px;
-  color: #e74e84
+  color: $pink-color
 }
 
 footer #copy {
   text-align: right;
   font-size: 13px;
   font-size: .8125rem;
-  color: #ffffff
+  color: $footer-copy-default-color;
 }
 
 @media (max-width: 767px) {
@@ -599,18 +606,18 @@ footer #copy {
 }
 
 .follow_us ul li a i {
-  color: #555
+  color: $default-text-color
 }
 
 .follow_us ul li a i:hover {
-  color: #e74e84
+  color: $pink-color
 }
 
 ul#additional_links {
   margin: 0;
   font-size: 13px;
   font-size: .8125rem;
-  color: #ffffff
+  color: $footer-copy-default-color;
 }
 
 ul#additional_links li {
@@ -657,8 +664,8 @@ ul#additional_links li:after {
 }
 
 .hero_home.version_1 .content {
-  background-color: #363768;
-  background-color: rgba(63, 64, 121, 0)
+  background-color: $content-background;
+  background-color: $content-background-rgba
 }
 
 .hero_home.version_2 {
@@ -668,7 +675,7 @@ ul#additional_links li:after {
 }
 
 .hero_home.version_2:before {
-  background: url(../img/home_1_bg.jpg) center center no-repeat fixed #3f4079;
+  background: url('home_1_bg.jpg') center center no-repeat fixed $violent-color;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -685,8 +692,8 @@ ul#additional_links li:after {
 }
 
 .hero_home.version_2 .content {
-  background-color: #3e3f77;
-  background-color: rgba(63, 64, 121, .9);
+  background-color: $primary-dark-color;
+  background-color: $content-background-rgba-opacity;
   padding: 0 20%
 }
 
@@ -697,7 +704,7 @@ ul#additional_links li:after {
 }
 
 .hero_home.version_3 {
-  background: url(../img/hero_home_bg_1.svg) center bottom no-repeat #3f4079;
+  background: url('hero_home_bg_1.svg') center bottom no-repeat $violent-color;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -719,8 +726,8 @@ ul#additional_links li:after {
 }
 
 .hero_home.version_3 .content {
-  background-color: #363768;
-  background-color: rgba(63, 64, 121, 0);
+  background-color: $content-background;
+  background-color: $content-background-rgba;
   padding: 0 25%
 }
 
@@ -742,15 +749,14 @@ ul#additional_links li:after {
 
 .hero_home .content {
   display: table-cell;
-  padding: 0;
-  vertical-align: middle;
+  padding: 8% 0 0 0;
   text-align: center;
   font-size: 21px;
   font-size: 1.3125rem;
-  color: #fff;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, .25);
-  background-color: #3e3f77;
-  background-color: rgba(63, 64, 121, .9)
+  color: white;
+  text-shadow: 1px 1px 2px $hero-home-content-shadow;
+  background-color: $primary-dark-color;
+  background-color: $content-background-rgba-opacity
 }
 
 @media (max-width: 991px) {
@@ -772,7 +778,7 @@ ul#additional_links li:after {
   font-size: 60px;
   font-size: 3.75rem;
   font-weight: 700;
-  color: #fff
+  color: white
 }
 
 @media (max-width: 767px) {
@@ -866,13 +872,13 @@ ul#additional_links li:after {
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: 0 0 50px 0 rgba(0, 0, 0, .35);
-  -moz-box-shadow: 0 0 50px 0 rgba(0, 0, 0, .35);
-  box-shadow: 0 0 50px 0 rgba(0, 0, 0, .35);
+  -webkit-box-shadow: 0 0 50px 0 $dark-opacity-35;
+  -moz-box-shadow: 0 0 50px 0 $dark-opacity-35;
+  box-shadow: 0 0 50px 0 $dark-opacity-35;
   font-weight: 500;
   font-size: 16px;
   font-size: 1rem;
-  color: #333
+  color: $default-a-hover
 }
 
 #custom-search-input .search-query:focus {
@@ -904,21 +910,21 @@ ul#additional_links li:after {
 
 #custom-search-input ul li input[type=radio]:checked + label,
 #custom-search-input ul li input[type=radio]:checked + label:hover {
-  background-color: #74d1c6;
-  color: #fff
+  background-color: $green-gray-color;
+  color: white
 }
 
 #custom-search-input ul li input[type=radio]:hover + label {
-  background-color: #e74e84;
-  color: #fff
+  background-color: $pink-color;
+  color: white
 }
 
 #custom-search-input ul li label {
   display: inline-block;
   -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, .3);
+  background-color: $true-dark;
+  background-color: $dark-opacity;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -943,7 +949,7 @@ ul#additional_links li:after {
   -ms-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
   right: 0;
-  color: #fff;
+  color: white;
   font-weight: 600;
   font-size: 16px;
   font-size: 1rem;
@@ -957,7 +963,7 @@ ul#additional_links li:after {
   -moz-border-radius: 0 3px 3px 0;
   -ms-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
-  background-color: #74d1c6
+  background-color: $green-gray-color
 }
 
 #reccomended .owl-item,
@@ -968,18 +974,18 @@ ul#additional_links li:after {
 }
 
 #custom-search-input input[type=submit]:hover {
-  background-color: #e74e84
+  background-color: $pink-color
 }
 
 @media (max-width: 575px) {
   #custom-search-input input[type=submit] {
     text-indent: -999px;
-    background: url(../img/search.svg) center center no-repeat #74d1c6
+    background: url('search.svg') center center no-repeat $green-gray-color
   }
 }
 
 .box_feat {
-  background-color: #fff;
+  background-color: white;
   padding: 165px 45px 20px;
   text-align: center;
   position: relative;
@@ -999,19 +1005,19 @@ a.box_cat_home {
   font-size: 21px;
   font-size: 1.3125rem;
   margin-top: 25px;
-  color: #e74e84
+  color: $pink-color
 }
 
 .box_feat#icon_1 {
-  background: url(../img/icon-home-1.svg) center 45px no-repeat #fff
+  background: url('icon-home-1.svg') center 45px no-repeat white
 }
 
 .box_feat#icon_2 {
-  background: url(../img/icon-home-2.svg) center 45px no-repeat #fff
+  background: url('icon-home-2.svg') center 45px no-repeat white
 }
 
 .box_feat#icon_3 {
-  background: url(../img/icon-home-3.svg) center 45px no-repeat #fff
+  background: url('icon-home-3.svg') center 45px no-repeat white
 }
 
 .box_feat span {
@@ -1025,8 +1031,8 @@ a.box_cat_home {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   border-radius: 50%;
-  border: 2px solid #ededed;
-  background: url(../img/arrow-gray-1.svg) center center no-repeat #fff;
+  border: 2px solid $hr-color;
+  background: url('arrow-gray-1.svg') center center no-repeat white;
   display: block;
   z-index: 9
 }
@@ -1052,8 +1058,8 @@ a.box_cat_home {
 }
 
 .list_title {
-  background-color: #3f4079;
-  color: #fff;
+  background-color: $violent-color;
+  color: white;
   margin-bottom: 5px;
   border-radius: 3px;
   padding: 30px 0;
@@ -1071,7 +1077,7 @@ a.box_cat_home {
   font-size: 18px;
   font-size: 1.125rem;
   margin: 0;
-  color: #74d1c6;
+  color: $green-gray-color;
   text-transform: uppercase
 }
 
@@ -1090,19 +1096,19 @@ a.box_cat_home {
 }
 
 .list_home ul li a {
-  background-color: #fff;
+  background-color: white;
   padding: 10px;
   display: block;
   margin-bottom: 5px;
   border-radius: 3px;
   position: relative;
   font-weight: 500;
-  color: #555
+  color: $default-text-color
 }
 
 .list_home ul li a strong {
-  background-color: #f8f8f8;
-  color: #999;
+  background-color: $gray-light;
+  color: $white-gray;
   font-size: 14px;
   font-size: .875rem;
   line-height: 1;
@@ -1120,21 +1126,21 @@ a.box_cat_home {
   right: 15px;
   top: 15px;
   position: absolute;
-  color: #e74e84
+  color: $pink-color
 }
 
 .list_home ul li a:hover {
-  background-color: #e74e84;
+  background-color: $pink-color;
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
   -o-transform: scale(1.05);
   transform: scale(1.05);
-  color: #fff
+  color: white
 }
 
 .list_home ul li a:hover:after {
-  color: #fff
+  color: white
 }
 
 #reccomended {
@@ -1151,13 +1157,13 @@ a.box_cat_home {
 }
 
 #reccomended .item .title h4 {
-  background-color: #3f4079;
+  background-color: $violent-color;
   display: inline-block;
   -webkit-border-radius: 3px 3px 0 0;
   -moz-border-radius: 3px 3px 0 0;
   -ms-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
-  color: #fff;
+  color: white;
   padding: 10px 15px;
   margin: 0;
   font-size: 16px;
@@ -1182,8 +1188,8 @@ a.box_cat_home {
   position: absolute;
   right: 15px;
   top: 15px;
-  background-color: #3f4079;
-  color: #fff;
+  background-color: $violent-color;
+  color: white;
   box-sizing: border-box;
   padding: 3px 6px 4px 5px;
   line-height: 1;
@@ -1236,11 +1242,11 @@ a.box_cat_home {
 
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
-  background: #e74e84 !important
+  background: $pink-color !important
 }
 
 a.box_cat_home {
-  background-color: #fff;
+  background-color: white;
   display: block;
   padding: 25px 15px;
   -webkit-border-radius: 5px;
@@ -1257,7 +1263,7 @@ a.box_cat_home {
   transition: all .3s ease-in-out;
   -moz-box-shadow: 0 0 15px 0 rgba(0, 0, 0, .05);
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, .05);
-  color: #999
+  color: $white-gray
 }
 
 a.box_cat_home i {
@@ -1266,7 +1272,7 @@ a.box_cat_home i {
   top: 10px;
   font-size: 18px;
   font-size: 1.125rem;
-  color: #e74e84;
+  color: $pink-color;
   opacity: 0;
   -moz-transition: all .6s ease-in-out;
   -o-transition: all .6s ease-in-out;
@@ -1307,7 +1313,7 @@ a.box_cat_home:hover i {
 a.box_cat_home ul {
   margin: 20px -15px -25px;
   padding: 10px;
-  border-top: 1px solid #ededed
+  border-top: 1px solid $hr-color
 }
 
 a.box_cat_home ul li {
@@ -1328,9 +1334,9 @@ a.box_cat_home ul li strong {
 }
 
 #app_section {
-  background: url(../img/hero_bg_1.svg) fixed #3f4079;
+  background: url('hero_bg_1.svg') fixed $violent-color;
   padding: 90px 0 60px;
-  color: #fff
+  color: white
 }
 
 #app_section .app_buttons {
@@ -1353,7 +1359,7 @@ a.box_cat_home ul li strong {
 
 #app_section .app_buttons svg .draw-arrow {
   stroke-width: 4;
-  stroke: #fff02a;
+  stroke: white02a;
   fill: none;
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
@@ -1386,13 +1392,13 @@ a.box_cat_home ul li strong {
 }
 
 #app_section h3 {
-  color: #fff;
+  color: white;
   font-size: 32px;
   font-size: 2rem
 }
 
 #app_section h3 strong {
-  color: #fff02a
+  color: white02a
 }
 
 #app_section p {
@@ -1434,7 +1440,7 @@ a.box_cat_home ul li strong {
 .header-video {
   position: relative;
   overflow: hidden;
-  background: #000
+  background: $true-dark
 }
 
 @media (max-width: 991px) {
@@ -1458,7 +1464,7 @@ iframe {
 #hero_video {
   position: relative;
   background-size: cover;
-  color: #fff;
+  color: white;
   display: table;
   z-index: 99
 }
@@ -1471,7 +1477,7 @@ iframe {
 }
 
 #hero_video .content h3 {
-  color: #fff;
+  color: white;
   font-size: 3.8rem;
   margin: 0;
   font-weight: 800
@@ -1533,7 +1539,7 @@ video {
 
 @media (max-width: 1024px) {
   #hero_video {
-    background: url(../img/hero_bg_1.svg) fixed #3f4079
+    background: url('hero_bg_1.svg') fixed $violent-color
   }
   .header-video {
     background: 0 0
@@ -1542,8 +1548,8 @@ video {
 
 #results {
   padding: 20px 0;
-  color: #fff;
-  background: #3f4079
+  color: white;
+  background: $violent-color
 }
 
 #results.is_stuck {
@@ -1551,7 +1557,7 @@ video {
 }
 
 #results h4 {
-  color: #fff;
+  color: white;
   margin: 10px 0 0;
   font-size: 18px;
   font-size: 1.125rem
@@ -1567,7 +1573,7 @@ video {
 }
 
 .search_bar_wrapper {
-  background-color: #3f4079;
+  background-color: $violent-color;
   padding: 15px;
   margin: 0 -15px
 }
@@ -1589,7 +1595,7 @@ video {
 .search_bar_list input[type=submit] {
   position: absolute;
   right: -1px;
-  color: #fff;
+  color: white;
   font-weight: 600;
   top: 0;
   border: 0;
@@ -1600,16 +1606,16 @@ video {
   -moz-border-radius: 0 3px 3px 0;
   -ms-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
-  background-color: #74d1c6;
+  background-color: $green-gray-color;
   transition: all .3s ease-in-out
 }
 
 .search_bar_list input[type=submit]:hover {
-  background-color: #e74e84
+  background-color: $pink-color
 }
 
 .box_list {
-  background-color: #fff;
+  background-color: white;
   display: block;
   position: relative;
   margin-bottom: 30px;
@@ -1707,13 +1713,13 @@ video {
 }
 
 .box_list small {
-  color: #999
+  color: $white-gray
 }
 
 .box_list ul {
   width: 100%;
   padding: 20px 15px;
-  border-top: 1px solid #ededed
+  border-top: 1px solid $hr-color
 }
 
 @media (max-width: 991px) {
@@ -1724,7 +1730,7 @@ video {
 
 .box_list ul li {
   display: inline-block;
-  color: #999;
+  color: $white-gray;
   font-weight: 500
 }
 
@@ -1759,12 +1765,12 @@ a.wish_bt {
 }
 
 .box_list ul li a {
-  color: #999;
+  color: $white-gray;
   font-weight: 500
 }
 
 .box_list ul li a:hover {
-  color: #e74e84
+  color: $pink-color
 }
 
 .box_list ul li:last-child {
@@ -1773,9 +1779,9 @@ a.wish_bt {
 }
 
 .box_list ul li:last-child a {
-  background: #fff;
-  border: 2px solid #e74e84;
-  color: #e74e84;
+  background: white;
+  border: 2px solid $pink-color;
+  color: $pink-color;
   padding: 5px 20px;
   font-weight: 500;
   line-height: 1;
@@ -1791,8 +1797,8 @@ a.wish_bt {
 }
 
 .box_list ul li:last-child a:hover {
-  background: #e74e84;
-  color: #fff
+  background: $pink-color;
+  color: white
 }
 
 a.wish_bt {
@@ -1800,10 +1806,10 @@ a.wish_bt {
   right: 15px;
   top: 15px;
   z-index: 2;
-  background-color: #000;
+  background-color: $true-dark;
   background-color: rgba(0, 0, 0, .6);
   padding: 9px 10px;
-  color: #fff;
+  color: white;
   line-height: 1;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1837,12 +1843,12 @@ a.wish_bt:after {
 
 a.wish_bt:hover:after {
   content: "\e089";
-  color: #e74e84
+  color: $pink-color
 }
 
 .strip_list {
   margin-bottom: 25px;
-  background-color: #fff;
+  background-color: white;
   padding: 20px 15px 15px 115px;
   border-radius: 5px;
   position: relative;
@@ -1851,17 +1857,17 @@ a.wish_bt:hover:after {
 }
 
 .strip_list a.wish_bt {
-  background-color: #000;
+  background-color: $true-dark;
   background-color: rgba(0, 0, 0, .05);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   border-radius: 3px;
-  color: #555
+  color: $default-text-color
 }
 
 .strip_list a.wish_bt:hover:after {
-  color: #e74e84
+  color: $pink-color
 }
 
 .strip_list figure {
@@ -1922,13 +1928,13 @@ a.wish_bt:hover:after {
 }
 
 .strip_list small {
-  color: #999;
+  color: $white-gray;
   display: block;
   font-weight: 600
 }
 
 .strip_list ul {
-  border-top: 1px solid #ededed;
+  border-top: 1px solid $hr-color;
   margin: 15px -15px -15px -115px;
   padding: 20px 15px
 }
@@ -1946,12 +1952,12 @@ a.wish_bt:hover:after {
 }
 
 .strip_list ul li a {
-  color: #999;
+  color: $white-gray;
   cursor: pointer
 }
 
 .strip_list ul li a:hover {
-  color: #e74e84
+  color: $pink-color
 }
 
 .strip_list ul li:first-child:after {
@@ -1967,8 +1973,8 @@ a.wish_bt:hover:after {
 }
 
 .strip_list ul li:last-child a {
-  border: 2px solid #e74e84;
-  color: #e74e84;
+  border: 2px solid $pink-color;
+  color: $pink-color;
   cursor: pointer;
   padding: 5px 20px;
   transition: all .3s ease-in-out;
@@ -1979,8 +1985,8 @@ a.wish_bt:hover:after {
 }
 
 .strip_list ul li:last-child a:hover {
-  background-color: #e74e84;
-  color: #fff !important
+  background-color: $pink-color;
+  color: white !important
 }
 
 @media (max-width: 991px) {
@@ -1990,7 +1996,7 @@ a.wish_bt:hover:after {
 }
 
 .rating i {
-  color: #ddd;
+  color: $gray-dark;
   font-size: 13px;
   font-size: .8125rem
 }
@@ -2007,7 +2013,7 @@ a.wish_bt:hover:after {
 }
 
 .rating small a {
-  color: #999;
+  color: $white-gray;
   text-decoration: underline
 }
 
@@ -2062,17 +2068,17 @@ a.wish_bt:hover:after {
 }
 
 .marker_info h3 a {
-  color: #e74e84
+  color: $pink-color
 }
 
 .marker_info h3 a:hover {
-  color: #333
+  color: $default-a-hover
 }
 
 .marker_info small {
   font-size: 10px;
   font-size: .625rem;
-  color: #999;
+  color: $white-gray;
   font-weight: 600
 }
 
@@ -2107,7 +2113,7 @@ a.wish_bt:hover:after {
   position: relative;
   left: 0;
   top: 2px;
-  color: #e74e84;
+  color: $pink-color;
   margin-right: 8px
 }
 
@@ -2116,7 +2122,7 @@ a.wish_bt:hover:after {
   border: none;
   display: block;
   font-weight: 500;
-  color: #555;
+  color: $default-text-color;
   background: 0 0;
   font-size: 12px;
   outline: 0;
@@ -2180,7 +2186,7 @@ a.wish_bt:hover:after {
 #map_listing.normal_list {
   height: 495px;
   width: auto;
-  border: 3px solid #fff;
+  border: 3px solid white;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -2209,12 +2215,12 @@ a.wish_bt:hover:after {
   border: 0;
   width: 35px;
   height: 35px;
-  background: url(../img/search.svg) center right no-repeat;
+  background: url('search.svg') center right no-repeat;
   cursor: pointer
 }
 
 .filters_listing {
-  border-bottom: 1px solid #e1e8ed;
+  border-bottom: 1px solid $sea-green-dark;
   padding: 15px 0
 }
 
@@ -2233,7 +2239,7 @@ a.wish_bt:hover:after {
 .filters_listing ul li h6 {
   font-size: 12px;
   font-size: .75rem;
-  color: #999;
+  color: $white-gray;
   margin-bottom: 5px
 }
 
@@ -2267,8 +2273,8 @@ a.wish_bt:hover:after {
 }
 
 .layout_view {
-  background-color: #fff;
-  border: 1px solid #e1e8ed;
+  background-color: white;
+  border: 1px solid $sea-green-dark;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -2278,7 +2284,7 @@ a.wish_bt:hover:after {
 }
 
 .layout_view a {
-  color: #3f4079
+  color: $violent-color
 }
 
 .layout_view a.active {
@@ -2287,7 +2293,7 @@ a.wish_bt:hover:after {
 }
 
 .layout_view a:hover {
-  color: #e74e84
+  color: $pink-color
 }
 
 .switch-field {
@@ -2304,19 +2310,19 @@ a.wish_bt:hover:after {
 }
 
 .switch-field input:checked + label {
-  background-color: #3f4079;
+  background-color: $violent-color;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  color: #fff
+  color: white
 }
 
 .switch-field label {
   float: left;
   display: inline-block;
   min-width: 70px;
-  background-color: #fff;
-  color: #3f4079;
+  background-color: white;
+  color: $violent-color;
   font-weight: 600;
   font-size: 12px;
   font-size: .75rem;
@@ -2324,7 +2330,7 @@ a.wish_bt:hover:after {
   text-shadow: none;
   padding: 10px 15px 8px;
   line-height: 1;
-  border: 1px solid #e1e8ed;
+  border: 1px solid $sea-green-dark;
   border-right: 0;
   -moz-transition: all .2s ease-in-out;
   -o-transition: all .2s ease-in-out;
@@ -2348,17 +2354,17 @@ a.wish_bt:hover:after {
 
 .switch-field label:last-of-type {
   border-radius: 0 3px 3px 0;
-  border: 1px solid #e1e8ed
+  border: 1px solid $sea-green-dark
 }
 
 .switch-field label:hover {
   cursor: pointer;
-  color: #e74e84
+  color: $pink-color
 }
 
 .sbHolder {
-  background-color: #fff;
-  border: 1px solid #e1e8ed;
+  background-color: white;
+  border: 1px solid $sea-green-dark;
   height: 32px;
   position: relative;
   -webkit-border-radius: 3px;
@@ -2386,7 +2392,7 @@ a.wish_bt:hover:after {
 .sbSelector:visited {
   outline: 0;
   text-decoration: none;
-  color: #3f4079;
+  color: $violent-color;
   font-weight: 600;
   font-size: 12px;
   font-size: .75rem
@@ -2402,18 +2408,18 @@ a.wish_bt:hover:after {
   font-family: ElegantIcons;
   font-size: 14px;
   content: "\43";
-  color: #3f4079;
+  color: $violent-color;
   text-align: center
 }
 
 .sbHolderDisabled {
-  background-color: #ededed;
-  border: 1px solid #ededed
+  background-color: $hr-color;
+  border: 1px solid $hr-color
 }
 
 .sbOptions {
-  background-color: #fff;
-  border: 1px solid #ededed;
+  background-color: white;
+  border: 1px solid $hr-color;
   list-style: none;
   left: -1px;
   right: -1px;
@@ -2428,7 +2434,7 @@ a.wish_bt:hover:after {
 .sbOptions li {
   padding: 0 7px;
   float: none !important;
-  border-bottom: solid 1px #ededed;
+  border-bottom: solid 1px $hr-color;
   -webkit-transition: all .5s ease;
   -moz-transition: all .5s ease;
   -ms-transition: all .5s ease;
@@ -2445,7 +2451,7 @@ a.wish_bt:hover:after {
 }
 
 .sbOptions li:hover {
-  color: #e74e84
+  color: $pink-color
 }
 
 .sbOptions a {
@@ -2464,14 +2470,14 @@ a.wish_bt:hover:after {
 
 .sbOptions a:link,
 .sbOptions a:visited {
-  color: #555;
+  color: $default-text-color;
   text-decoration: none
 }
 
 .sbOptions a.sbFocus,
 .sbOptions a:focus,
 .sbOptions a:hover {
-  color: #e74e84
+  color: $pink-color
 }
 
 .sbOptions li.last a {
@@ -2480,17 +2486,17 @@ a.wish_bt:hover:after {
 
 .sbOptions .sbDisabled,
 .sbOptions .sbGroup {
-  border-bottom: dotted 1px #fff;
+  border-bottom: dotted 1px white;
   display: block;
   padding: 7px 0 7px 3px
 }
 
 .sbOptions .sbDisabled {
-  color: #999
+  color: $white-gray
 }
 
 .sbOptions .sbGroup {
-  color: #555;
+  color: $default-text-color;
   font-weight: 700
 }
 
@@ -2499,10 +2505,10 @@ a.wish_bt:hover:after {
 }
 
 #breadcrumb {
-  background-color: #3f4079;
+  background-color: $violent-color;
   padding: 25px 0;
   line-height: 1;
-  color: #fff
+  color: white
 }
 
 #breadcrumb ul {
@@ -2519,11 +2525,11 @@ a.wish_bt:hover:after {
 }
 
 #breadcrumb ul li a {
-  color: #fff
+  color: white
 }
 
 #breadcrumb ul li a:hover {
-  color: #74d1c6
+  color: $green-gray-color
 }
 
 #breadcrumb ul li:after {
@@ -2545,9 +2551,9 @@ a.wish_bt:hover:after {
 
 .tabs_styled_2 .nav-tabs .nav-item.show .nav-link,
 .tabs_styled_2 .nav-tabs .nav-link.active {
-  color: #333;
-  background-color: #fff;
-  border-color: #e1e8ed;
+  color: $default-a-hover;
+  background-color: white;
+  border-color: $sea-green-dark;
   border-bottom: 1px solid transparent
 }
 
@@ -2563,7 +2569,7 @@ a.wish_bt:hover:after {
 
 .tabs_styled_2 .nav-tabs .nav-link.active:hover,
 .tabs_styled_2 .nav-tabs .nav-link:focus {
-  border-color: #e1e8ed;
+  border-color: $sea-green-dark;
   border-bottom: 1px solid transparent
 }
 
@@ -2583,7 +2589,7 @@ a.wish_bt:hover:after {
     display: block;
     width: 100%;
     margin-bottom: 5px;
-    border: 1px solid #e1e8ed;
+    border: 1px solid $sea-green-dark;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -2608,19 +2614,19 @@ a.wish_bt:hover:after {
 }
 
 .tabs_styled_2 .nav-tabs {
-  border-bottom: 1px solid #e1e8ed
+  border-bottom: 1px solid $sea-green-dark
 }
 
 .tabs_styled_2 .tab-pane {
-  background-color: #fff;
+  background-color: white;
   padding: 30px 30px 20px;
-  border: 1px solid #e1e8ed;
+  border: 1px solid $sea-green-dark;
   border-top: none
 }
 
 .tabs_styled_2 .tab-pane hr {
   margin: 30px -30px;
-  border-color: #ededed
+  border-color: $hr-color
 }
 
 .indent_title_in {
@@ -2633,7 +2639,7 @@ a.wish_bt:hover:after {
   font-size: 40px;
   position: absolute;
   left: 0;
-  color: #3f4079;
+  color: $violent-color;
   top: 0
 }
 
@@ -2653,7 +2659,7 @@ a.wish_bt:hover:after {
 }
 
 .indent_title_in p {
-  color: #999;
+  color: $white-gray;
   margin: 0;
   padding: 0;
   font-size: 14px;
@@ -2688,8 +2694,8 @@ ul.list_edu li strong {
 
 #review_summary {
   text-align: center;
-  background-color: #3f4079;
-  color: #fff;
+  background-color: $violent-color;
+  color: white;
   padding: 20px 10px;
   border-radius: 5px
 }
@@ -2710,7 +2716,7 @@ ul.list_edu li strong {
 }
 
 .reviews-container .progress-bar {
-  background-color: #74d1c6
+  background-color: $green-gray-color
 }
 
 .reviews-container .review-box {
@@ -2726,7 +2732,7 @@ ul.list_edu li strong {
   top: 0;
   width: 80px;
   height: 80px;
-  background: #fff;
+  background: white;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -2752,7 +2758,7 @@ ul.list_edu li strong {
 .reviews-container .rev-content {
   position: relative;
   padding: 25px 25px 0;
-  border: 1px solid #ededed;
+  border: 1px solid $hr-color;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -2785,24 +2791,24 @@ ul.time_select li label {
 
 .datepicker thead tr th.next:hover,
 .datepicker thead tr th.prev:hover {
-  color: #e74e84
+  color: $pink-color
 }
 
 .datepicker .disabled.disabled-date.day,
 .datepicker .disabled.disabled-date.day:hover {
   background-color: #eb525b !important;
-  color: #fff !important
+  color: white !important
 }
 
 .datepicker .day:hover {
   background: #8ec549 !important;
-  color: #fff;
+  color: white;
   transition: all .3s ease-in-out
 }
 
 .datepicker .active.day:hover {
-  background: #333 !important;
-  color: #fff
+  background: $default-a-hover !important;
+  color: white
 }
 
 ul.legend li {
@@ -2840,8 +2846,8 @@ ul.time_select li input[type=radio] {
 }
 
 ul.time_select li input[type=radio]:checked + label {
-  background-color: #333;
-  color: #fff
+  background-color: $default-a-hover;
+  color: white
 }
 
 ul.time_select li label {
@@ -2851,7 +2857,7 @@ ul.time_select li label {
   -webkit-transition: all .3s ease-in-out;
   -ms-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
-  background-color: #f8f8f8;
+  background-color: $gray-light;
   border-radius: 3px;
   padding: 8px 10px 6px;
   line-height: 1;
@@ -2862,13 +2868,13 @@ ul.time_select li label {
 }
 
 ul.time_select li label:hover {
-  background-color: #e74e84;
-  color: #fff
+  background-color: $pink-color;
+  color: white
 }
 
 #sidebar_detail #map,
 .box_profile {
-  background-color: #fff;
+  background-color: white;
   text-align: center
 }
 
@@ -2877,7 +2883,7 @@ ul.treatments {
 }
 
 ul.treatments li {
-  border-bottom: 1px dotted #ddd;
+  border-bottom: 1px dotted $gray-dark;
   width: 45%;
   float: left;
   margin: 15px
@@ -2936,7 +2942,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 }
 
 label.css-label {
-  background-image: url(../img/checkbox.png);
+  background-image: url('checkbox.png');
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -2959,7 +2965,7 @@ label.css-label strong {
 #sidebar_detail #map {
   width: 100%;
   height: 350px;
-  border: 5px solid #fff;
+  border: 5px solid white;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -2978,21 +2984,21 @@ label.css-label strong {
 }
 
 #sidebar_detail h4 {
-  color: #6d7b84;
+  color: $sea-green;
   font-size: 18px;
   font-size: 1.125rem
 }
 
 .box_profile {
   border-radius: 5px;
-  border: 1px solid #e1e8ed;
+  border: 1px solid $sea-green-dark;
   padding: 0 25px 25px;
   margin-bottom: 35px
 }
 
 .box_profile ul.statistic li,
 .profile ul.statistic li {
-  background-color: #74d1c6;
+  background-color: $green-gray-color;
   font-weight: 600;
   min-width: 95px;
   display: inline-block
@@ -3029,7 +3035,7 @@ label.css-label strong {
 }
 
 .box_profile small {
-  color: #999;
+  color: $white-gray;
   font-weight: 600
 }
 
@@ -3039,7 +3045,7 @@ label.css-label strong {
 }
 
 .box_profile p {
-  color: #999
+  color: $white-gray
 }
 
 .box_profile ul.statistic {
@@ -3049,7 +3055,7 @@ label.css-label strong {
 .box_profile ul.statistic li {
   border-radius: 3px;
   line-height: normal;
-  color: #fff;
+  color: white;
   padding: 3px 10px;
   font-size: 12px;
   font-size: .75rem
@@ -3057,8 +3063,8 @@ label.css-label strong {
 
 .box_profile ul.contacts {
   text-align: left;
-  border-top: 1px solid #ededed;
-  border-bottom: 1px solid #ededed;
+  border-top: 1px solid $hr-color;
+  border-bottom: 1px solid $hr-color;
   padding: 25px;
   margin: 0 -25px 25px
 }
@@ -3089,10 +3095,6 @@ label.css-label strong {
   margin-bottom: 0
 }
 
-.profile {
-  padding-top: 20px
-}
-
 @media (max-width: 767px) {
   .profile {
     padding-top: 0
@@ -3105,7 +3107,7 @@ label.css-label strong {
 }
 
 .profile small {
-  color: #999;
+  color: $white-gray;
   font-weight: 600
 }
 
@@ -3115,7 +3117,7 @@ label.css-label strong {
 }
 
 .profile p {
-  color: #999
+  color: $white-gray
 }
 
 .profile ul.statistic {
@@ -3129,14 +3131,14 @@ label.css-label strong {
   -ms-border-radius: 3px;
   border-radius: 3px;
   line-height: 1;
-  color: #fff;
+  color: white;
   padding: 8px 10px 5px;
   font-size: 12px;
   font-size: .75rem
 }
 
 .profile ul.contacts {
-  margin: 25px 0 0
+  margin: 0 0 0
 }
 
 .profile ul.contacts li {
@@ -3154,8 +3156,8 @@ label.css-label strong {
 }
 
 .booking .title {
-  background-color: #3f4079;
-  color: #fff;
+  background-color: $violent-color;
+  color: white;
   margin: -30px -30px 30px;
   padding: 20px 30px;
   border-radius: 5px 5px 0 0
@@ -3165,7 +3167,7 @@ label.css-label strong {
   font-size: 28px;
   font-size: 1.75rem;
   margin: 0;
-  color: #fff
+  color: white
 }
 
 .booking .title small {
@@ -3182,7 +3184,7 @@ label.css-label strong {
 }
 
 .booking ul.treatments li {
-  border-top: 1px dotted #ddd;
+  border-top: 1px dotted $gray-dark;
   border-bottom: none;
   width: 100%;
   margin: 0;
@@ -3200,7 +3202,7 @@ label.css-label strong {
 }
 
 #secondary_nav {
-  background-color: #3f4079;
+  background-color: $violent-color;
   position: relative;
   bottom: -3px;
   border-bottom: none;
@@ -3234,11 +3236,6 @@ label.css-label strong {
   margin-right: 25px
 }
 
-#secondary_nav ul li:last-child {
-  display: none;
-  margin-right: 0
-}
-
 @media (max-width: 991px) {
   #secondary_nav ul li:last-child {
     display: inline-block
@@ -3246,12 +3243,12 @@ label.css-label strong {
 }
 
 #secondary_nav ul li a {
-  color: #74d1c6
+  color: $green-gray-color
 }
 
 #secondary_nav ul li a.active,
 #secondary_nav ul li a:hover {
-  color: #fff
+  color: white
 }
 
 #section_1,
@@ -3263,43 +3260,43 @@ label.css-label strong {
 #login {
   width: 400px;
   margin: 60px auto;
-  color: #fff
+  color: white
 }
 
 #login h1 {
   font-size: 28px;
   font-size: 1.75rem;
   margin: 0 0 30px;
-  color: #fff
+  color: white
 }
 
 .divider {
   height: 1px;
   margin: 30px 0;
-  background-color: #e1e8ed
+  background-color: $sea-green-dark
 }
 
 .divider span {
   position: relative;
   top: -20px;
-  background-color: #fff;
+  background-color: white;
   display: inline-block;
   padding: 10px;
   font-style: italic
 }
 
 .link_bright a {
-  color: #e74e84
+  color: $pink-color
 }
 
 .link_bright a:hover {
-  color: #fff02a
+  color: white02a
 }
 
 #login-2 {
   width: 650px;
   margin: 60px auto;
-  color: #fff
+  color: white
 }
 
 #login-2 .box_form {
@@ -3336,13 +3333,13 @@ label.css-label strong {
   font-size: 28px;
   font-size: 1.75rem;
   margin: 0 0 30px;
-  color: #fff
+  color: white
 }
 
 .box_login {
   width: 50%;
   float: left;
-  border-right: 1px solid #e1e8ed;
+  border-right: 1px solid $sea-green-dark;
   padding: 15px 25px
 }
 
@@ -3364,7 +3361,7 @@ a.social_bt {
   -ms-border-radius: 3px;
   border-radius: 3px;
   text-align: center;
-  color: #fff;
+  color: white;
   min-width: 200px;
   margin-bottom: 15px;
   display: block;
@@ -3388,11 +3385,11 @@ a.social_bt.linkedin:before {
   left: 12px;
   top: 10px;
   font-size: 1rem;
-  color: #fff
+  color: white
 }
 
 a.social_bt.facebook {
-  background-color: #3B5998
+  background-color: $fb-color;
 }
 
 a.social_bt.facebook:before {
@@ -3400,7 +3397,7 @@ a.social_bt.facebook:before {
 }
 
 a.social_bt.google {
-  background-color: #DC4E41
+  background-color: $g-color;
 }
 
 a.social_bt.google:before {
@@ -3409,7 +3406,7 @@ a.social_bt.google:before {
 }
 
 a.social_bt.linkedin {
-  background-color: #0077B5
+  background-color: $linkedin-color;
 }
 
 a.social_bt.linkedin:before {
@@ -3424,14 +3421,14 @@ a.social_bt.linkedin:before {
 
 #register {
   margin: 60px auto;
-  color: #fff
+  color: white
 }
 
 #register h1 {
   font-size: 28px;
   font-size: 1.75rem;
   margin: 0 0 30px;
-  color: #fff
+  color: white
 }
 
 .checkbox_2 {
@@ -3445,13 +3442,13 @@ a.social_bt.linkedin:before {
   width: 20px;
   height: 20px;
   cursor: pointer;
-  border: 2px solid #e1e8ed;
+  border: 2px solid $sea-green-dark;
   background: 0 0
 }
 
 .checkbox_2 input[type=checkbox]:focus + label:before {
-  background-color: #e53c78;
-  background-color: rgba(231, 78, 132, .2)
+  background-color: $pink-input-color;
+  background-color: $pink-input-dark-color;
 }
 
 .checkbox_2 label:after {
@@ -3460,7 +3457,7 @@ a.social_bt.linkedin:before {
   width: 8px;
   height: 8px;
   opacity: 0;
-  background: #e74e84;
+  background: $pink-color;
   transition: all .3s ease-in-out
 }
 
@@ -3484,7 +3481,7 @@ a.social_bt.linkedin:before {
 #pass-info {
   width: 100%;
   margin-bottom: 15px;
-  color: #555;
+  color: $default-text-color;
   font-size: 12px;
   font-size: .75rem;
   padding: 5px 0 3px;
@@ -3526,12 +3523,12 @@ a.social_bt.linkedin:before {
 
 #error_page,
 #hero_register {
-  background: url(../img/hero_bg_1.svg) fixed #3f4079
+  background: url('hero_bg_1.svg') fixed $violent-color
 }
 
 #hero_register,
 #hero_register h1 {
-  color: #fff
+  color: white
 }
 
 @media (max-width: 767px) {
@@ -3549,14 +3546,14 @@ a.social_bt.linkedin:before {
 .box_feat_2 h3 {
   font-size: 18px;
   font-size: 1.125rem;
-  color: #fff02a
+  color: white02a
 }
 
 .box_feat_2 i {
   font-size: 46px;
   font-size: 2.875rem;
   margin-bottom: 10px;
-  color: #74d1c6;
+  color: $green-gray-color;
   position: absolute;
   left: 0;
   top: 0
@@ -3568,19 +3565,19 @@ a.social_bt.linkedin:before {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #fff
+  color: white
 }
 
 #error_page h2 {
   font-size: 140px;
   font-size: 8.75rem;
-  color: #fff;
+  color: white;
   font-weight: 700;
   line-height: 1
 }
 
 #error_page h2 i {
-  color: #fff02a
+  color: white02a
 }
 
 @media (max-width: 767px) {
@@ -3612,15 +3609,15 @@ a.social_bt.linkedin:before {
   -ms-border-radius: 3px;
   border-radius: 3px;
   padding-left: 15px;
-  -webkit-box-shadow: 0 0 50px 0 rgba(0, 0, 0, .35);
-  -moz-box-shadow: 0 0 50px 0 rgba(0, 0, 0, .35);
-  box-shadow: 0 0 50px 0 rgba(0, 0, 0, .35)
+  -webkit-box-shadow: 0 0 50px 0 $dark-opacity-35;
+  -moz-box-shadow: 0 0 50px 0 $dark-opacity-35;
+  box-shadow: 0 0 50px 0 $dark-opacity-35
 }
 
 .search_bar_error input[type=submit] {
   position: absolute;
   right: 0;
-  color: #fff;
+  color: white;
   font-weight: 600;
   top: 0;
   border: 0;
@@ -3631,7 +3628,7 @@ a.social_bt.linkedin:before {
   -moz-border-radius: 0 3px 3px 0;
   -ms-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
-  background-color: #74d1c6;
+  background-color: $green-gray-color;
   -moz-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   -webkit-transition: all .3s ease-in-out;
@@ -3640,12 +3637,12 @@ a.social_bt.linkedin:before {
 }
 
 .search_bar_error input[type=submit]:hover {
-  background-color: #e74e84
+  background-color: $pink-color
 }
 
 .bg_color_1,
 .box_form {
-  background-color: #fff
+  background-color: white
 }
 
 #contact_info {
@@ -3696,24 +3693,24 @@ a.social_bt.linkedin:before {
 }
 
 .bg_color_2 {
-  background: url(../img/hero_bg_1.svg) fixed #3f4079
+  background: url('hero_bg_1.svg') fixed $violent-color
 }
 
 .form-control {
   font-size: 14px;
   font-size: .875rem;
   min-height: 40px;
-  border-color: #e1e8ed
+  border-color: $sea-green-dark
 }
 
 .box_form {
   padding: 30px;
   border-radius: 5px;
-  -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, .3);
-  -moz-box-shadow: 0 0 30px 0 rgba(0, 0, 0, .3);
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, .3);
+  -webkit-box-shadow: 0 0 30px 0 $dark-opacity;
+  -moz-box-shadow: 0 0 30px 0 $dark-opacity;
+  box-shadow: 0 0 30px 0 $dark-opacity;
   margin-bottom: 25px;
-  color: #555
+  color: $default-text-color
 }
 
 .box_general,
@@ -3721,7 +3718,7 @@ a.social_bt.linkedin:before {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  background-color: #fff;
+  background-color: white;
   padding: 30px
 }
 
@@ -3739,7 +3736,7 @@ a.social_bt.linkedin:before {
 .box_general {
   border-radius: 5px;
   margin-bottom: 15px;
-  color: #555;
+  color: $default-text-color;
   -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, .05);
   -moz-box-shadow: 0 0 15px 0 rgba(0, 0, 0, .05);
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, .05)
@@ -3748,7 +3745,7 @@ a.social_bt.linkedin:before {
 .box_general_2 {
   border-radius: 5px;
   margin-bottom: 25px;
-  border: 1px solid #e1e8ed
+  border: 1px solid $sea-green-dark
 }
 
 .box_badges,
@@ -3759,11 +3756,11 @@ a.social_bt.linkedin:before {
 }
 
 .box_general_3 {
-  background-color: #fff;
+  background-color: white;
   padding: 30px;
   border-radius: 5px;
   margin-bottom: 15px;
-  border: 1px solid #e1e8ed
+  border: 1px solid $sea-green-dark
 }
 
 .box_general_3 hr {
@@ -3808,7 +3805,7 @@ ul.bullets li:before {
   position: absolute;
   left: 0;
   top: 0;
-  color: #999
+  color: $white-gray
 }
 
 .add_bottom_15 {
@@ -3921,7 +3918,7 @@ ul.bullets li:before {
 #toTop {
   width: 40px;
   height: 40px;
-  background-color: #000;
+  background-color: $true-dark;
   background-color: rgba(0, 0, 0, .6);
   padding: 10px;
   line-height: 20px;
@@ -3930,7 +3927,7 @@ ul.bullets li:before {
   right: 15px;
   cursor: pointer;
   display: none;
-  color: #fff;
+  color: white;
   font-size: 20px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -3946,7 +3943,7 @@ ul.bullets li:before {
 
 .box_badges {
   border-radius: 5px;
-  background-color: #fff;
+  background-color: white;
   -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
   -moz-box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
@@ -3962,13 +3959,13 @@ ul.bullets li:before {
 
 .box_badges ul li {
   display: inline-block;
-  background-color: #74d1c6;
+  background-color: $green-gray-color;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   border-radius: 5px;
   line-height: normal;
-  color: #fff;
+  color: white;
   padding: 3px 10px;
   font-weight: 600;
   font-size: 13px;
@@ -4056,26 +4053,26 @@ ul.bullets li:before {
 }
 
 .page-item.active .page-link {
-  background-color: #3f4079;
-  border-color: #3f4079
+  background-color: $violent-color;
+  border-color: $violent-color
 }
 
 .page-item.disabled .page-link {
-  color: #999;
-  border-color: #e1e8ed
+  color: $white-gray;
+  border-color: $sea-green-dark
 }
 
 .page-link {
-  color: #e74e84;
-  border: 1px solid #e1e8ed
+  color: $pink-color;
+  border: 1px solid $sea-green-dark
 }
 
 .page-link:focus,
 .page-link:hover {
-  color: #fff;
+  color: white;
   text-decoration: none;
-  background-color: #e74e84;
-  border-color: #e74e84
+  background-color: $pink-color;
+  border-color: $pink-color
 }
 
 #cookie-bar {
@@ -4095,7 +4092,7 @@ ul.bullets li:before {
 }
 
 #cookie-bar a {
-  color: #fff;
+  color: white;
   display: inline-block;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -4107,12 +4104,12 @@ ul.bullets li:before {
 }
 
 #cookie-bar .cb-enable {
-  background: #74d1c6
+  background: $green-gray-color
 }
 
 #cookie-bar .cb-enable:hover {
-  background: #fff;
-  color: #74d1c6
+  background: white;
+  color: $green-gray-color
 }
 
 #cookie-bar .cb-disable {
@@ -4124,12 +4121,12 @@ ul.bullets li:before {
 }
 
 #cookie-bar .cb-policy {
-  background: #e74e84
+  background: $pink-color
 }
 
 #cookie-bar .cb-policy:hover {
-  background: #fff;
-  color: #e74e84
+  background: white;
+  color: $pink-color
 }
 
 #cookie-bar.fixed {
@@ -4160,7 +4157,7 @@ ul.bullets li:before {
 .form-control:disabled#booking_time,
 .form-control[readonly]#booking_date,
 .form-control[readonly]#booking_time {
-  background-color: #fff;
+  background-color: white;
   opacity: 1
 }
 
@@ -4178,7 +4175,7 @@ div.datedropper.primary .pick-lg-h,
 div.datedropper.primary .pick-m,
 div.datedropper.primary .pick-submit,
 div.datedropper.primary:before {
-  background-color: #e74e84 !important
+  background-color: $pink-color !important
 }
 
 div.datedropper.primary .pick li span,
@@ -4188,9 +4185,22 @@ div.datedropper.primary .pick-y.pick-jump {
   color: #fd4741
 }
 
-@import 'components/menu';
-.home_header {
-  background: $home-bg-color;
+.fade.show {
+  opacity: 1
+}
+
+.svg-confirm-circle {
+  stroke-dasharray: 240px, 240px;
+  stroke-dashoffset: 480px;
+}
+
+.svg-confirm-path {
+  stroke-dasharray:50px, 50px;
+  stroke-dashoffset: 0px;
+}
+.svg-confirm {
+  width: 72px;
+  height: 72px;
 }
 
 .svg-confirm-circle {

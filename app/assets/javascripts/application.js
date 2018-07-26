@@ -1,8 +1,10 @@
 //= require jquery2
+//= require popper
+//= require bootstrap-sprockets
 //= require rails-ujs
 //= require wow
+//= require owl.carousel
 //= require functions
 //= require activestorage
 //= require bootstrap-datepicker/core
 //= require turbolinks
-//= require_tree .

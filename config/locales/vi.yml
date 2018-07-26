@@ -7,9 +7,32 @@ vi:
     privacy: Chính sách bảo mật
     about: Về chúng tôi
     menu:
+      home: Trang chủ
+      explore: Khám phá
+      signup: Đăng ký
+      login: Đăng nhập
+      ask_doctor: Hỏi bác sĩ
       search: Tìm kiếm
+      language: Ngôn ngữ
       search_placeholder: Tìm kiếm...
-      make_question: Đặt câu hỏi?
+      make_question: Đặt câu hỏi
+  users:
+    edit:
+      title: Edit user profile
+    show:
+      title: Thông tin người dùng
+      edit: Sửa thông tin
+      questions: câu hỏi
+      comments: bình luận
+      address: Địa chỉ
+      view_on_map: Xem bản đồ
+      phone: Số điện thoại
+      full_name: Họ và tên
+      bio: Giới thiệu bản thân
+      general_info: Thông tin cơ bản
+      all_questions: Tất cả câu hỏi
+      account_info: Thông tin tài khoản
+      change_password: Thay đổi mật khẩu
   pages:
     home:
       title: Trang chủ

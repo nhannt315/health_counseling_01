@@ -1,0 +1,29 @@
+.mf_home {
+  background: $home-bg-color;
+  .home_header {
+    background-color: $home-bg-color;
+    .left_menu {
+      top: 11px;
+      position: relative;
+      display: inline-block;
+      a {
+        padding: 5px 10px;
+        font-size: 14px;
+        font-size: .875rem;
+        font-weight: 500;
+        position: relative;
+        margin-right: 20px;
+        transition: background .2s;
+        border-radius: 8px;
+        display: inline-flex;
+        color: white;
+        &:hover {
+          background-color: rgba(10, 10, 10, 0.15);
+        }
+      }
+    }
+  }
+  footer {
+    background-color: $home-bg-color;
+  }
+}
