@@ -1,20 +1,29 @@
-<header class="header_sticky home_header">
+<header class="header_sticky header_shadow fixed">
   <div class="container">
     <div class="row">
       <div class="col-lg-3 col-6">
-        <div id="logo_home">
-          <h1><%= link_to Settings.global.site_title, root_path %></h1>
+        <div class="logo_home">
+          <h1>
+            <%= link_to Settings.global.site_title, root_path %>
+          </h1>
         </div>
       </div>
       <nav class="col-lg-9 col-6">
         <div class="main-menu">
           <ul>
-            <li>
-              <%= link_to "#", class: "show-submenu" do %>
-                <%= t "global.menu.make_question" %>
-                <i class="icon-down-open-mini"></i>
+            <li class="submenu">
+              <%= link_to "#" do %>
+                <i class="icon-question"></i><%= t "global.menu.ask_doctor" %>
               <% end %>
             </li>
+            <li class="submenu">
+              <%= link_to t("global.menu.explore"), "#" %>
+            </li>
+            <% unless logged_in? %>
+              <li class="submenu">
+                <%= link_to t("global.menu.login"), login_path %>
+              </li>
+              <% end %>
           </ul>
         </div>
       </nav>

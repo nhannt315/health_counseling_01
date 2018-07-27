@@ -23,7 +23,7 @@ class User < ApplicationRecord
     allow_nil: true
 
   def remember
-    self.remember_token = User.new_token
+    @remember_token = User.new_token
     update_attributes remember_digest: User.digest(remember_token)
   end
 

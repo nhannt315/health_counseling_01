@@ -7,9 +7,32 @@ en:
     privacy: Privacy
     about: About
     menu:
+      home: Home
+      explore: Explore
+      signup: Signup
+      login: Login
+      ask_doctor: Ask a doctor
       search: Search
+      language: Language
       search_placeholder: Search...
-      make_question: Make a questions?
+      make_question: Ask
+  users:
+    edit:
+      title: Edit user profile
+    show:
+      title: User profile
+      edit: Edit profile
+      questions: questions
+      comments: comments
+      address: Address
+      view_on_map: View on map
+      phone: Phone
+      full_name: Full name
+      bio: Bio
+      general_info: General info
+      all_questions: All questions
+      account_info: Account info
+      change_password: Change password
   pages:
     home:
       title: Home page
