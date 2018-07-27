@@ -35,6 +35,7 @@ en:
       your_password: Your password
       password_confirm: Password Confirmation
       submit: Submit
+      request_doctor: I want to register as a doctor!
     create:
       success: Register successfully. Welcome to MFCare!
       thank: Thanks for registering!
@@ -83,5 +84,17 @@ en:
     user_error_add: can't be empty
     success: Password has been reset
     expired: Password reset has expired
-
-
+  doctors:
+    edit:
+      name: Name
+      email: Email
+      avatar: Avatar
+      position: Vị trí
+      place: Nơi công tác
+      bio: Tiểu sử
+      identity: Ảnh chứng minh thư
+      license: Chứng chỉ bác sĩ
+      address: Địa chỉ
+      phone: Số điện thoại
+      major: Chuyên môn
+      submit: Xác nhận

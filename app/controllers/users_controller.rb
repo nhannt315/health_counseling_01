@@ -7,8 +7,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
+    @user.type = :Doctor if @user.request_doctor = request_doctor_check
     if @user.save
-      @user.send_mail :activation
+      @user.send_mail :account_activation
       @messages = [t("users.create.thank"), t("users.create.email_sent")]
       render "shared/confirm"
     else
@@ -24,6 +25,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def request_doctor_check
+    params[:user][:request_doctor] == "1"
+  end
 
   def user_params
     params.require(:user).permit :name, :email, :password,

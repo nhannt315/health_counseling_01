@@ -17,6 +17,21 @@ vi:
       search_placeholder: Tìm kiếm...
       make_question: Đặt câu hỏi
   users:
+    new:
+      signup: Đăng ký người dùng
+      title: Đăng ký để bắt đầu đặt câu hỏi
+      name: Họ tên
+      your_name: Họ tên của bạn
+      email: Địa chỉ Email
+      your_email: Địa chỉ email của bạn
+      password: Mật khẩu
+      your_password: Mật khẩu của bạn
+      password_confirm: Xác nhận mật khẩu
+      submit: Xác nhận
+    create:
+      success: Đăng ký thành công. Chào mừng đến với MFCare!
+      thank: Cám ơn bạn đã đăng ký !
+      email_sent: Bạn sẽ nhận được email với đường dẫn kích hoạt
     edit:
       title: Edit user profile
     show:
@@ -58,6 +73,7 @@ vi:
       your_password: Mật khẩu của bạn
       password_confirm: Xác nhận mật khẩu
       submit: Xác nhận
+      request_doctor: Tôi muốn đăng ký làm bác sĩ
     create:
       success: Đăng ký thành công. Chào mừng đến với MFCare!
       thank: Cám ơn bạn đã đăng ký !
@@ -106,4 +122,18 @@ vi:
     user_error_add: không thể để trống
     success: Mật khẩu đã được thiết lập lại
     expired: Thiết lập lại mật khẩu đã hết hạn
+  doctors:
+    edit:
+      name: Name
+      email: Email
+      avatar: Avatar
+      position: Vị trí
+      place: Nơi công tác
+      bio: Tiểu sử
+      identity: Ảnh chứng minh thư
+      license: Chứng chỉ bác sĩ
+      address: Địa chỉ
+      phone: Số điện thoại
+      major: Chuyên môn
+      submit: Xác nhận
 

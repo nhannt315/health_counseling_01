@@ -60,6 +60,8 @@ config/environments/*.local.yml
 
 # IDEA
 /.idea
-.idea/
 # Ignore application configuration
-config/application.yml
+/config/application.yml
+
+# Image upload folder
+/public/uploads/*
