@@ -10,3 +10,5 @@ user:
   gravatar_size_follow: 30
 default:
   avatar: logo.png
+doctor:
+  right_column: 0

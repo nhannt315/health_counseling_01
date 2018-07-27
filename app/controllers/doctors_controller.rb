@@ -1,7 +1,11 @@
 class DoctorsController < ApplicationController
-  before_action :find_doctor, only: [:update, :edit]
+  before_action :find_doctor, only: [:show, :update, :edit]
 
-  def show; end
+  def show
+    majors = @doctor.majors
+    @left_col, @right_col = majors.each_slice((majors.size / 2.0).round).to_a
+    @questions = @doctor.questions
+  end
 
   def edit
     @all_majors = Major.pluck :name, :id

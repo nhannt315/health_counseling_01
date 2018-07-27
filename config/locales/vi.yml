@@ -136,4 +136,18 @@ vi:
       phone: Số điện thoại
       major: Chuyên môn
       submit: Xác nhận
+    show:
+      question: Câu hỏi
+      doctor_name_html: Bác sĩ %{name}
+      general_info: Thông tin chung
+      profile: Giới thiệu
+      major: Chuyên môn
+      address: Địa chỉ
+      phone: Số điện thoại
+      recommend: MFCare giới thiệu
+      position: Chức vụ
+      place: Nơi công tác
+      view_on_map: Xem trên bản đồ
+      asked: "Được hỏi : %{count}"
+      answer: "Trả lời : %{count}"
 

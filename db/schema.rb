@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_26_072114) do
+ActiveRecord::Schema.define(version: 2018_07_27_023703) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2018_07_26_072114) do
     t.string "identity_card"
     t.string "license"
     t.string "info_confirmed"
-    t.string "bio"
+    t.text "bio"
     t.string "prof_position"
     t.datetime "reset_sent_at"
     t.datetime "created_at", null: false
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2018_07_26_072114) do
     t.string "address"
     t.boolean "request_doctor"
     t.boolean "doctor_activated"
+    t.boolean "recommend"
   end
 
   add_foreign_key "answers", "questions"
