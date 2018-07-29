@@ -4,10 +4,12 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "2.5.1"
 
 gem "bcrypt"
+gem "bootstrap-kaminari-views"
 gem "carrierwave"
 gem "config"
 gem "figaro"
 gem "font-awesome-rails"
+gem "kaminari"
 gem "modernizr-rails"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "owlcarousel-rails"
