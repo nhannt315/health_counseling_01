@@ -1,0 +1,29 @@
+<header class="header">
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-holder d-flex align-items-center justify-content-between">
+        <div class="navbar-header">
+          <%= link_to "#", class: "menu-btn", id: "toggle-btn" do %>
+            <i class="fa fa-bars"></i>
+          <% end %>
+          <%= link_to "#", class: "navbar-brand" do %>
+            <div class="brand-text d-none d-md-inline-block">
+              <strong class="text-primary"><%= t "global.logo" %></strong>
+            </div>
+          <% end %>
+        </div>
+        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+          <li class="nav-item">
+            <%= link_to logout_url, method: :delete,
+              class: "nav-link logout" do %>
+              <span class="d-none d-sm-inline-block">
+                <%= t "admin.common.logout" %>
+              </span>
+              <i class="fa fa-sign-out"></i>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

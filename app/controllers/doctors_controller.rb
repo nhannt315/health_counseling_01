@@ -3,7 +3,12 @@ class DoctorsController < ApplicationController
 
   def show
     majors = @doctor.majors
-    @left_col, @right_col = majors.each_slice((majors.size / 2.0).round).to_a
+    if majors.empty?
+      @left_col = []
+      @right_col = []
+    else
+      @left_col, @right_col = majors.each_slice((majors.size / 2.0).round).to_a
+    end
     @questions = @doctor.questions
   end
 

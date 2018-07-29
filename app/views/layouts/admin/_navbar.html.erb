@@ -1,0 +1,37 @@
+<nav class="side-navbar">
+  <div class="side-navbar-wrapper">
+    <div class="sidenav-header d-flex align-items-center justify-content-center">
+      <div class="sidenav-header-inner text-center">
+        <%= image_tag "logo.png" %>
+        <h2 class="h5"><%= current_user.name %></h2>
+        <span><%= t "admin.title" %></span>
+      </div>
+      <div class="sidenav-header-logo">
+        <%= link_to root_url, class: "brand-small text-center" do %>
+          <strong>M</strong><strong class="text-primary">F</strong>
+        <% end %>
+      </div>
+    </div>
+    <div class="main-menu">
+      <h5 class="sidenav-heading"><%= t "admin.main" %></h5>
+      <ul id="side-main-menu" class="side-menu list-unstyled">
+        <li>
+          <%= link_to admin_doctors_path do %>
+            <i class="fa fa-user-md"></i><%= t "admin.doctors.title" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+            <i class="fa fa-users"></i><%= t "admin.users.title" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+            <i class="fa fa-question-circle"></i>
+            <%= t "admin.questions.title" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

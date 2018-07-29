@@ -150,4 +150,17 @@ vi:
       view_on_map: Xem trên bản đồ
       asked: "Được hỏi : %{count}"
       answer: "Trả lời : %{count}"
-
+  admin:
+    title: Quản trị viên
+    main: Các danh mục chính
+    common:
+      logout: Đăng xuất
+    dashboards:
+      title: Bảng tin
+    doctors:
+      title: Quản lý bác sĩ
+      list: Danh sách bác sĩ
+    users:
+      title: Quản lý người dùng
+    questions:
+      title: Quản lý câu hỏi
