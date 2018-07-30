@@ -5,6 +5,11 @@ class Doctor < User
   mount_uploader :identity_card, ImageUploader
   mount_uploader :license, ImageUploader
 
+  scope :search, (lambda do |keyword|
+    keyword = keyword.to_s.strip
+    where "name LIKE ? ", "%#{sanitize_sql_like keyword}%" unless keyword.blank?
+  end)
+
   def questions
     major_ids = "SELECT major_id from doctor_majors WHERE user_id = :doctor_id"
     Question.joins(:question_categories)

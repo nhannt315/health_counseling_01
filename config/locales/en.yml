@@ -135,3 +135,17 @@ en:
       view_on_map: View on map
       asked: "Question : %{count}"
       answer: "Answer : %{count}"
+  admin:
+    title: Adminstrator
+    main: Main
+    common:
+      logout: Lougout
+    dashboards:
+      title: Dashboards
+    doctors:
+      title: Doctors Management
+      list: Doctors List
+    users:
+      title: Users Management
+    questions:
+      title: Questions Management

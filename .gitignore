@@ -65,3 +65,7 @@ config/environments/*.local.yml
 
 # Image upload folder
 /public/uploads/*
+
+# Admin assets
+/vendor/assets/javascripts/admin
+/vendor/assets/stylesheets/admin
