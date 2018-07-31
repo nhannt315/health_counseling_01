@@ -17,23 +17,11 @@ vi:
       search_placeholder: Tìm kiếm...
       make_question: Đặt câu hỏi
   users:
-    new:
-      signup: Đăng ký người dùng
-      title: Đăng ký để bắt đầu đặt câu hỏi
-      name: Họ tên
-      your_name: Họ tên của bạn
-      email: Địa chỉ Email
-      your_email: Địa chỉ email của bạn
-      password: Mật khẩu
+    edit:
+      title: Sửa thông tin người dùng
       your_password: Mật khẩu của bạn
       password_confirm: Xác nhận mật khẩu
-      submit: Xác nhận
-    create:
-      success: Đăng ký thành công. Chào mừng đến với MFCare!
-      thank: Cám ơn bạn đã đăng ký !
-      email_sent: Bạn sẽ nhận được email với đường dẫn kích hoạt
-    edit:
-      title: Edit user profile
+      submit: Lưu thông tin
     show:
       title: Thông tin người dùng
       edit: Sửa thông tin
@@ -48,20 +36,6 @@ vi:
       all_questions: Tất cả câu hỏi
       account_info: Thông tin tài khoản
       change_password: Thay đổi mật khẩu
-  pages:
-    home:
-      title: Trang chủ
-    term:
-      title: Điều khoản sử dụng
-    privacy:
-      title: Chính sách bảo mật
-    about:
-      title: Về chúng tôi
-  error:
-    page_not_found: Trang không tìm thấy
-    user_not_found: Người dùng bạn đang tìm kiếm không tồn tại
-    page_not_found_content: Chúng tôi không thể tìm thấy trang bạn yêu cầu
-  users:
     new:
       signup: Đăng ký người dùng
       title: Đăng ký để bắt đầu đặt câu hỏi
@@ -78,6 +52,22 @@ vi:
       success: Đăng ký thành công. Chào mừng đến với MFCare!
       thank: Cám ơn bạn đã đăng ký !
       email_sent: Bạn sẽ nhận được email với đường dẫn kích hoạt
+    update:
+      user_updated: Thông tin đã được cập nhật
+      user_update_failed: Lỗi cập nhật thông tin người dùng
+  pages:
+    home:
+      title: Trang chủ
+    term:
+      title: Điều khoản sử dụng
+    privacy:
+      title: Chính sách bảo mật
+    about:
+      title: Về chúng tôi
+  error:
+    page_not_found: Trang không tìm thấy
+    user_not_found: Người dùng bạn đang tìm kiếm không tồn tại
+    page_not_found_content: Chúng tôi không thể tìm thấy trang bạn yêu cầu
   sessions:
     new:
       login: Đăng nhập

@@ -19,6 +19,9 @@ en:
   users:
     edit:
       title: Edit user profile
+      your_password: Your password
+      password_confirm: Password Confirmation
+      submit: Save change
     show:
       title: User profile
       edit: Edit profile
@@ -33,20 +36,6 @@ en:
       all_questions: All questions
       account_info: Account info
       change_password: Change password
-  pages:
-    home:
-      title: Home page
-    term:
-      title: Terms an coditions
-    privacy:
-      title: Privacy
-    about:
-      title: About
-  error:
-    page_not_found: Page not found
-    user_not_found: The user you are looking for is not found
-    page_not_found_content: This is not the webpage you are looking for
-  users:
     new:
       signup: Signup
       title: Please register to start asking question!
@@ -63,6 +52,22 @@ en:
       success: Register successfully. Welcome to MFCare!
       thank: Thanks for registering!
       email_sent: You'll receive a activation email.
+    update:
+      user_updated: Info updated
+      user_update_failed: Update user error!
+  pages:
+    home:
+      title: Home page
+    term:
+      title: Terms an coditions
+    privacy:
+      title: Privacy
+    about:
+      title: About
+  error:
+    page_not_found: Page not found
+    user_not_found: The user you are looking for is not found
+    page_not_found_content: This is not the webpage you are looking for
   sessions:
     new:
       login: Login
