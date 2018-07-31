@@ -150,6 +150,16 @@ vi:
     doctors:
       title: Quản lý bác sĩ
       list: Danh sách bác sĩ
+      name: Name
+      position: Position
+      place: Place
+      bio: Bio
+      status: Status
+      action: Tùy chọn
+      pending: Đang chờ kiểm duyệt
+      activated: Đã được kích hoạt
+      detail: Chi tiết
+      profile: Thông tin bác sĩ
     users:
       title: Quản lý người dùng
     questions:

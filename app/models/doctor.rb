@@ -16,6 +16,14 @@ class Doctor < User
             .where "major_id IN (#{major_ids})", doctor_id: id
   end
 
+  def status
+    if doctor_activated?
+      I18n.t("admin.doctors.activated")
+    else
+      I18n.t("admin.doctors.pending")
+    end
+  end
+
   def add_majors doctor_majors
     self.major_ids = doctor_majors
   end

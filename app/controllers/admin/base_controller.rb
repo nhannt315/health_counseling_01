@@ -2,6 +2,7 @@ class Admin::BaseController < ApplicationController
   layout "admin/index"
   before_action :admin_required
   include SessionsHelper
+  include UsersHelper
 
   protected
 
