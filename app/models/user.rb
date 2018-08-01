@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   attr_reader :remember_token, :activation_token, :reset_token
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
+  enum block_status: {blocked: 0, non_block: 1}
+
   before_save :downcase_email
   before_create :create_activation_digest
   has_secure_password

@@ -1,0 +1,6 @@
+<% unless doctor.doctor_activated? %>
+  <%= form_for doctor, remote: true do |f| %>
+    <div><%= hidden_field_tag :type, Settings.admin.doctor.activate %></div>
+    <%= f.submit t("admin.doctors.activate"), class: "btn btn-success" %>
+  <% end %>
+<% end %>
