@@ -168,8 +168,26 @@ en:
     dashboards:
       title: Dashboards
     doctors:
-      title: Doctors Management
-      list: Doctors List
+      title: Doctor Management
+      list: Doctor list
+      name: Name
+      position: Position
+      place: Place
+      bio: Bio
+      status: Status
+      action: Options
+      pending: Pending
+      activated: Activated
+      detail: Detail
+      profile: Doctor Info
+      major: Majors
+      identity_card: Identity card
+      license: License
+      address: Address
+      phone: Phone
+      activate: Activate
+      block: Block
+      unblock: Unblock
     users:
       title: Users Management
     questions:
