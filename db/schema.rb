@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_08_17_015648) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "answers", force: :cascade do |t|
+  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
     t.bigint "user_id"
     t.bigint "question_id"
@@ -101,7 +98,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "majors", force: :cascade do |t|
+  create_table "majors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -161,7 +158,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
     t.index ["sender_id"], name: "index_notifications_on_sender_id"
   end
 
-  create_table "question_categories", force: :cascade do |t|
+  create_table "question_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "question_id"
     t.bigint "major_id"
     t.datetime "created_at", null: false
@@ -170,7 +167,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
     t.index ["question_id"], name: "index_question_categories_on_question_id"
   end
 
-  create_table "questions", force: :cascade do |t|
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "content"
     t.bigint "user_id"
@@ -181,7 +178,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email"
     t.string "name"
     t.string "phone_number"
