@@ -8,8 +8,7 @@
     "data-turbolinks-track": "reload" %>
   <%= stylesheet_link_tag "application", media: "all",
     "data-turbolinks-track": "reload" %>
-  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-  <%= javascript_include_tag :modernizr %>
+  <%= javascript_include_tag "frontpage", "data-turbolinks-track": "reload" %>
   <%= render "layouts/shim" %>
   </head>
   <body class="mf_home">
@@ -34,20 +33,16 @@
             <div class="main-menu">
               <ul>
                 <li>
-                  <%= link_to "#", class: "show-submenu" do %>
-                    <i class="icon-question"></i>
-                    <%= t "global.menu.make_question" %>
+                  <%= link_to questions_url, class: "show-submenu" do %>
+                    <i class="icon-question"></i><%= t "global.menu.make_question" %>
                   <% end %>
                 </li>
-                <% unless logged_in? %>
-                  <li>
-                    <%= link_to signup_url, class: "show-submenu" do %>
-                      <i class="icon-user-add-outline"></i>
-                      <%= t "global.menu.signup" %>
-                    <% end %>
-                  </li>
-                <% end %>
               </ul>
+              <div class="user_menu">
+                <ul>
+                  <%= render "shared/user_menu" %>
+                </ul>
+              </div>
             </div>
           </nav>
         </div>
