@@ -31,6 +31,14 @@ class User < ApplicationRecord
     update_attributes remember_digest: User.digest(remember_token)
   end
 
+  def block
+    update_attributes blocked: true
+  end
+
+  def unblock
+    update_attributes blocked: false
+  end
+
   def authenticated? attribute, token
     digest = send "#{attribute}_digest"
     return false if digest.nil?

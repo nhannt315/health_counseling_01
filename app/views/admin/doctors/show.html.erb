@@ -1,0 +1,101 @@
+<% provide :title, t("doctors.show.doctor_name_html", name: @doctor.name) %>
+<div class="container card padding-doctor-profile">
+  <div class="row m-y-2">
+    <div class="col-lg-4 pull-lg-8 text-xs-center">
+      <div class="doctor-avatar-div">
+        <%= image_tag user_avatar(@doctor),
+          class: "m-x-auto img-fluid img-circle avatar-doctor" %>
+      </div>
+      <hr/>
+      <h5><%= t "admin.doctors.name" %></h5>
+      <div class="info-padding"><%= @doctor.name %></div>
+      <h5><%= t "admin.doctors.status" %></h5>
+      <div class="info-padding"><%= @doctor.status %></div>
+      <h5><%= t "admin.doctors.phone" %></h5>
+      <div class="info-padding"><%= @doctor.phone_number %></div>
+      <h5><%= t "admin.doctors.address" %></h5>
+      <div class="info-padding"><%= @doctor.address %></div>
+      <div id="block-form-<%= @doctor.id %>">
+        <%= render "admin/shared/block_form", user: @doctor %>
+      </div>
+      <div id="activate-form">
+        <%= render "admin/shared/activate_form", doctor: @doctor %>
+      </div>
+    </div>
+    <div class="col-lg-8 push-lg-4">
+      <div class="p-b-3">
+        <div class="padding-doctor-profile" id="profile">
+          <h3 class="m-y-2"><%= t "admin.doctors.profile" %></h3>
+          <hr/>
+          <div class="row">
+            <div class="col-md-12">
+              <h4>
+                <span class="fa fa-user-md"></span>
+                <%= t "admin.doctors.bio" %>
+              </h4>
+              <hr/>
+              <div class="info-padding"><%= @doctor.bio %></div>
+              <hr/>
+              <h4>
+                <span class="fa fa-user"></span>
+                <%= t "admin.doctors.position" %>
+              </h4>
+              <div class="info-padding"><%= @doctor.prof_position %></div>
+              <hr/>
+              <h4>
+                <span class="fa fa-map-marker"></span>
+                <%= t "admin.doctors.place" %>
+              </h4>
+              <div class="info-padding"><%= @doctor.prof_place %></div>
+              <hr/>
+            </div>
+            <div class="col-md-12">
+              <h4>
+                <span class="fa fa-book"></span>
+                <%= t "admin.doctors.major" %>
+              </h4>
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="bullets">
+                    <% @left_col.each do |major| %>
+                      <li><%= major.name %></li>
+                    <% end %>
+                  </ul>
+                </div>
+                <% if @right_col.length > Settings.doctor.right_column %>
+                  <div class="col-lg-6">
+                    <ul class="bullets">
+                      <% @right_col.each do |major| %>
+                        <li><%= major.name %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+              </div>
+              <hr/>
+            </div>
+            <div class="col-md-12">
+              <h4>
+                <span class="fa fa-id-card"></span>
+                <%= t "admin.doctors.identity_card" %>
+              </h4>
+              <div class="info-padding">
+                <%= image_tag doctor_info(@doctor, :identity_card),
+                  class: "doctor-image" %>
+              </div>
+              <hr/>
+              <h4>
+                <span class="fa fa-user"></span>
+                <%= t "admin.doctors.license" %>
+              </h4>
+              <div class="info-padding">
+                <%= image_tag doctor_info(@doctor, :license),
+                  class: "doctor-image" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

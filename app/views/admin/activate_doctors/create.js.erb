@@ -1,0 +1,8 @@
+<% if @user %>
+  $('#activate-form').html(
+    '<%= escape_javascript render('admin/shared/activate_form',
+      doctor: @doctor) %>'
+  )
+<% else %>
+  alert('<%= t "error.user_not_found" %>')
+<% end %>

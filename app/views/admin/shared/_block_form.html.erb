@@ -1,0 +1,12 @@
+<% if user.blocked? %>
+  <%= form_for :block_users, url: admin_block_users_path, remote: true,
+    html: {method: "delete"} do |f| %>
+    <div><%= hidden_field_tag :user_id, user.id %></div>
+    <%= f.submit t("admin.doctors.unblock"), class: "btn btn-success" %>
+  <% end %>
+<% else %>
+  <%= form_for :block_users, url: admin_block_users_path, remote: true do |f| %>
+    <div><%= hidden_field_tag :user_id, user.id %></div>
+    <%= f.submit t("admin.doctors.block"), class: "btn btn-danger" %>
+  <% end %>
+<% end %>
