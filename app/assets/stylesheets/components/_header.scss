@@ -1,8 +1,16 @@
 header {
+  background-color: $primary-color;
+  min-height: 55px;
+  padding: 10px 0;
+  border-bottom: 1px solid transparent;
   &.header_shadow {
     border-bottom: 1px solid rgba(76, 87, 102, .1);
   }
   &.fixed{
     position: fixed;
   }
+}
+
+.turbolinks-progress-bar{
+  background: $pink-color;
 }

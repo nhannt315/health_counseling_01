@@ -51,16 +51,6 @@
       (this['classList']['contains']('active') === true) ? this['classList']['remove']('active') : this['classList']['add']('active')
     })
   }
-  var _0x2ca5x9 = new WOW({
-    boxClass: 'wow',
-    animateClass: 'animated',
-    offset: 0,
-    mobile: true,
-    live: true,
-    callback: function (_0x2ca5xa) { },
-    scrollContainer: null
-  });
-  _0x2ca5x9['init']();
   _0x2ca5x1('#reccomended')['owlCarousel']({
     center: true,
     items: 2,
