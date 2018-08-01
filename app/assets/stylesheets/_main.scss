@@ -100,8 +100,6 @@ main {
     }
   }
 }
-
-@import 'animations';
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
@@ -117,7 +115,7 @@ body {
 }
 
 .list_home ul li a:after,
-a.wish_bt:after,
+a.wish_bt:before,
 footer ul.links li a:after {
   font-family: ElegantIcons
 }
@@ -384,16 +382,6 @@ a.btn_1.outline {
 a.btn_1.outline:hover {
   background: $pink-color;
   color: white
-}
-
-header {
-  background-color: white
-}
-
-header {
-  min-height: 55px;
-  padding: 10px 0;
-  border-bottom: 1px solid transparent
 }
 
 header.header_sticky {
@@ -1838,18 +1826,23 @@ a.wish_bt {
 }
 
 .datepicker .day:hover,
-.strip_list ul li:last-child a {
+.strip_list ul.menu li:last-child a {
   -moz-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   -webkit-transition: all .3s ease-in-out;
   -ms-transition: all .3s ease-in-out
 }
 
-a.wish_bt:after {
+a.wish_bt:before {
   content: "\e030"
 }
 
-a.wish_bt:hover:after {
+a.wish_bt:hover:before {
+  content: "\e089";
+  color: $pink-color
+}
+
+a.wish_bt.liked:before {
   content: "\e089";
   color: $pink-color
 }
@@ -1874,7 +1867,7 @@ a.wish_bt:hover:after {
   color: $default-text-color
 }
 
-.strip_list a.wish_bt:hover:after {
+.strip_list a.wish_bt:hover:before {
   color: $pink-color
 }
 
@@ -1941,46 +1934,46 @@ a.wish_bt:hover:after {
   font-weight: 600
 }
 
-.strip_list ul {
+.strip_list ul.menu {
   border-top: 1px solid $hr-color;
   margin: 15px -15px -15px -115px;
   padding: 20px 15px
 }
 
 @media (max-width: 767px) {
-  .strip_list ul {
+  .strip_list ul.menu {
     margin: 15px -15px -15px -90px
   }
 }
 
-.strip_list ul li {
+.strip_list ul.menu li {
   display: inline-block;
   margin-right: 5px;
   font-weight: 500
 }
 
-.strip_list ul li a {
+.strip_list ul.menu li a {
   color: $white-gray;
   cursor: pointer
 }
 
-.strip_list ul li a:hover {
+.strip_list ul.menu li a:hover {
   color: $pink-color
 }
 
-.strip_list ul li:first-child:after {
+.strip_list ul.menu li:first-child:after {
   content: '|';
   font-weight: 400;
   margin-left: 8px;
   color: #ccc
 }
 
-.strip_list ul li:last-child {
+.strip_list ul.menu li:last-child {
   float: right;
   margin-right: 0
 }
 
-.strip_list ul li:last-child a {
+.strip_list ul.menu li:last-child a {
   border: 2px solid $pink-color;
   color: $pink-color;
   cursor: pointer;
@@ -1992,7 +1985,7 @@ a.wish_bt:hover:after {
   border-radius: 30px
 }
 
-.strip_list ul li:last-child a:hover {
+.strip_list ul.menu li:last-child a:hover {
   background-color: $pink-color;
   color: white !important
 }
@@ -4207,6 +4200,7 @@ div.datedropper.primary .pick-y.pick-jump {
   stroke-dasharray:50px, 50px;
   stroke-dashoffset: 0px;
 }
+
 .svg-confirm {
   width: 72px;
   height: 72px;
@@ -4221,7 +4215,13 @@ div.datedropper.primary .pick-y.pick-jump {
   stroke-dasharray:50px, 50px;
   stroke-dashoffset: 0px;
 }
+
 .svg-confirm {
   width: 72px;
   height: 72px;
+}
+
+
+.hover-shadow{
+  @include shadow-card-hover(0.22);
 }

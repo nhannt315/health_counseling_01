@@ -19,9 +19,15 @@ en:
   users:
     edit:
       title: Edit user profile
+      name: Fullname
       your_password: Your password
+      password: Password
       password_confirm: Password Confirmation
       submit: Save change
+      bio: Bio
+      bio_placeholder: Type here to edit bio . . .
+      account_info: Account info
+      change_password: Change password
     show:
       title: User profile
       edit: Edit profile
@@ -55,6 +61,20 @@ en:
     update:
       user_updated: Info updated
       user_update_failed: Update user error!
+  questions:
+    index:
+      title: Ask a doctor
+      categories: Categories
+      view_all: View all
+      view_more: view mores...
+      attach_image: Upload image
+      post: Question
+      signup: Signup
+      edit: Edit
+      delete: Delete
+      update: Update
+      comments: comments
+      comment: Comment
   pages:
     home:
       title: Home page
@@ -154,3 +174,24 @@ en:
       title: Users Management
     questions:
       title: Questions Management
+  comments:
+    content:
+      delete: Delete
+      edit: Edit
+      ago: ago
+    edit_form:
+      save: Save
+      placeholder: Type here to edit comment..
+  views:
+    pagination:
+      next: Next
+      previous: Prev
+      last: Last
+      first: First
+  shared:
+    user_menu:
+      logout: Logout
+      profile: Profile
+  messages:
+    post_questions_placehoder: Sent your question for us...
+    post_comment_placeholder: Type here to comment...

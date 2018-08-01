@@ -9,4 +9,4 @@
 //= require bootstrap-datepicker/core
 //= require turbolinks
 //= require BsMultiSelect
-//= require_tree .
+//= require functions.mf

@@ -19,9 +19,15 @@ vi:
   users:
     edit:
       title: Sửa thông tin người dùng
+      name: Họ tên
       your_password: Mật khẩu của bạn
+      password: Mật khẩu
       password_confirm: Xác nhận mật khẩu
-      submit: Lưu thông tin
+      submit: Cập nhật
+      bio: Giới thiệu bản thân
+      bio_placeholder: Chỉnh sửa giới thiệu bản thân . . .
+      account_info: Thông tin tài khoản
+      change_password: Thay đổi mật khẩu
     show:
       title: Thông tin người dùng
       edit: Sửa thông tin
@@ -55,6 +61,20 @@ vi:
     update:
       user_updated: Thông tin đã được cập nhật
       user_update_failed: Lỗi cập nhật thông tin người dùng
+  questions:
+    index:
+      title: Đặt câu hỏi
+      categories: Chuyên mục
+      view_all: Xem tất cả
+      view_more: Xem thêm...
+      attach_image: Ảnh
+      post: Đăng
+      signup: Đăng ký
+      edit: Sửa
+      delete: Xóa
+      update: Cập nhật
+      comments: bình luận
+      comment: Bình luận
   pages:
     home:
       title: Trang chủ
@@ -164,3 +184,24 @@ vi:
       title: Quản lý người dùng
     questions:
       title: Quản lý câu hỏi
+  comments:
+    content:
+      delete: Xóa
+      edit: Sửa
+      ago: trước
+    edit_form:
+      save: Lưu
+      placeholder: Nhập để sửa comment . . .
+  views:
+    pagination:
+      next: Tiếp
+      previous: Trước
+      last: Cuối
+      first: Đầu
+  shared:
+    user_menu:
+      logout: Đăng xuất
+      profile: Cá nhân
+  messages:
+    post_questions_placehoder: Nhập câu hỏi gửi cho chúng tôi . . .
+    post_comment_placeholder: Nhập bình luận . . .
