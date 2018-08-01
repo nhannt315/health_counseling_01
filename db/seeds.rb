@@ -10,13 +10,13 @@ major_list = ["Dược","Khám bệnh" ,"Y học cổ truyền","Sản phụ kho
 "Di truyền & Sinh học phân tử","Tâm lý"]
 
 major_list.each do |ele|
-  Major.create name:ele
+  Major.create! name:ele
 end
 
 User.create!(name: "Admin",
   phone_number: "01639639540",
   admin: true,
-  type: "Doctor",
+  avatar: "avatar.jpg",
   prof_place: "Viet Nam",
   prof_spec: "Rang Ham Mat",
   info_confirmed: "000000",
@@ -25,9 +25,9 @@ User.create!(name: "Admin",
   identity_card: "fdsafda",
   prof_position: "Vien truong",
   reset_sent_at: Time.zone.now,
-  email: "admin@mail.com",
-  password: "foobar",
-  password_confirmation: "foobar",
+  email: "admin@delight.com",
+  password: "159753",
+  password_confirmation: "159753",
   activated: true,
   activated_at: Time.zone.now)
 
