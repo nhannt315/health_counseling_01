@@ -150,16 +150,24 @@ vi:
     doctors:
       title: Quản lý bác sĩ
       list: Danh sách bác sĩ
-      name: Name
-      position: Position
-      place: Place
-      bio: Bio
-      status: Status
+      name: Họ tên
+      position: Vị trí
+      place: Nơi công tác
+      bio: Tiểu sử
+      status: Trạng thái
       action: Tùy chọn
       pending: Đang chờ kiểm duyệt
       activated: Đã được kích hoạt
       detail: Chi tiết
       profile: Thông tin bác sĩ
+      major: Chuyên môn
+      identity_card: Chứng minh thư
+      license: Chứng chỉ hành nghề
+      address: Địa chỉ
+      phone: Số điện thoại
+      activate: Kích hoạt
+      block: Khóa người dùng
+      unblock: Bỏ khóa
     users:
       title: Quản lý người dùng
     questions:

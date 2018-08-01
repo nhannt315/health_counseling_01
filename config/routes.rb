@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/", to: "dashboards#index"
     resources :doctors
+    resource :block_users, only: [:create, :destroy]
+    resource :activate_doctors, only: [:create]
   end
 end

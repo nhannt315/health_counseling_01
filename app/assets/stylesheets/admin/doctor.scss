@@ -5,3 +5,41 @@
 .doctor-item:hover {
   cursor: pointer;
 }
+
+.avatar-doctor {
+  border: 1px solid #38383842;
+  border-radius: 10px;
+  max-width: 70%;
+  width: 100%;
+  height: auto;
+  box-shadow: 2px 3px 1px #00000047;
+  transition: all ease-in-out 0.35s;
+  padding: 7px;
+  &:hover {
+    box-shadow: 1px 6px 9px 0 #00000075;
+  }
+}
+
+.doctor-image {
+  max-width: 70%;
+  width: 100%;
+  height: auto;
+}
+
+.doctor-avatar-div {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid $transparent_grey
+}
+
+.info-padding {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
