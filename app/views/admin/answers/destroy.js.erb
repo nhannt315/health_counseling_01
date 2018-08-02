@@ -1,0 +1,7 @@
+<% if @is_success %>
+  $('#answer-<%= @question.id %>').hide('slow', function () {
+    $(this).remove();
+  })
+<% else %>
+  alert('<%= t "admin.users.delete_fail" %>')
+<% end %>

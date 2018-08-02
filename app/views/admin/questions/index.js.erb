@@ -1,0 +1,8 @@
+let newQuestionList = $(`
+  <%= escape_javascript render "admin/shared/list_question", list: @questions %>`
+).hide();
+$('#question-box').append(newQuestionList);
+newQuestionList.show('slow');
+$('#load-more-question').attr('href',
+  '<%= admin_questions_path page: params[:page].to_i + 1 %>'
+);
