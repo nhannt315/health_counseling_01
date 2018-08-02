@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+  end
+
+  root "pages#show", page: "home"
   get "password_resets/new"
   get "password_resets/edit"
-  root "pages#show", page: "home"
   get "pages/:page" => "pages#show"
   get "/signup", to: "users#new"
   get "/login", to: "sessions#new"
@@ -11,6 +15,9 @@ Rails.application.routes.draw do
   resources :doctors
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :questions, concerns: :paginatable
+  resources :answers, only: [:index, :create, :destroy]
+  resources :comments, only: [:create, :edit, :destroy, :update]
 
   namespace :admin do
     get "/", to: "dashboards#index"

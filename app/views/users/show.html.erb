@@ -6,24 +6,26 @@
         <div class="box_general_3 mf_user_profile">
           <div class="title">
             <div class="avatar_wrap">
-              <%= image_tag user_avatar(current_user), class: "avatar" %>
+              <%= image_tag user_avatar(@user), class: "avatar" %>
             </div>
             <div class="user_info">
-              <h3><%= current_user.name %></h3>
-              <small><%= current_user.email %></small>
+              <h3><%= @user.name %></h3>
+              <small><%= @user.email %></small>
               <ul class="statistic">
-                <li>10 <%= t ".questions" %></li>
-                <li>124 <%= t ".comments" %></li>
+                <li><%= @user.questions.count %> <%= t ".questions" %></li>
+                <li><%= @user.answers.count %> <%= t ".comments" %></li>
               </ul>
             </div>
           </div>
-          <ul class="treatments clearfix">
-            <li><%= link_to t(".account_info"), current_user %></li>
-            <li><%= link_to t(".change_password"), "#" %></li>
-          </ul>
-          <hr/>
-          <%= link_to t(".edit"), edit_user_path(current_user),
-            class:"btn_1 full-width"%>
+          <% if @user.current_user? current_user%>
+            <ul class="treatments clearfix">
+              <li><%= link_to t(".account_info"), @user %></li>
+              <li><%= link_to t(".change_password"), "#" %></li>
+            </ul>
+            <hr/>
+            <%= link_to t(".edit"), edit_user_path(@user),
+              class:"btn_1 full-width"%>
+          <% end %>
         </div>
       </aside>
       <div class="col-xl-8 col-lg-8">
@@ -52,26 +54,27 @@
                 <div class="row">
                   <div class="col-lg-7 col-md-8">
                     <small><%= t ".full_name" %></small>
-                    <h1><%= current_user.name %></h1>
+                    <h1><%= @user.name %></h1>
                     <ul class="contacts">
                       <li>
                         <h6><%= t ".address" %></h6>
-                        <%= current_user.prof_place %> -
-                        <%= link_to "https://www.google.com/maps/dir/#{current_user.prof_place}",
+                        <%= @user.prof_place %> -
+                        <%= link_to
+                          "https://www.google.com/maps/dir/#{@user.prof_place}",
                           target: "_blank" do %>
                             <strong><%= t (".view_on_map") %></strong>
                         <% end %>
                       </li>
                       <li>
                         <h6><%= t ".phone" %></h6>
-                        <%= link_to current_user.phone_number,
-                          "tel://#{current_user.phone_number}" %>
+                        <%= link_to @user.phone_number,
+                          "tel://#{@user.phone_number}" %>
                       </li>
                     </ul>
                   </div>
                   <div class="col-lg-5 col-md-4">
                     <figure>
-                      <%= image_tag user_avatar(current_user), class:"img-fluid"%>
+                      <%= image_tag user_avatar(@user), class:"img-fluid"%>
                     </figure>
                   </div>
                 </div>
@@ -82,7 +85,7 @@
                 <h3><%= t ".bio" %></h3>
               </div>
               <div class="wrapper_indent">
-                <p><%= current_user.bio %></p>
+                <p><%= @user.bio %></p>
               </div>
             </div>
           </div>

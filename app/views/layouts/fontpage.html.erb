@@ -19,8 +19,15 @@
           <div class="col-lg-3 col-6">
             <div class="left_menu">
               <%= link_to "#" do %>
-                <%= t "global.menu.language" %> <i class="icon-down-open-mini"></i>
+                <%= t "global.menu.language" %>
+                <i class="icon-down-open-mini"></i>
               <% end %>
+              <div class="language_menu">
+                <ul>
+                  <li><%= link_to t("global.lang.en"), locale: "en" %></li>
+                  <li><%= link_to t("global.lang.vi"), locale: "vi" %></li>
+                </ul>
+              </div>
             </div>
           </div>
           <nav class="col-lg-9 col-6">
@@ -28,13 +35,15 @@
               <ul>
                 <li>
                   <%= link_to "#", class: "show-submenu" do %>
-                    <i class="icon-question"></i><%= t "global.menu.make_question" %>
+                    <i class="icon-question"></i>
+                    <%= t "global.menu.make_question" %>
                   <% end %>
                 </li>
                 <% unless logged_in? %>
                   <li>
                     <%= link_to signup_url, class: "show-submenu" do %>
-                      <i class="icon-user-add-outline"></i><%= t "global.menu.signup" %>
+                      <i class="icon-user-add-outline"></i>
+                      <%= t "global.menu.signup" %>
                     <% end %>
                   </li>
                 <% end %>

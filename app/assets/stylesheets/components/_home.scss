@@ -18,7 +18,42 @@
         display: inline-flex;
         color: white;
         &:hover {
-          background-color: rgba(10, 10, 10, 0.15);
+          background-color: $home-menu-hover;
+        }
+      }
+      .language_menu{
+        position: absolute;
+        background: $true-white;
+        border-radius: 0.25rem;
+        @include shadow-card(0.3);
+        display: none;
+        transition: all ease-in-out 0.25s;
+        ul{
+          margin: 0;
+          li{
+            a{
+              color: $default-a-color;
+              display: block;
+              margin: 0;
+              padding: 5px 10px;
+              min-width: 100px;
+              &hover{
+                border-radius: 0;
+                background: none;
+              }
+            }
+            &:hover{
+              background: $primary-color;
+              a{
+                color: $true-white;
+              }
+            }
+          }
+        }
+      }
+      &:hover{
+        .language_menu{
+          display: block;
         }
       }
     }

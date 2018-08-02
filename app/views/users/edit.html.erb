@@ -12,8 +12,8 @@
               <h3><%= @user.name %></h3>
               <small><%= @user.email %></small>
               <ul class="statistic">
-                <li>10 <%= t ".questions" %></li>
-                <li>124 <%= t ".comments" %></li>
+                <li><%= @user.questions.count %> <%= t ".questions" %></li>
+                <li><%= @user.answers.count %> <%= t ".comments" %></li>
               </ul>
             </div>
           </div>
@@ -56,14 +56,15 @@
             </div>
             <div class="row">
               <div class="col-md-4 col-sm-4">
-                <%= image_tag user_avatar(current_user), class: "img_edit_avatar"%>
+                <%= image_tag user_avatar(current_user),
+                  class: "img_edit_avatar"%>
               </div>
               <div class="col-md-8 col-sm-8">
                 <div class="form-group">
                   <%= f.label :bio, t(".bio") %>
                   <%= f.text_area :bio,
                     class: "form-control",
-                    placeholder: t(".password_confirm"),
+                    placeholder: t(".bio_placeholder"),
                     rows: "5" %>
                 </div>
               </div>
