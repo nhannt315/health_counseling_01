@@ -24,6 +24,11 @@ class User < ApplicationRecord
     length: {minimum: Settings.user.password_minimum_length},
     allow_nil: true
 
+  scope :search, (lambda do |keyword|
+    keyword = keyword.to_s.strip
+    where "name LIKE ? ", "%#{sanitize_sql_like keyword}%" unless keyword.blank?
+  end)
+
   def current_user? user
     self == user
   end
@@ -31,6 +36,14 @@ class User < ApplicationRecord
   def remember
     @remember_token = User.new_token
     update_attributes remember_digest: User.digest(remember_token)
+  end
+
+  def status
+    if activated?
+      I18n.t "admin.users.activated"
+    else
+      I18n.t "admin.users.unactivated"
+    end
   end
 
   def authenticated? attribute, token

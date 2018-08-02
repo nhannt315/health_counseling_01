@@ -1,0 +1,18 @@
+<div class="review-box clearfix">
+  <figure class="rev-thumb">
+    <%= image_tag user_avatar object.user %>
+  </figure>
+  <div class="rev-content">
+    <div class="rev-info">
+      <%= object.user.name %> - <%= object.created_at %>
+    </div>
+    <div class="rev-text">
+      <p><%= object.content %></p>
+    </div>
+    <hr/>
+    <div><span class="fa fa-trash"></span>
+      <%= link_to t("admin.users.delete"), delete_url, class: "delete-item",
+        method: :delete, remote: true, data: {confirm: t("global.confirm")}%>
+    </div>
+  </div>
+</div>

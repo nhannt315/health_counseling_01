@@ -1,0 +1,13 @@
+<div class="review-box clearfix">
+  <figure class="rev-thumb">
+    <%= image_tag user_avatar question.user %>
+  </figure>
+  <div class="rev-content">
+    <div class="rev-info">
+      <%= question.user.name %> - <%= question.created_at %>
+    </div>
+    <div class="rev-text">
+      <p><%= question.content %></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+let newAnswerList = $(`
+  <%= escape_javascript render "admin/shared/list_answer", list: @answers %>`
+).hide();
+$('#answer-box').append(newAnswerList);
+newAnswerList.show('slow');
+$('#load-more-answer').attr('href',
+  '<%= admin_answers_path page: params[:page].to_i + 1 %>'
+);

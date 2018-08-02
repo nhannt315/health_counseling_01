@@ -1,0 +1,6 @@
+<% list.each do |answer| %>
+  <div id="answer-<%= answer.id %>">
+    <%= render "admin/shared/item", object: answer,
+      delete_url: admin_answer_path(answer.id) %>
+  </div>
+<% end %>
