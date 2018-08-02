@@ -24,6 +24,10 @@ class Doctor < User
     end
   end
 
+  def activate
+    update_attributes doctor_activated: true
+  end
+
   def add_majors doctor_majors
     self.major_ids = doctor_majors
   end

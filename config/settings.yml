@@ -20,3 +20,6 @@ admin:
     activate: activate
   block: block
   unblock: unblock
+  per_page: 5
+default_page: 1
+default_load_more: 2
