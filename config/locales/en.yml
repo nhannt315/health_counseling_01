@@ -6,6 +6,8 @@ en:
     term: Terms an coditions
     privacy: Privacy
     about: About
+    confirm: Are you sure?
+    load_more: Load more
     menu:
       home: Home
       explore: Explore
@@ -189,7 +191,16 @@ en:
       block: Block
       unblock: Unblock
     users:
-      title: Users Management
+      title: Users management
+      name: Name
+      join_date: Join date
+      status: Status
+      activated: Activated
+      unactivated: Unactivated
+      question: Questions
+      answer: Answers
+      delete: Delete
+      delete_fail: Delete fail, the object does not exist
     questions:
       title: Questions Management
   comments:

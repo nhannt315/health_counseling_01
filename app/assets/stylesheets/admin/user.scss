@@ -1,0 +1,64 @@
+.clearfix {
+  display: inline-block;
+}
+
+.rev-info {
+  font-size: .75rem;
+  font-style: italic;
+  color: $rev-info-color;
+  margin-bottom: 10px;
+}
+
+.rev-content {
+  position: relative;
+  padding: 25px 25px 0;
+  border: 1px solid $rev-content-border;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 1px 4px 13px 1px $rev-content-box-shadow;
+}
+
+.rev-thumb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  display: inline-flex;
+  margin: 0;
+  align-content: center;
+  justify-content: center;
+  img {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    background: white;
+    padding: 3px;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: 1px 4px 13px 1px $rev-thumb-img-box-shadow;
+  }
+}
+
+.review-box {
+  position: relative;
+  margin-bottom: 25px;
+  padding-left: 100px;
+  min-height: 100px;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.delete-item {
+  color: $delete-item-color;
+  padding: 5px;
+  &:hover {
+    color: $delete-item-hover-color;
+    cursor: pointer;
+  }
+}

@@ -6,6 +6,8 @@ vi:
     term: Điều khoản sử dụng
     privacy: Chính sách bảo mật
     about: Về chúng tôi
+    confirm: Bạn chắc chưa ?
+    load_more: Xem thêm
     menu:
       home: Trang chủ
       explore: Khám phá
@@ -190,6 +192,15 @@ vi:
       unblock: Bỏ khóa
     users:
       title: Quản lý người dùng
+      name: Họ tên
+      join_date: Ngày tham gia
+      status: Trạng thái
+      activated: Đã được kích hoạt
+      unactivated: Chưa được kích hoạt
+      question: Câu hỏi
+      answer: Câu trả lời
+      delete: Xóa
+      delete_fail: Xóa thất bại, đối tượng không tồn tại
     questions:
       title: Quản lý câu hỏi
   comments:
