@@ -1,0 +1,7 @@
+<% if @user %>
+  $('#block-form-<%= @user.id %>').html(
+    '<%= escape_javascript render('admin/shared/block_form', user: @user) %>'
+  )
+<% else %>
+  alert('<%= t "error.user_not_found" %>')
+<% end %>
