@@ -224,3 +224,6 @@ vi:
   messages:
     post_questions_placehoder: Nhập câu hỏi gửi cho chúng tôi . . .
     post_comment_placeholder: Nhập bình luận . . .
+  notification:
+    doctor_noti: Một câu hỏi mới đã được hỏi trong %{major_name} bởi %{asker_name}
+    user_noti: Câu hỏi của bạn đã được trả lời bởi %{name}
