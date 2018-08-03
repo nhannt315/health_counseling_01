@@ -11,6 +11,23 @@
       <nav class="col-lg-9 col-6">
         <div class="main-menu">
           <ul>
+            <% if logged_in? %>
+              <li class="submenu dropdown">
+                <a id="notifications" rel="nofollow" data-target="#" href="#"
+                   data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false" class="nav-link">
+                  <i class="fa fa-bell"></i>
+                  <span id="notifications-count" class="badge badge-warning">
+                    <%= current_user.notifications.length %>
+                  </span>
+                </a>
+                <ul id="notifications" aria-labelledby="notifications" class="dropdown-menu">
+                  <% current_user.notifications.each do |notification| %>
+                    <%= render "notifications/notification", notification: notification %>
+                  <% end %>
+                </ul>
+              <% end %>
+            </li>
             <li class="submenu">
               <%= link_to "#" do %>
                 <i class="icon-question"></i><%= t "global.menu.ask_doctor" %>
@@ -23,7 +40,7 @@
               <li class="submenu">
                 <%= link_to t("global.menu.login"), login_path %>
               </li>
-              <% end %>
+            <% end %>
           </ul>
         </div>
       </nav>

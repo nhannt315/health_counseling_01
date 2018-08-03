@@ -2,4 +2,15 @@ class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :question
   has_many :likes, as: :target
+
+  after_create_commit :notify
+
+  private
+
+  def notify
+    Notification.create sender_id: user.id, receiver_id: question.user.id,
+      question_id: question.id, major_id: question.categories.first,
+      checked: false, read: false,
+      notification_type: Notification.notification_types[:user_noti]
+  end
 end

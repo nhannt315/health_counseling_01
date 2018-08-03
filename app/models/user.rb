@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :notifcations, dependent: :destroy
+  has_many :notifications, dependent: :destroy, foreign_key: :receiver_id
 
   mount_uploader :avatar, ImageUploader
 
