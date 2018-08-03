@@ -28,4 +28,6 @@ Rails.application.routes.draw do
     resource :block_users, only: [:create, :destroy]
     resource :activate_doctors, only: [:create]
   end
+
+  mount ActionCable.server => "/cable"
 end
