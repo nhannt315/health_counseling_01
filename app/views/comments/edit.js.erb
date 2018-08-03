@@ -1,0 +1,5 @@
+$('#comment-'+<%= @rawcomment.id %>)
+  .children('.mf_comment--content')
+  .html('<%= j render "comments/edit_form", comment: @rawcomment %>')
+$('#question-'+<%= @rawcomment.question.id %>)
+  .addClass('hidden');

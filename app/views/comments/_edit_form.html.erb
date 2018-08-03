@@ -1,0 +1,14 @@
+<%= form_for :comments, url: comment_path(comment),
+  html: {class: "mf_edit_comment_form"},
+  method: :patch,
+  remote: true do |f| %>
+  <div class="form-group mf_update_comment_form_content">
+    <%= f.hidden_field :comment_id, value: comment.id %>
+    <%= f.text_field :content,
+      value: comment.content,
+      class: "form-control mf_edit_content_field question-#{comment.question.id}",
+      placeholder: t(".placeholder") %>
+    <%= f.submit t(".save"),
+      class: "mf_save_update_button" %>
+  </div>
+<% end %>

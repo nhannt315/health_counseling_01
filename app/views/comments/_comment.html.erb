@@ -1,0 +1,7 @@
+<div data-comment-id="<%= comment.id %>" id="comment-<%= comment.id %>"
+  class="mf_comment--block fadeInUp animated">
+  <%= image_tag user_avatar(comment.user), class: "mf_comment--avatar" %>
+  <div class="mf_comment--content">
+    <%= render "comments/content", comment: comment %>
+  </div>
+</div>

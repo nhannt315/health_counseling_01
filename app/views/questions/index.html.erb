@@ -1,0 +1,189 @@
+<%= provide :title, t(".title") %>
+<main>
+  <div class="container margin_60_35">
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <div class="mf_question_sidebar">
+          <div class="mf_question_sidebar--header">
+            <h5><%= t ".categories" %></h5>
+          </div>
+          <hr/>
+          <div class="mf_question_sidebar--content">
+            <ul class="mf_tag_list">
+              <% @majors.each do |major| %>
+                <li>
+                  <%= link_to controller: :questions, major_id: major[1] do %>
+                    <i class="icon-chat"></i><%= major[0] %>
+                  <% end %>
+                </li>
+              <% end %>
+            <ul>
+          </div>
+          <hr/>
+          <div class="mf_question_sidebar--footer">
+            <%= link_to "#", data: {turbolinks: false}  do %>
+              <small><%= t ".view_all" %></small>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9">
+        <div class="mf_main_question">
+          <% if logged_in? %>
+            <%= form_for @question do |f|%>
+              <div class="form-group post-form
+                fadeIn animated create_question_form">
+                <%= f.text_area :content, class: "form-control auto_resize",
+                  rows: "5",
+                  placeholder: t("messages.post_questions_placehoder") %>
+                <% @question.categories do |cate| %>
+                  <%= f.hidden_field :categories,
+                    multiple: true,
+                    value: cate.id %>
+                <% end %>
+                <div class="mf_float_categories_list">
+                  <small class="tag"><%= t ".categories" %>:</small>
+                  <ul></ul>
+                </div>
+                <div class="question_form--menu">
+                  <div class="option_menu">
+                    <%= link_to "#", data: {turbolinks: false} do %>
+                      <i class="icon-camera-2"></i>
+                      <small><%= t ".attach_image" %></small>
+                    <% end %>
+                    <div class="mf_select_category">
+                      <%= link_to "#",
+                        data: {turbolinks: false},
+                        class: "mf_show_options" do %>
+                        <i class="icon-plus-circled-1" style=""></i>
+                        <small><%= t ".categories" %></small>
+                      <% end %>
+                      <div class="mf_category_options animated fadeIn faster">
+                        <div class="dropdown-caret right">
+                          <span class="caret-outer"></span>
+                          <span class="caret-inner"></span>
+                        </div>
+                        <div class="mf_category_list">
+                          <ul>
+                            <% @majors.each do |major| %>
+                              <li>
+                                <%= link_to truncate(major[0],
+                                  length: Settings.question.cate_len),"#",
+                                  data: {id: major[1], added: false,
+                                    name: major[0], toggle: "tooltip",
+                                    placement: "top", turbolinks: false
+                                  },
+                                  title: major[0] %>
+                              </li>
+                            <% end %>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="option_left_menu">
+                    <%= f.submit t(".post"),
+                      class: "btn_1 medium post_button" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="signup_require">
+              <h4><% t ".signup_for_post_question" %></h4>
+              <%= link_to t(".signup"), signup_path, class: "btn_signup" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="mf_main--question_answers">
+          <% @question_feeds.each do |item| %>
+            <div class="strip_list wow fadeIn hover-shadow"
+              data-item-id="<%= "#{item.id}" %>"
+              data-uid="<%= "#{item.user.id}" %>">
+              <div class="menu_button">
+                <%= link_to "javascript:void(0)" do %>
+                  <i class="icon-dot-3"></i>
+                <% end %>
+                <% if item.user.current_user? current_user %>
+                  <div class="menu_dropdown">
+                    <div class="dropdown-caret right-menu">
+                      <span class="caret-outer"></span>
+                      <span class="caret-inner"></span>
+                    </div>
+                    <ul>
+                      <li>
+                        <%= link_to  t(".edit"), edit_question_url(item) %>
+                      </li>
+                      <li>
+                        <%= link_to t(".delete"), item, method: :delete %>
+                      </li>
+                    </ul>
+                  </div>
+                <% end %>
+              </div>
+              <figure>
+                <%= link_to item.user do %>
+                  <%= image_tag user_avatar(item.user) %>
+                <% end %>
+              </figure>
+              <h5><%= item.user.name %></h5>
+              <p class="content">
+                <%= item.content %>
+                <%= link_to t(".view_more"), question_url(item) %>
+              </p>
+              <small>
+                <%= item.categories.map(&:name).join ", " %>
+              </small>
+              <ul class="menu">
+                <li>
+                  <%= link_to "javascript:void(0)",
+                    class: "btn_listing btn_show_comment",
+                    data: {item: item.id} do %>
+                    <small class="vote-inline">
+                      <i class="icon-comment"></i>
+                      <span id="count-comment-<%= item.id %>">
+                        <%= item.answers.count %>
+                      </span> <%= t ".comments" %>
+                    </small>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to "like", "javascript:void(0)",
+                    class: "like_button" %>
+                </li>
+              </ul>
+              <div class="mf_main--comment"
+                id="<%= "questions-item-#{item.id}" %>">
+                <% item.answers.each do |answer| %>
+                  <%= render "comments/comment", comment: answer %>
+                <% end %>
+              </div>
+              <% if logged_in? %>
+                <div class="mf_main--reply" id="question-<%= item.id %>">
+                  <%= form_for :comments,
+                    url: comments_path,
+                    method: :post,
+                    remote: true do |f| %>
+                    <%= image_tag user_avatar(@current_user),
+                      class: "mf_reply--avatar" %>
+                    <div class="form-group mf_reply_form">
+                      <%= f.hidden_field :question_id, value: item.id %>
+                      <%= f.hidden_field :user_id, value: @current_user.id %>
+                      <%= f.text_field :content,
+                        class: "form-control mf_reply_field question-#{item.id}",
+                        placeholder: t("messages.post_comment_placeholder") %>
+                      <%= f.submit t(".comment"),
+                        class: "mf_reply_button question-#{item.id}",
+                        data: {id: item.id} %>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+          <%= paginate @question_feeds %>
+        <div>
+      </div>
+    </div>
+  </div>
+</main>

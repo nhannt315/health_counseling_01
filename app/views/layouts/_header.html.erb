@@ -29,19 +29,16 @@
               <% end %>
             </li>
             <li class="submenu">
-              <%= link_to "#" do %>
+              <%= link_to questions_url do %>
                 <i class="icon-question"></i><%= t "global.menu.ask_doctor" %>
               <% end %>
             </li>
-            <li class="submenu">
-              <%= link_to t("global.menu.explore"), "#" %>
-            </li>
-            <% unless logged_in? %>
-              <li class="submenu">
-                <%= link_to t("global.menu.login"), login_path %>
-              </li>
-            <% end %>
           </ul>
+          <div class="user_menu">
+            <ul>
+              <%= render "shared/user_menu" %>
+            </ul>
+          </div>
         </div>
       </nav>
     </div>

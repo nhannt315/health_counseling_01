@@ -35,12 +35,12 @@
               <li>
                 <%= link_to t(".general_info"), "#info",
                   class: "active nav-link", id: "info-tab",
-                  data: {toggle:"tab"}, aria: {controls: "info"}  %>
+                  data: {toggle: "tab"}, aria: {controls: "info"}  %>
               </li>
               <li>
                 <%= link_to t(".all_questions"), "#question",
                   class: "nav-link", id: "question-tab",
-                  data: {toggle:"tab"}, aria: {controls: "question"}  %>
+                  data: {toggle: "tab"}, aria: {controls: "question"}  %>
               </li>
             </ul>
             </ul>
@@ -59,10 +59,9 @@
                       <li>
                         <h6><%= t ".address" %></h6>
                         <%= @user.prof_place %> -
-                        <%= link_to
-                          "https://www.google.com/maps/dir/#{@user.prof_place}",
+                        <%= link_to "https://www.google.com/maps/dir/#{@user.prof_place}",
                           target: "_blank" do %>
-                            <strong><%= t (".view_on_map") %></strong>
+                          <strong><%= t (".view_on_map") %></strong>
                         <% end %>
                       </li>
                       <li>
