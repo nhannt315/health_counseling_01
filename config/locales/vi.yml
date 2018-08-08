@@ -105,8 +105,10 @@ vi:
     page_not_found: Trang không tìm thấy
     user_not_found: Người dùng bạn đang tìm kiếm không tồn tại
     page_not_found_content: Chúng tôi không thể tìm thấy trang bạn yêu cầu
+    something_happened: Đã có lỗi gì đó xảy ra. Hãy thử lại sau
   sessions:
     new:
+      required: Bạn cần đăng nhập trước khi thực hiện hành động này
       login: Đăng nhập
       title: Đăng nhập để bắt đầu đặt câu hỏi cho các bác sĩ!
       your_email: Địa chỉ email của bạn
@@ -242,3 +244,6 @@ vi:
   notification:
     doctor_noti: Một câu hỏi mới đã được hỏi trong %{major_name} bởi %{asker_name}
     user_noti: Câu hỏi của bạn đã được trả lời bởi %{name}
+  like:
+    question: Đồng cảm
+    answer: Cảm ơn

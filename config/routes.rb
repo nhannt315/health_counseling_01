@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users
   resources :doctors
   resources :account_activations, only: [:edit]
+  resource :likes, only: [:create, :destroy]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :questions, concerns: :paginatable
   resources :answers, only: [:index, :create, :destroy]
