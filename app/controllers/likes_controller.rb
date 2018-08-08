@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :logged_in_user,:fetch_target, only: [:create, :destroy]
+  before_action :logged_in_user, :fetch_target, only: [:create, :destroy]
 
   def create
     @target.add_like current_user

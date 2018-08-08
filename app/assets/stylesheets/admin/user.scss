@@ -5,17 +5,17 @@
 .rev-info {
   font-size: .75rem;
   font-style: italic;
-  color: $rev-info-color;
+  color: $rev_info_color;
   margin-bottom: 10px;
 }
 
 .rev-content {
   position: relative;
   padding: 25px 25px 0;
-  border: 1px solid $rev-content-border;
+  border: 1px solid $rev_content_border;
   border-radius: 5px;
   background-color: white;
-  box-shadow: 1px 4px 13px 1px $rev-content-box-shadow;
+  box-shadow: 1px 4px 13px 1px $rev_content_box_shadow;
 }
 
 .rev-thumb {
@@ -41,7 +41,7 @@
     padding: 3px;
     border: 1px solid white;
     border-radius: 10px;
-    box-shadow: 1px 4px 13px 1px $rev-thumb-img-box-shadow;
+    box-shadow: 1px 4px 13px 1px $rev_thumb_img_box_shadow;
   }
 }
 
@@ -55,10 +55,10 @@
 }
 
 .delete-item {
-  color: $delete-item-color;
+  color: $delete_item_color;
   padding: 5px;
   &:hover {
-    color: $delete-item-hover-color;
+    color: $delete_item_hover_color;
     cursor: pointer;
   }
 }

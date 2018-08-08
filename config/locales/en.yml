@@ -105,9 +105,11 @@ en:
     page_not_found: Page not found
     user_not_found: The user you are looking for is not found
     page_not_found_content: This is not the webpage you are looking for
+    something_happened: There is an error while trying to do the action. Please try again later
   sessions:
     new:
       login: Login
+      required: You need to login before do this action
       title: Please login to start asking question!
       your_email: Your email address!
       your_password: Your password!
@@ -239,3 +241,6 @@ en:
   messages:
     post_questions_placehoder: Sent your question for us...
     post_comment_placeholder: Type here to comment...
+  like:
+    question: Like
+    answer: Like
