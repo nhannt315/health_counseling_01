@@ -15,4 +15,14 @@
     <%= link_to t(".delete"), comment_url(comment), method: :delete,
       remote: true %>
   <% end %>
+  <% if comment.liked? current_user %>
+    <%= link_to t("like.answer"),
+      likes_path(type: Settings.answer, target_id: comment.id),
+      id: "answer-#{comment.id}", class: "thanked", remote: true,
+      method: :delete %>
+  <% else %>
+    <%= link_to t("like.answer"),
+      likes_path(type: Settings.answer, target_id: comment.id),
+      id: "answer-#{comment.id}", remote: true, method: :post %>
+  <% end %>
 </div>

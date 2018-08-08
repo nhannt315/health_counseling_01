@@ -1,0 +1,9 @@
+<% if params[:type] == Settings.questions %>
+  var $question = $('#question-<%= @target.id %>');
+  $question.addClass('liked');
+  $question.attr('data-method', 'delete')
+<% else %>
+  var $answer = $('#answer-<%= @target.id %>');
+  $answer.addClass('thanked');
+  $answer.attr('data-method', 'delete')
+<% end %>
