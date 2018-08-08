@@ -68,10 +68,16 @@ en:
       title: Ask a doctor
       categories: Categories
       view_all: View all
-      view_more: view mores...
+      view_more: view mores
       attach_image: Upload image
       post: Question
       signup: Signup
+      edit: Edit
+      delete: Delete
+      update: Update
+      comments: comments
+      comment: Comment
+    show:
       edit: Edit
       delete: Delete
       update: Update
@@ -86,6 +92,15 @@ en:
       title: Privacy
     about:
       title: About
+  searchs:
+    index:
+      title: Result for [%{query}]
+      edit: Edit
+      delete: Delete
+      update: Update
+      comments: comments
+      comment: Comment
+      blank: Can't find anything for [%{query}]
   error:
     page_not_found: Page not found
     user_not_found: The user you are looking for is not found

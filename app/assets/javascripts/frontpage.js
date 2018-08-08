@@ -1,3 +1,4 @@
+//= require lodash
 //= require jquery2
 //= require wow
 //= require functions

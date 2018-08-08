@@ -23,5 +23,10 @@ admin:
   per_page: 5
 question:
   cate_len: 10
+  feed_ct_len: 200
+  feed_title_len: 20
 default_page: 1
 default_load_more: 2
+home:
+  suggest_text_len: 100
+  suggest_limit: 10

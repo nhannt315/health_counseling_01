@@ -854,7 +854,8 @@ ul#additional_links li:after {
 }
 
 @media (max-width: 991px) {
-  #custom-search-input {
+  #custom-search-input,
+  .mf_search--suggest {
     width: auto
   }
 }
@@ -4224,4 +4225,8 @@ div.datedropper.primary .pick-y.pick-jump {
 
 .hover-shadow{
   @include shadow-card-hover(0.22);
+}
+
+.page-full-height{
+  height: 100vh;
 }
