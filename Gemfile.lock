@@ -160,6 +160,8 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     modernizr-rails (2.7.1)
+    momentjs-rails (2.20.1)
+      railties (>= 3.1)
     msgpack (1.2.4)
     multi_json (1.13.1)
     nio4r (2.3.1)
@@ -295,6 +297,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   modernizr-rails
   nokogiri
+  momentjs-rails
   owlcarousel-rails
   pg
   pg_search

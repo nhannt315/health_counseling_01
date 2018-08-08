@@ -81,11 +81,11 @@
         url: comments_path,
         method: :post,
         remote: true do |f| %>
-        <%= image_tag user_avatar(@current_user),
+        <%= image_tag user_avatar(current_user),
           class: "mf_reply--avatar" %>
         <div class="form-group mf_reply_form">
           <%= f.hidden_field :question_id, value: item.id %>
-          <%= f.hidden_field :user_id, value: @current_user.id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.text_field :content,
             class: "form-control mf_reply_field question-#{item.id}",
             placeholder: t("messages.post_comment_placeholder") %>

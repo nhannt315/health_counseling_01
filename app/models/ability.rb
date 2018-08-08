@@ -14,6 +14,7 @@ class Ability
       can :read, :all
       can :manage, User, id: user.id
       can :manage, [Question, Answer, Like], user_id: user.id
+      can :create, Booking, user_id: user.id
     end
   end
 end

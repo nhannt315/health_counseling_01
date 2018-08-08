@@ -32,6 +32,7 @@ gem "jquery-rails"
 gem "rails-i18n"
 gem "turbolinks", "~> 5"
 gem "wow-rails"
+gem "momentjs-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
