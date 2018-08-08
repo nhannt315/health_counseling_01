@@ -1,0 +1,94 @@
+<%= provide :title, truncate(@question.content,
+  length: Settings.question.feed_title_len) %>
+<main class="page-full-height">
+  <div class="container margin_60_35">
+    <div class="row">
+      <div class="col-md-10 offset-1">
+        <div class="mf_main--question_answers">
+          <div class="strip_list wow fadeIn hover-shadow"
+            data-item-id="<%= "#{@question.id}" %>"
+            data-uid="<%= "#{@question.user.id}" %>">
+            <div class="menu_button">
+              <%= link_to "#" do %>
+                <i class="icon-dot-3"></i>
+              <% end %>
+              <% if @question.user.current_user? current_user %>
+                <div class="menu_dropdown">
+                  <div class="dropdown-caret right-menu">
+                    <span class="caret-outer"></span>
+                    <span class="caret-inner"></span>
+                  </div>
+                  <ul>
+                    <li>
+                      <%= link_to t(".edit"), edit_question_url(@question) %>
+                    </li>
+                    <li>
+                      <%= link_to t(".delete"), @question, method: :delete %>
+                    </li>
+                  </ul>
+                </div>
+              <% end %>
+            </div>
+            <figure>
+              <%= link_to @question.user do %>
+                <%= image_tag user_avatar(@question.user) %>
+              <% end %>
+            </figure>
+            <h5><%= @question.user.name %></h5>
+            <p class="content">
+              <%= @question.content %>
+            </p>
+            <small>
+              <%= @question.categories.map(&:name).join ", " %>
+            </small>
+            <ul class="menu">
+              <li>
+                <%= link_to "#",
+                  class: "btn_listing btn_show_comment",
+                  data: {item: @question.id} do %>
+                  <small class="vote-inline">
+                    <i class="icon-comment"></i>
+                    <span id="count-comment-<%= @question.id %>">
+                      <%= @question.answers.count %>
+                    </span> <%= t ".comments" %>
+                  </small>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "like", "#",
+                  class: "like_button" %>
+              </li>
+            </ul>
+            <div class="mf_main--comment"
+              id="<%= "questions-item-#{@question.id}" %>">
+              <% @question.answers.each do |answer| %>
+                <%= render "comments/comment", comment: answer %>
+              <% end %>
+            </div>
+            <% if logged_in? %>
+              <div class="mf_main--reply" id="question-<%= @question.id %>">
+                <%= form_for :comments,
+                  url: comments_path,
+                  method: :post,
+                  remote: true do |f| %>
+                  <%= image_tag user_avatar(@current_user),
+                    class: "mf_reply--avatar" %>
+                  <div class="form-group mf_reply_form">
+                    <%= f.hidden_field :question_id, value: @question.id %>
+                    <%= f.hidden_field :user_id, value: @current_user.id %>
+                    <%= f.text_field :content,
+                      class: "form-control mf_reply_field question-#{@question.id}",
+                      placeholder: t("messages.post_comment_placeholder") %>
+                    <%= f.submit t(".comment"),
+                      class: "mf_reply_button question-#{@question.id}",
+                      data: {id: @question.id} %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <div>
+      </div>
+    </div>
+  </div>
+</main>

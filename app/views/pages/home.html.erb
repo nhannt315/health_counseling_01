@@ -4,6 +4,22 @@
     <div class="content">
       <h3> <%= t "global.logo" %></h3>
       <p><%= t "global.slogan"%></p>
+      <div class="mf_search--main">
+        <%= form_tag searchs_path, method: :get do %>
+          <div id="custom-search-input">
+            <div class="input-group">
+              <%= text_field_tag :query, "",
+                class: "search-query mf_auto_complete",
+                placeholder: t("global.menu.search_placeholder"),
+                autocomplete: "off" %>
+                <div class="mf_search--suggest">
+                  <ul class="mf_search--autocomplete"></ul>
+                </div>
+              <%= submit_tag t("global.menu.search"), class: "btn_search" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </main>

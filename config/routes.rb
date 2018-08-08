@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/signup", to: "users#new"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
+
   delete "/logout", to: "sessions#destroy"
   resources :users
   resources :doctors
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   resources :questions, concerns: :paginatable
   resources :answers, only: [:index, :create, :destroy]
   resources :comments, only: [:create, :edit, :destroy, :update]
+  resources :searchs, only: [:index, :show]
 
   namespace :admin do
     get "/", to: "dashboards#index"

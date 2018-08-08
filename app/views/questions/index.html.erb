@@ -101,7 +101,7 @@
               data-item-id="<%= "#{item.id}" %>"
               data-uid="<%= "#{item.user.id}" %>">
               <div class="menu_button">
-                <%= link_to "javascript:void(0)" do %>
+                <%= link_to "#" do %>
                   <i class="icon-dot-3"></i>
                 <% end %>
                 <% if item.user.current_user? current_user %>
@@ -128,15 +128,18 @@
               </figure>
               <h5><%= item.user.name %></h5>
               <p class="content">
-                <%= item.content %>
-                <%= link_to t(".view_more"), question_url(item) %>
+                <%= truncate item.content,
+                  length: Settings.question.feed_ct_len %>
+                <% if item.content.length > Settings.question.feed_ct_len %>
+                  <%= link_to t(".view_more"), question_url(item) %>
+                <% end %>
               </p>
               <small>
                 <%= item.categories.map(&:name).join ", " %>
               </small>
               <ul class="menu">
                 <li>
-                  <%= link_to "javascript:void(0)",
+                  <%= link_to "#",
                     class: "btn_listing btn_show_comment",
                     data: {item: item.id} do %>
                     <small class="vote-inline">
