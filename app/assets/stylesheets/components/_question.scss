@@ -351,3 +351,13 @@
     }
   }
 }
+
+.search_blank {
+  background: white;
+  border-radius: 0.25rem;
+  @include shadow-card(0.26);
+  padding: 10px 30px;
+  &:hover{
+    @include shadow-card-hover(0.28);
+  }
+}

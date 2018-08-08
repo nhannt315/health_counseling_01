@@ -1,4 +1,3 @@
-// JS OBFUSCATED
 (function (_0x2ca5x1) {
   'use strict';
   _0x2ca5x1(window)['load'](function () {
@@ -51,21 +50,4 @@
       (this['classList']['contains']('active') === true) ? this['classList']['remove']('active') : this['classList']['add']('active')
     })
   }
-  _0x2ca5x1('#reccomended')['owlCarousel']({
-    center: true,
-    items: 2,
-    loop: true,
-    margin: 10,
-    responsive: {
-      0: {
-        items: 1
-      },
-      600: {
-        items: 2
-      },
-      1000: {
-        items: 4
-      }
-    }
-  });
 })(window['jQuery'])

@@ -73,6 +73,8 @@ $(document).on('turbolinks:load', function () {
     }, 0);
   }
 
+  $('.mf_auto_complete').on('input', _.debounce(showQuery, 1000,
+    { 'maxWait': 1000 }));
   var wowAnimation = new WOW({
     boxClass: 'wow',
     animateClass: 'animated',
@@ -81,7 +83,14 @@ $(document).on('turbolinks:load', function () {
     live: true,
     scrollContainer: null
   });
+
   wowAnimation['init']();
+
+  $(document).click(function(event) {
+    if($('.mf_search--suggest').hasClass('show')) {
+      $('.mf_search--suggest').removeClass('show')
+    }
+  });
 });
 
 function removeContentReply(id) {
@@ -96,3 +105,29 @@ function toggleComment(id, isPost) {
     commentContent.addClass('show')
   }
 };
+
+
+var showQuery = function () {
+  $.ajax({
+    type: 'GET',
+    url: '/searchs.json?query=' + encodeURI($('.mf_auto_complete').val()),
+    success: function (response, textStatus, jqXHR) {
+      showSuggest(response)
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+
+    }
+  })
+}
+
+function showSuggest(data){
+  var list = $('.mf_search--autocomplete');
+  var cotent = ""
+  for(var i = 0 ; i < data.length ; i++){
+    cotent += '<li><a href=\"'+data[i].link+'\">'+data[i].suggest+'</a>'
+  }
+  list.html(cotent);
+  if(data.length > 0){
+    $('.mf_search--suggest').addClass('show')
+  }
+}

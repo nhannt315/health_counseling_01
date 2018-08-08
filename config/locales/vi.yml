@@ -68,10 +68,16 @@ vi:
       title: Đặt câu hỏi
       categories: Chuyên mục
       view_all: Xem tất cả
-      view_more: Xem thêm...
+      view_more: Xem thêm
       attach_image: Ảnh
       post: Đăng
       signup: Đăng ký
+      edit: Sửa
+      delete: Xóa
+      update: Cập nhật
+      comments: bình luận
+      comment: Bình luận
+    show:
       edit: Sửa
       delete: Xóa
       update: Cập nhật
@@ -86,6 +92,15 @@ vi:
       title: Chính sách bảo mật
     about:
       title: Về chúng tôi
+  searchs:
+    index:
+      title: Kết quả cho [%{query}]
+      edit: Sửa
+      delete: Xóa
+      update: Cập nhật
+      comments: bình luận
+      comment: Bình luận
+      blank: Không tìm thấy kết quả cho [%{query}]
   error:
     page_not_found: Trang không tìm thấy
     user_not_found: Người dùng bạn đang tìm kiếm không tồn tại

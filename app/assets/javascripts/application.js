@@ -5,6 +5,7 @@
 //= require rails-ujs
 //= require wow
 //= require owl.carousel
+//= require lodash
 //= require functions
 //= require activestorage
 //= require bootstrap-datepicker/core
