@@ -89,6 +89,7 @@ $(document).on('turbolinks:load', function () {
 
   $('.mf_auto_complete').on('input', _.debounce(showQuery, 1000,
     { 'maxWait': 1000 }));
+
   var wowAnimation = new WOW({
     boxClass: 'wow',
     animateClass: 'animated',
@@ -108,6 +109,9 @@ $(document).on('turbolinks:load', function () {
 
   if($('#calendar').length > 0)
     initCalendar();
+
+  initConversationEvents($('.chat_header'))
+
 });
 
 function removeContentReply(id) {
@@ -336,22 +340,22 @@ function initCalendar(){
       }
 
       cal.createSchedules([{
-          id: String(chance.guid()),
-          calendarId: calendar.id,
-          title: title,
-          isAllDay: isAllDay,
-          start: start,
-          end: end,
-          category: isAllDay ? 'allday' : 'time',
-          dueDateClass: '',
-          color: calendar.color,
-          bgColor: calendar.bgColor,
-          dragBgColor: calendar.bgColor,
-          borderColor: calendar.borderColor,
-          raw: {
-            location: location
-          },
-          state: 'Busy'
+        id: String(chance.guid()),
+        calendarId: calendar.id,
+        title: title,
+        isAllDay: isAllDay,
+        start: start,
+        end: end,
+        category: isAllDay ? 'allday' : 'time',
+        dueDateClass: '',
+        color: calendar.color,
+        bgColor: calendar.bgColor,
+        dragBgColor: calendar.bgColor,
+        borderColor: calendar.borderColor,
+        raw: {
+          location: location
+        },
+        state: 'Busy'
       }]);
 
       $('#modal-new-schedule').modal('hide');
@@ -545,7 +549,6 @@ function initCalendar(){
     $('#btn-new-schedule').on('click', createNewSchedule);
     $('#dropdownMenu-calendars-list').on('click', onChangeNewScheduleCalendar);
     window.addEventListener('resize', resizeThrottled);
-    window.addEventListener('onload', resizeThrottled);
   }
 
   function getDataAction(target) {
@@ -770,4 +773,33 @@ function refreshcalendar(calendar){
   calendar.clear()
   calendar.createSchedules(ScheduleList);
   cal.render(true);
+}
+
+function initConversationEvents(conversations){
+  conversations.each(function(){
+    initConversationEvent($(this))
+  })
+}
+
+function initConversationEvent(chatFrame){
+  chatFrame.on('click',function(event){
+    var id = $(this).parents('.chat_frame').data('conversation-id')
+    toggleChatContent(id)
+  });
+}
+
+function toggleChatContent(id){
+  var chatContent = $('.chat_content-'+id);
+  if(chatContent.hasClass('show')){
+    chatContent.removeClass('show')
+  } else {
+    chatContent.addClass('show')
+  }
+}
+
+function showChatContent(id){
+  var chatContent = $('.chat_content-'+id);
+  if(!chatContent.hasClass('show')){
+    chatContent.addClass('show')
+  }
 }

@@ -1,0 +1,44 @@
+<% if message.user.current_user? current_user %>
+  <div class="chat--item-sender item-<%= message.id %>">
+    <div class="chat--messages">
+      <div class="message--item">
+        <div class="header_type"><%= message.user.name %></div>
+        <div class="list_massages">
+          <div class="mess-item">
+            <div class="mess-item-content">
+              <div class="type_content">
+                <span><%= message.content %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="message-item">
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="chat--item-receiver item-<%= message.id %>">
+    <div class="chat--user_info">
+      <%= link_to "#", class:"user__link" do %>
+        <%= image_tag user_avatar(message.user), class:"user__avatar" %>
+      <% end %>
+    </div>
+    <div class="chat--messages">
+      <div class="message--item">
+        <div class="header_type"><%= message.user.name %></div>
+        <div class="list_massages">
+          <div class="mess-item">
+            <div class="mess-item-content">
+              <div class="type_content">
+                <span><%= message.content %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="message-item">
+      </div>
+    </div>
+  </div>
+<% end %>
