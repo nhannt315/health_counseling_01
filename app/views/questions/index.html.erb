@@ -148,8 +148,17 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to "like", "javascript:void(0)",
-                    class: "like_button" %>
+                  <% if item.liked? current_user  %>
+                    <%= link_to t("like.question"),
+                      likes_path(type: Settings.questions, target_id: item.id),
+                      id: "question-#{item.id}", class: "like_button liked",
+                      method: :delete, remote: true %>
+                  <% else %>
+                    <%= link_to t("like.question"),
+                      likes_path(type: Settings.questions, target_id: item.id),
+                      id: "question-#{item.id}", class: "like_button",
+                      method: :post, remote: true %>
+                  <% end %>
                 </li>
               </ul>
               <div class="mf_main--comment"
