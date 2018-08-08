@@ -61,6 +61,7 @@ GEM
       rails (>= 3.1)
     builder (3.2.3)
     byebug (10.0.2)
+    cancancan (2.2.0)
     carrierwave (1.2.3)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -280,6 +281,7 @@ DEPENDENCIES
   bootstrap-datepicker-rails
   bootstrap-kaminari-views
   byebug
+  cancancan (~> 2.0)
   carrierwave
   config
   devise

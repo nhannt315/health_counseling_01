@@ -8,7 +8,7 @@
   </small>
 </div>
 <div class="mf_comment--menu">
-  <% if comment.user.current_user? current_user %>
+  <% if can? :manage, comment %>
     <%= link_to t(".edit"), edit_comment_url(comment),
       class: "mf_comment--edit comment-#{comment.id}", data: {id: comment.id},
       remote: true %>

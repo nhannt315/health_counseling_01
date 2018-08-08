@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include UsersHelper
 
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
     store_location
     flash[:danger] = I18n.t "sessions.new.required"
     redirect_to login_url

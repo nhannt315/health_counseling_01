@@ -3,7 +3,9 @@
     <span class="text-success">
       <strong><%= notification.sender.name %></strong>
     </span>
-    <span class="small float-right text-muted"><%= time_ago_in_words notification.created_at %></span>
+    <span class="small float-right text-muted">
+      <%= time_ago_in_words notification.created_at %>
+    </span>
     <div class="dropdown-message small">
       <%= notification.content %>
     </div>

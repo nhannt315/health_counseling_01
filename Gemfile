@@ -5,6 +5,7 @@ ruby "2.5.1"
 
 gem "bcrypt"
 gem "bootstrap-kaminari-views"
+gem "cancancan", "~> 2.0"
 gem "carrierwave"
 gem "config"
 gem "devise"

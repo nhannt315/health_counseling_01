@@ -13,17 +13,19 @@
           <ul>
             <% if user_signed_in? %>
               <li class="submenu dropdown">
-                <a id="notifications" rel="nofollow" data-target="#" href="#"
-                   data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false" class="nav-link">
+                <%= link_to "#", id: "notifications", rel: "nofollow",
+                  class: "nav-link noti", data: {toggle: "dropdown"},
+                  aria: {haspopup: false, expanded: false} do %>
                   <i class="fa fa-bell"></i>
                   <span id="notifications-count" class="badge badge-warning">
                     <%= current_user.notifications.length %>
                   </span>
-                </a>
-                <ul id="notifications-list" aria-labelledby="notifications" class="dropdown-menu">
+                <% end %>
+                <ul id="notifications-list" aria-labelledby="notifications"
+                  class="dropdown-menu noti_margin">
                   <% current_user.notifications.each do |notification| %>
-                    <%= render "notifications/notification", notification: notification %>
+                    <%= render "notifications/notification",
+                      notification: notification %>
                   <% end %>
                 </ul>
               <% end %>

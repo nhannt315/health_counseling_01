@@ -76,13 +76,14 @@ vi:
       view_more: Xem thêm
       attach_image: Ảnh
       post: Đăng
+      signup_for_post_question: Hãy đăng ký để đặt câu hỏi cho chúng tôi!
+    question:
       signup: Đăng ký
       edit: Sửa
       delete: Xóa
       update: Cập nhật
       comments: bình luận
       comment: Bình luận
-      signup_for_post_question: Đăng ký để đặt câu hỏi
     show:
       edit: Sửa
       delete: Xóa

@@ -1,6 +1,6 @@
 <% if flash[:message] %>
   <%= render "shared/alert_bar", message: flash[:notice] %>
 <% end %>
-<% if current_user && !current_user.doctor_activated? %>
-  <%= render partial: "shared/alert_doctor_activate" %>
+<% if current_user && !current_user.doctor_active? %>
+  <%= render "shared/alert_doctor_activate" %>
 <% end %>

@@ -118,10 +118,14 @@
 
 .main-menu>ul>li>a {
   color: white;// #333;
-  padding: 2px 50px 0px;
+  padding: 2px 15px 0px;
   font-size: 14px;
   font-size: .875rem;
   font-weight: 500;
+}
+
+.main-menu>ul>li>a.noti {
+  padding: 2px 5px 0px 0px;
 }
 
 .main-menu>ul>li:hover>a {
@@ -171,6 +175,10 @@
   }
   .main-menu ul li {
     display: inline-block
+  }
+  .main-menu ul li.submenu ul.noti_margin{
+    top: 15px !important;
+    right: 0px;
   }
   .main-menu ul li.submenu:hover>a:after,
   .main-menu ul li.submenu:hover>a:before {
