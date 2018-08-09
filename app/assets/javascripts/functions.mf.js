@@ -34,7 +34,7 @@ $(document).on('turbolinks:load', function () {
         $(this).addClass('selected')
         $('.mf_float_categories_list ul').append('\
           <li id=\"float-categories-'+ data.data('id') + '\">\
-            <a href=\"javascript:void(0)\">'+ data.data('name') + '</a>\
+            <a href=\"#\">'+ data.data('name') + '</a>\
           </li>'
         );
         data.data('added', true)

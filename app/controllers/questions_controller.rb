@@ -14,6 +14,13 @@ class QuestionsController < ApplicationController
     render :index
   end
 
+  def show
+    @question = Question.find_by id: params[:id]
+    return if @question
+    flash[:warning] = t ".cant_find_question"
+    redirect_to questions_url
+  end
+
   def destroy
     del_question = current_user.questions.find_by id: params[:id]
     if logged_in? && del_question.present?
