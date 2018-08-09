@@ -178,14 +178,17 @@
     opacity: 0
   }
   .main-menu ul li .menu-wrapper,
+  .main-menu ul ul.auto {
+    visibility: hidden;
+    display: block;
+  }
   .main-menu ul ul {
     position: absolute;
     border-top: 2px solid #e74e84;
     z-index: 1;
-    visibility: hidden;
     right: 0px;
     top: 100%;
-    display: block;
+    display: none;
     padding: 0;
     background: #fff;
     min-width: 210px;
@@ -213,13 +216,15 @@
   .main-menu ul li:hover .menu-wrapper,
   .main-menu ul li:hover>ul {
     padding: 0;
-    visibility: visible;
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
     -ms-transform: translateY(0);
     -o-transform: translateY(0);
     transform: translateY(0);
     opacity: 1
+  }
+  .main-menu ul li:hover>ul.auto {
+    visibility: visible;
   }
   .main-menu ul .menu-wrapper ul {
     -webkit-box-shadow: none;
@@ -477,4 +482,3 @@
     }
   }
 }
-
