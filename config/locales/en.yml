@@ -8,6 +8,7 @@ en:
     about: About
     confirm: Are you sure?
     load_more: Load more
+    doctor_activate: You have to complete your doctor profile for admin to check
     menu:
       home: Home
       explore: Explore

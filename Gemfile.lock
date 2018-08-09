@@ -203,7 +203,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    redis (3.3.5)
     rubocop (0.54.0)
       parallel (~> 1.10)
       parser (>= 2.5)
@@ -283,7 +282,6 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.0)
   rails-i18n
-  redis (~> 3.0)
   rubocop (~> 0.54.0)
   sass-rails (~> 5.0)
   spring

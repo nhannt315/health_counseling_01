@@ -21,7 +21,7 @@
                     <%= current_user.notifications.length %>
                   </span>
                 </a>
-                <ul id="notifications" aria-labelledby="notifications" class="dropdown-menu">
+                <ul id="notifications-list" aria-labelledby="notifications" class="dropdown-menu">
                   <% current_user.notifications.each do |notification| %>
                     <%= render "notifications/notification", notification: notification %>
                   <% end %>

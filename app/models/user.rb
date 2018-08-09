@@ -38,6 +38,10 @@ class User < ApplicationRecord
     update_attributes remember_digest: User.digest(remember_token)
   end
 
+  def doctor_active?
+    is_a?(Doctor) && doctor_activated?
+  end
+
   def status
     if activated?
       I18n.t "admin.users.activated"
