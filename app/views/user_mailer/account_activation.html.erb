@@ -1,6 +1,0 @@
-<h1><%= t "global.logo" %></h1>
-<p><%= "#{t "activate_mail.greeting"} #{@user.name}" %></p>
-<p><%= t "activate_mail.content" %></p>
-<%= link_to t("activate_mail.activate"),
-  edit_account_activation_url(@user.activation_token, email: @user.email)
-%>
