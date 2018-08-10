@@ -138,6 +138,7 @@ vi:
     fail: Link kích hoạt sai.
   reset_mail:
     title: Thiết lập mới mật khẩu
+    change_password: Đổi mật khẩu của tôi
     click_link: Để thiết lập lại mật khẩu của bạn hãy truy cập vào link dưới đây
     link_expire: Đường link sẽ hết hạn sau 2 tiếng
     info: Nếu bạn không yêu cầu thiết lập lại mật khẩu thì vui lòng hãy bỏ qua thư này!

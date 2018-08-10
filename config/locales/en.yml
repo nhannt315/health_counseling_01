@@ -138,6 +138,7 @@ en:
     fail: Invalid activation link
   reset_mail:
     title: Password reset
+    change_password: Change my password
     click_link: To reset your password click the link below
     link_expire: This link will expire in two hours.
     info: If you did not request your password to be reset, please ignore this email and your password will stay as it is.
