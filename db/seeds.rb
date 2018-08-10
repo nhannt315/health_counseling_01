@@ -9,6 +9,8 @@ major_list = ["Dược","Khám bệnh" ,"Y học cổ truyền","Sản phụ kho
 "Lão khoa","Thú y","Hiếm muộn - Vô sinh","Dị ứng - Miễn dịch",
 "Di truyền & Sinh học phân tử","Tâm lý"]
 
+I18n.locale = 'en'
+
 major_list.each do |ele|
   Major.create! name:ele
 end
@@ -25,9 +27,9 @@ User.create!(name: "Admin",
   identity_card: "fdsafda",
   prof_position: "Vien truong",
   reset_sent_at: Time.zone.now,
-  email: "admin@delight.com",
-  password: "159753",
-  password_confirmation: "159753",
+  email: "administrator@mail.com",
+  password: "foobar",
+  password_confirmation: "foobar",
   activated: true,
   activated_at: Time.zone.now)
 

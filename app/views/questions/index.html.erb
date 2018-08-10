@@ -17,7 +17,7 @@
                   <% end %>
                 </li>
               <% end %>
-            <ul>
+            </ul>
           </div>
           <hr/>
           <div class="mf_question_sidebar--footer">
@@ -29,7 +29,7 @@
       </div>
       <div class="col-lg-9 col-md-9">
         <div class="mf_main_question">
-          <% if logged_in? %>
+          <% if user_signed_in? %>
             <%= form_for @question do |f|%>
               <div class="form-group post-form
                 fadeIn animated create_question_form">
@@ -90,8 +90,8 @@
             <% end %>
           <% else %>
             <div class="signup_require">
-              <h4><% t ".signup_for_post_question" %></h4>
-              <%= link_to t(".signup"), signup_path, class: "btn_signup" %>
+              <h5><%= t ".signup_for_post_question" %></h5>
+              <%= link_to t(".signup"), new_registration_path(User), class: "btn_signup" %>
             </div>
           <% end %>
         </div>
@@ -170,7 +170,7 @@
                   <%= render "comments/comment", comment: answer %>
                 <% end %>
               </div>
-              <% if logged_in? %>
+              <% if user_signed_in? %>
                 <div class="mf_main--reply" id="question-<%= item.id %>">
                   <%= form_for :comments,
                     url: comments_path,

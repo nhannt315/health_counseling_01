@@ -27,7 +27,7 @@ class DoctorsController < ApplicationController
   private
 
   def find_doctor
-    @doctor = Doctor.find_by id: params[:id]
+    @doctor = Doctor.friendly.find_by slug: params[:id]
     return if @doctor
     flash[:message] = I18n.t "error.user_not_found"
     render "shared/404"
