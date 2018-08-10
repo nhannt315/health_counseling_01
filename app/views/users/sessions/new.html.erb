@@ -1,41 +1,41 @@
-<%= provide :title, t(".login") %>
+<%= provide :title, t("sessions.new.login") %>
 <main>
   <div class="bg_color_2">
     <div class="container margin_60_35">
       <div id="login-2">
-        <h1><%= t ".title" %></h1>
+        <h1><%= t "sessions.new.title" %></h1>
         <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
           <div class="box_form clearfix">
             <div class="box_login">
-              <%= link_to t(".fb_login"), "#", class: "social_bt facebook" %>
-              <%= link_to t(".gg_login"), "#", class: "social_bt google" %>
-              <%= link_to t(".lk_login"), "#", class: "social_bt linkedin" %>
+              <%= link_to t("sessions.new.fb_login"), "#", class: "social_bt facebook" %>
+              <%= link_to t("sessions.new.gg_login"), "#", class: "social_bt google" %>
+              <%= link_to t("sessions.new.lk_login"), "#", class: "social_bt linkedin" %>
             </div>
             <div class="box_login last">
               <div class="form-group">
                 <%= f.email_field :email, autofocus: true, autocomplete: "email",
-                  class: "form-control", placeholder: t(".your_email") %>
+                  class: "form-control", placeholder: t("sessions.new.your_email") %>
               </div>
               <div class="form-group">
                 <%= f.password_field :password, autocomplete: "off",
-                  class: "form-control", placeholder: t(".your_password") %>
+                  class: "form-control", placeholder: t("sessions.new.your_password") %>
               </div>
                 <div class="form-group">
                   <%= f.label :remember_me, class: "inline" do%>
                     <%= f.check_box :remember_me %>
-                    <strong><%= t ".remember" %></strong>
+                    <strong><%= t "sessions.new.remember" %></strong>
                   <% end %>
-                  <%= link_to t(".forgot_password_html"),
+                  <%= link_to t("sessions.new.forgot_password_html"),
                     new_password_reset_path, class: "forgot" %>
                 </div>
               <div class="form-group">
-                <%= f.submit t(".login"), class: "btn_1" %>
+                <%= f.submit t("sessions.new.login"), class: "btn_1" %>
               </div>
             </div>
           </div>
         <% end %>
-        <p class="text-center link_bright"><%= t ".no_account" %>
-          <%= link_to t(".register_now_html"),
+        <p class="text-center link_bright"><%= t "sessions.new.no_account" %>
+          <%= link_to t("sessions.new.register_now_html"),
             new_registration_path(resource_name) %>
         </p>
       </div>

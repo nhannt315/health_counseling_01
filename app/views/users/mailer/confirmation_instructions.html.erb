@@ -1,0 +1,6 @@
+<h1><%= t "global.logo" %></h1>
+<p><%= "#{t "activate_mail.greeting"} #{@email}" %></p>
+<p><%= t "activate_mail.content" %></p>
+<p><%= link_to t("confirmation.title"),
+  confirmation_url(@resource, confirmation_token: @token) %>
+</p>
