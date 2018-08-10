@@ -1,27 +1,11 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:edit, :update, :show]
   before_action :logged_in_user,
-    only: [:index, :edit, :update, :destroy]
+    only: [:index, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
 
   def index; end
 
-  def new
-    redirect_to root_url if logged_in?
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    @user.type = :Doctor if @user.request_doctor = request_doctor_check
-    if @user.save
-      @user.send_mail :account_activation
-      @messages = [t("users.create.thank"), t("users.create.email_sent")]
-      render "shared/confirm"
-    else
-      render :new
-    end
-  end
 
   def show; end
 

@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
   concern :paginatable do
-    get '(page/:page)', action: :index, on: :collection, as: ''
+    get "(page/:page)", action: :index, on: :collection, as: ""
   end
 
   root "pages#show", page: "home"
   get "password_resets/new"
   get "password_resets/edit"
   get "pages/:page" => "pages#show"
-  get "/signup", to: "users#new"
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-
-  delete "/logout", to: "sessions#destroy"
   resources :users
   resources :doctors
   resources :account_activations, only: [:edit]

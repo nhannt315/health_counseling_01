@@ -1,4 +1,7 @@
 vi:
+  confirmation:
+    title: Gửi lại email kích hoạt
+    no_received: Không nhận được thư kích hoạt?
   global:
     logo: MFCare
     slogan: Tìm kiếm câu hỏi về sức khỏe của bạn
@@ -8,6 +11,7 @@ vi:
     about: Về chúng tôi
     confirm: Bạn chắc chưa ?
     load_more: Xem thêm
+    password_changed: Chúng tôi liên lạc để thông báo với bạn rằng mật khẩu của bạn đã bị thay đổi
     doctor_activate: Bạn phải hoàn thành hồ sơ của mình cho admin kiểm tra để có thể có đầy đủ quyền
     menu:
       home: Trang chủ
