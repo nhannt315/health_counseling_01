@@ -1,9 +1,12 @@
 class User < ApplicationRecord
+  extend FriendlyId
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :rememberable, :trackable, :validatable, :lockable
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
   enum block_status: {blocked: 0, non_block: 1}
+
+  friendly_id :email_slug, use: :slugged
 
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
@@ -29,6 +32,10 @@ class User < ApplicationRecord
 
   def current_user? user
     self == user
+  end
+
+  def email_slug
+    "#{email.gsub(/@[a-z\d\-.]+\.[a-z]+\z/, '')} #{id}"
   end
 
   def doctor_active?

@@ -15,14 +15,14 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find_by id: params[:id]
+    @question = Question.friendly.find_by slug: params[:id]
     return if @question
     flash[:warning] = t ".cant_find_question"
     redirect_to questions_url
   end
 
   def destroy
-    del_question = current_user.questions.find_by id: params[:id]
+    del_question = current_user.questions.friendly_id.find_by slug: params[:id]
     if logged_in? && del_question.present?
       flash[:success] = del_question.destroy ? t(".deleted") : t(".error")
     else
@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
   end
 
   def fetch_data
-    @question = current_user.questions.build if logged_in?
+    @question = current_user.questions.build if user_signed_in?
     @majors = Major.pluck :name, :id
     unless params[:major_id]
       return @question_feeds = Question.order(created_at: :desc)

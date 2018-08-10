@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    @user = User.find_by id: params[:id]
+    @user = User.friendly.find_by slug: params[:id]
     return if @user
     flash[:message] = I18n.t "error.user_not_found"
     render "shared/404"
