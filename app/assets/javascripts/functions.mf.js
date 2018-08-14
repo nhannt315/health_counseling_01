@@ -8,6 +8,13 @@ $(document).on('turbolinks:load', function () {
     });
   });
 
+  $('#toTop').on('click', function () {
+     $('body,html').animate({
+       scrollTop: 0
+     }, 800);
+    return false;
+  });
+
   $('.mf_show_options').on('click', function (e) {
     var menuOptions = $('.mf_category_options');
     if (menuOptions.hasClass('show')) {

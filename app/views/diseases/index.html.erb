@@ -1,0 +1,21 @@
+<% provide :title, t(".title") %>
+<main>
+  <div id="disease-list" class="container margin_60">
+    <% @diseases.each do |key, array| %>
+      <div>
+        <h3><%= key %></h3>
+        <ul>
+          <% array.each do |disease| %>
+            <li>
+              <%= link_to disease_path(disease) do %>
+                <i class="icon-chart"></i>
+                <%= disease.name %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <div id="toTop" class="to-top"></div>
+</main>

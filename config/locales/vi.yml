@@ -254,3 +254,9 @@ vi:
   like:
     question: Đồng cảm
     answer: Cảm ơn
+  diseases:
+    index:
+      title: Danh sách bệnh
+    show:
+      doctor: Các bác sĩ chữa bệnh này
+      doctor_name: Bác sĩ %{name}

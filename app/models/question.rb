@@ -26,7 +26,7 @@ class Question < ApplicationRecord
   def question_slug
     return "#{content}##{id}" if content.split.size >
                                  Settings.question.slug_size
-    "#{content.split[0...Settings.question.slug_size].join(" ")}##{id}"
+    "#{content.split[0...Settings.question.slug_size].join(' ')}##{id}"
   end
 
   def unlike user

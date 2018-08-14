@@ -251,3 +251,9 @@ en:
   like:
     question: Like
     answer: Like
+  diseases:
+    index:
+      title: Disease List
+    show:
+      doctor: Doctor who curse this
+      doctor_name: Doctor %{name}

@@ -58,3 +58,5 @@ majors = Major.all.distinct 5
 doctor.majors << majors
 
 
+
+
