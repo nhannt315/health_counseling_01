@@ -14,3 +14,5 @@
 //= require functions.mf
 //= require cable
 //= require channels/notifications
+//= require masonry.pkgd.min
+//= require medicine

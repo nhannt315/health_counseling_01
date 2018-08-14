@@ -257,3 +257,24 @@ en:
     show:
       doctor: Doctor who curse this
       doctor_name: Doctor %{name}
+  medicine_classes:
+    index:
+      title: Medicine list
+      info: Search for medicine
+  medicine_types:
+    show:
+      error: Could not find the medicine type
+  medicines:
+    show:
+      medicine_info: Medicine info %{name}
+      drug_collection: Drug collection
+      show_all: Show all
+      overview: Overview
+      instruction: Instruction
+      info: Info
+      warning: Warning
+      contraindication: Contraindication
+      side_effect: Side Effect
+      note: Note
+      overdose: Overdose
+      preservation: Preservation

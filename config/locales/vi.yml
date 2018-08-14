@@ -261,3 +261,24 @@ vi:
     show:
       doctor: Các bác sĩ chữa bệnh này
       doctor_name: Bác sĩ %{name}
+  medicine_classes:
+    index:
+      title: Danh sách các nhóm dược lý
+      info: Tra cứu các loại thuốc dễ dàng theo nhu cầu sử dụng của bạn và gia đình.
+  medicine_types:
+    show:
+      error: Không thể tìm thấy trang bạn yêu cầu
+  medicines:
+    show:
+      medicine_info: Thông tin thuốc %{name}
+      drug_collection: Các thuốc liên quan
+      show_all: Hiển thị tất cả
+      overview: Tóm tắt thuốc
+      instruction: Hướng dẫn sử dụng
+      info: Thông tin về dược chất
+      warning: Cảnh báo
+      contraindication: Chống chỉ định
+      side_effect: Tác dụng phụ
+      note: Lưu ý
+      overdose: Quá liều
+      preservation: Bảo quản
