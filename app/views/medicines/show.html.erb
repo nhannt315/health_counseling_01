@@ -1,0 +1,124 @@
+<% provide :title, @medicine.name %>
+<main class="background-white">
+  <div class="position row over margin_60">
+    <div class="medicine-title">
+      <%= link_to medicine_type_path(@medicine.medicine_type) do %>
+        <small><%= @medicine.medicine_type.name %></small>
+      <% end %>
+      <h2><%= t ".medicine_info", name: @medicine.name %></h2>
+    </div>
+  </div>
+  <div class="medicine-div">
+    <div class="position row">
+      <div class="content">
+        <div class="drug-nav-left">
+          <%= link_to "#show-all", class: "show-all active" do %>
+            <i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>
+            <%= t ".show_all" %>
+          <% end %>
+          <%= link_to "#instruction", class: "hide-other-trigger",
+            data: "instruction" do %>
+            <i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i>
+            <%= t ".instruction" %>
+          <% end %>
+          <%= link_to "#info", class: "hide-other-trigger",
+            data: "infos" do %>
+            <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
+            <%= t ".info" %>
+          <% end %>
+          <%= link_to "#warning", class: "hide-other-trigger",
+            data: "warning" do %>
+            <i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i>
+            <%= t ".warning" %>
+          <% end %>
+          <%= link_to "#contraindication", class: "hide-other-trigger",
+            data: "contraindication" do %>
+            <i class="fa fa-times fa-fw" aria-hidden="true"></i>
+            <%= t ".contraindication" %>
+          <% end %>
+          <%= link_to "#side-effect", class: "hide-other-trigger",
+            data: "side-effect" do %>
+            <i class="fa fa-meh-o fa-fw" aria-hidden="true"></i>
+            <%= t ".side_effect" %>
+          <% end %>
+          <%= link_to "#note", class: "hide-other-trigger", data: "note" do %>
+            <i class="fa fa-sticky-note-o fa-fw" aria-hidden="true"></i>
+            <%= t ".note" %>
+          <% end %>
+          <%= link_to "#overdose", class: "hide-other-trigger",
+            data: "overdose" do %>
+            <i class="fa fa-frown-o fa-fw" aria-hidden="true"></i>
+            <%= t ".overdose" %>
+          <% end %>
+          <%= link_to "#preservation", class: "hide-other-trigger",
+            data: "preservation" do %>
+            <i class="fa fa-medkit fa-fw" aria-hidden="true"></i>
+            <%= t ".preservation" %>
+          <% end %>
+        </div>
+        <div class="medicine-info">
+          <div>
+            <%= image_tag @medicine.image if @medicine.image %>
+          </div>
+          <div>
+            <h4 class="drug-title"><%= t ".overview" %></h4>
+            <div><%= @medicine.overview.html_safe %></div>
+          </div>
+          <div class="drug-instruction">
+            <h4 class="drug-title"><%= t ".instruction" %></h4>
+            <div><%= @medicine.instruction.html_safe %></div>
+          </div>
+          <div class="drug-infos">
+            <h4 class="drug-title"><%= t ".info" %></h4>
+            <div><%= @medicine.info.html_safe %></div>
+          </div>
+          <div class="drug-warning">
+            <h4 class="drug-title"><%= t ".warning" %></h4>
+            <div><%= @medicine.warning.html_safe %></div>
+          </div>
+          <div class="drug-contraindication">
+            <h4 class="drug-title"><%= t ".contraindication" %></h4>
+            <div><%= @medicine.contraindication.html_safe %></div>
+          </div>
+          <div class="drug-side-effect">
+            <h4 class="drug-title"><%= t ".side_effect" %></h4>
+            <div><%= @medicine.side_effect.html_safe %></div>
+          </div>
+          <div class="drug-note">
+            <h4 class="drug-title"><%= t ".note" %></h4>
+            <div><%= @medicine.note.html_safe %></div>
+          </div>
+          <div class="drug-overdose">
+            <h4 class="drug-title"><%= t ".overdose" %></h4>
+            <div><%= @medicine.overdose.html_safe %></div>
+          </div>
+          <div class="drug-preservation">
+            <h4 class="drug-title"><%= t ".preservation" %></h4>
+            <div><%= @medicine.preservation.html_safe %></div>
+          </div>
+        </div>
+      </div>
+      <aside>
+        <section class="top-list drug-collection">
+          <h3><%= t ".drug_collection" %></h3>
+          <ul>
+            <% @medicine.same_type.each do |medicine| %>
+              <li>
+                <div class="content-collection">
+                  <%= link_to medicine_path(medicine) do %>
+                    <div class="drug-icon"></div>
+                  <% end %>
+                  <div class="body">
+                    <h4>
+                      <%= link_to medicine.name, medicine_path(medicine) %>
+                    </h4>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </div>
+</main>

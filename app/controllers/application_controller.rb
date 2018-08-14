@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
   include UsersHelper
+  include MedicinesHelper
 
   def logged_in_user
     return if logged_in?

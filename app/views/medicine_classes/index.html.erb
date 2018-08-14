@@ -1,0 +1,26 @@
+<% provide :title, t(".title") %>
+<main class="">
+  <div class="container margin_60">
+    <div class="bg">
+      <div class="bg-landing">
+        <div class="mask"></div>
+        <p><%= t ".info" %></p>
+        <h4><%= t ".title" %></h4>
+      </div>
+      <div class="drug-class-list grid row">
+        <% @medicine_classes.each do |medicine_class| %>
+          <div class="item grid-item">
+            <h3><%= medicine_class.name %></h3>
+            <div>
+              <ul>
+                <% medicine_class.medicine_types.each do |type| %>
+                  <li><%= link_to type.name, medicine_type_path(type) %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
