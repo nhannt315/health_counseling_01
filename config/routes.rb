@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :answers, only: [:index, :create, :destroy]
   resources :comments, only: [:create, :edit, :destroy, :update]
   resources :searchs, only: [:index, :show]
+  resources :diseases, only: [:index, :show]
 
   namespace :admin do
     get "/", to: "dashboards#index"

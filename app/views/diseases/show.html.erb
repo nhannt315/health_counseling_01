@@ -1,0 +1,41 @@
+<% provide :title, @disease.name %>
+<main>
+  <div id="disease-detail" class="container margin_60">
+    <div class="row">
+      <div class="col-xl-8 col-md-8">
+        <nav id="secondary_nav">
+          <div class="container">
+            <ul class="clearfix">
+              <li class="active active-title"><%= @disease.name %></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="box_general_3">
+          <div><%= @disease.content_html.html_safe %></div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4">
+        <div class="box_general_3 booking">
+          <div class="title"><%= t ".doctor" %></div>
+          <ul class="">
+            <% @disease.category.doctors.each do |doctor| %>
+              <li>
+                <div class="strip_list">
+                  <figure>
+                    <%= link_to doctor_path(doctor) do %>
+                      <%= image_tag user_avatar(doctor) %>
+                    <% end %>
+                  </figure>
+                  <p>
+                    <%= link_to t(".doctor_name", name: doctor.name),
+                      doctor_path(doctor) %>
+                  </p>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
