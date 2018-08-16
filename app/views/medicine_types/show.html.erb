@@ -1,0 +1,35 @@
+<% provide :title, @medicine_type.name %>
+<main>
+  <div class="container margin_60">
+    <div id="page-title" class="no-background">
+      <div class="">
+        <div class="medicine-list">
+          <div class="position">
+            <h3>
+              <%= link_to @medicine_type.name, "#" %>
+            </h3>
+          </div>
+          <ul class="grid">
+            <% @medicines.each do |medicine| %>
+              <li class="item grid-item">
+                <%= link_to medicine_path(medicine), class: "c-media clearfix" do %>
+                  <%= image_tag medicine_image(medicine),
+                    class: "c-media__image" %>
+                  <div class="c-media__body">
+                    <span class="c-media__title">
+                      <%= medicine.name %>
+                    </span>
+                    <div class="c-media__content">
+                      <%= medicine.company %>
+                    </div>
+                  </div>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <%= paginate @medicines %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

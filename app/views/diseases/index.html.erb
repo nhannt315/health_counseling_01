@@ -1,8 +1,8 @@
 <% provide :title, t(".title") %>
 <main>
-  <div id="disease-list" class="container margin_60">
+  <div id="disease-list" class="container">
     <% @diseases.each do |key, array| %>
-      <div>
+      <div class="row">
         <h3><%= key %></h3>
         <ul>
           <% array.each do |disease| %>
