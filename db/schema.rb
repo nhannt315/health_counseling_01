@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_085628) do
+ActiveRecord::Schema.define(version: 2018_08_15_150853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,35 @@ ActiveRecord::Schema.define(version: 2018_08_14_085628) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "medicine_classes", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "medicine_types", force: :cascade do |t|
+    t.string "name"
+    t.bigint "medicine_class_id"
+    t.string "slug"
+    t.index ["medicine_class_id"], name: "index_medicine_types_on_medicine_class_id"
+  end
+
+  create_table "medicines", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.bigint "medicine_type_id"
+    t.string "company"
+    t.text "overview"
+    t.text "instruction"
+    t.text "info"
+    t.text "warning"
+    t.text "contraindication"
+    t.text "side_effect"
+    t.text "note"
+    t.text "overdose"
+    t.text "preservation"
+    t.string "slug"
+    t.index ["medicine_type_id"], name: "index_medicines_on_medicine_type_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -157,6 +186,8 @@ ActiveRecord::Schema.define(version: 2018_08_14_085628) do
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "doctor_majors", "users"
+  add_foreign_key "medicine_types", "medicine_classes"
+  add_foreign_key "medicines", "medicine_types"
   add_foreign_key "notifications", "majors"
   add_foreign_key "notifications", "questions"
   add_foreign_key "notifications", "users", column: "sender_id"

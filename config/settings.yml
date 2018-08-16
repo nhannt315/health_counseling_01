@@ -11,6 +11,8 @@ user:
 default:
   avatar: logo.png
   doctor_image: doctor_default.png
+  medicine_image: medicine.png
+  limit: 10
 doctor:
   right_column: 0
 admin:
@@ -33,3 +35,5 @@ home:
   suggest_limit: 10
 questions: question
 answer: answer
+medicine:
+  per_page: 20

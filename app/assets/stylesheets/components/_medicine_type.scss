@@ -1,0 +1,254 @@
+.medicine-list {
+  background-color: #fff;
+  border-radius: 0.4rem;
+  padding-bottom: 10px;
+  @include shadow-card(0.3);
+  @include shadow-card-hover(0.5);
+  .position {
+    h3 {
+      padding: 20px 0 0 20px;
+      font-size: 20px;
+    }
+  }
+  .grid {
+    padding-top: 10px;
+    .grid-item {
+      padding: 0 10px 0 10px;
+      width: 30%;
+      display: inline-block;
+      position: relative;
+      &:before, &:after {
+        box-sizing: inherit;
+      }
+    }
+  }
+  ul {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 40px;
+    li {
+      display: inline-block;
+      .c-media {
+        border-bottom: 1px solid #e8e8e8;
+        display: flex;
+        margin: 0 0 10px;
+        padding: 0 0 10px;
+        text-decoration: none;
+
+        .c-media__image {
+          background-color: #eee;
+          border-radius: 3px;
+          border: 1px solid #eee;
+          display: block;
+          float: left;
+          height: 50px;
+          margin: 0 10px 0 0;
+          width: 75px;
+        }
+
+        .c-media__body {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 270px;
+          color: #333;
+          &:hover {
+            color: #00a2a2;
+          }
+          .c-media__title {
+            font-weight: 700;
+          }
+
+          .c-media__content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 270px;
+            padding: 0 0 0 0px;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.medicine-div {
+  background-color: #fff;
+  margin: 0 30px 0 30px;
+}
+
+.medicine-info {
+  overflow: hidden;
+  padding-left: 20px;
+  padding-top: 20px;
+  div {
+    .drug-title {
+      color: #00a2a2;
+      font-size: 14px;
+      font-weight: 600;
+      border-bottom: 1px solid #00babe;
+      display: inline-block;
+      padding-bottom: 10px;
+      position: relative;
+    }
+
+    .drug-info {
+      overflow: hidden;
+      line-height: 16px;
+      margin-bottom: 10px;
+      display: block;
+      h4 {
+        font-size: 14px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 0;
+        line-height: 1.2;
+      }
+    }
+  }
+  div {
+    p {
+      display: block;
+      -webkit-margin-before: 1em;
+      -webkit-margin-after: 1em;
+      -webkit-margin-start: 0;
+      -webkit-margin-end: 0;
+      margin: 0 0 10px;
+    }
+  }
+}
+
+.over {
+  background: rgba(245, 245, 245, 0.4);
+  height: 100px;
+  width: 100%;
+  .medicine-title {
+    height: 100%;
+    position: relative;
+    small {
+      margin: 0 20px;
+    }
+    h2 {
+      font-size: 22px;
+      margin: 0 20px;
+    }
+  }
+}
+
+.content {
+  float: left;
+  margin: 0 0 15px;
+  position: relative;
+  width: 70%;
+}
+
+.drug-body {
+  overflow: hidden;
+  padding-left: 20px;
+  padding-top: 20px;
+  display: block;
+}
+
+.drug-nav-left {
+  width: 200px;
+  float: left;
+  padding-left: 10px;
+  a {
+    color: #333;
+    text-decoration: none;
+    list-style: none;
+    padding: 15px 0;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+
+    &.active {
+      color: #00a2a2;
+    }
+
+    &:active, &:hover {
+      color: #00a2a2;
+    }
+
+    i {
+      margin: 0 10px 0 5px;
+      font-size: 18px;
+      color: #00babe;
+    }
+  }
+}
+
+aside {
+  float: left;
+  padding: 20px 0 10px 20px;
+  width: 30%;
+  border-radius: 10px;
+  section {
+    background: #fff;
+    border: 1px solid #eee;
+    float: left;
+    margin: 0 0 20px;
+    padding: 0 15px;
+    width: 100%;
+    display: block;
+    h3 {
+      border-bottom: 1px solid #eee;
+      float: left;
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0;
+      width: 100%;
+      padding: 15px 0;
+    }
+    ul {
+      border-bottom: 1px solid #eee;
+      float: left;
+      list-style: none;
+      width: 100%;
+      li {
+        border-bottom: none;
+        min-height: inherit;
+        .content-collection {
+          min-height: 40px;
+          width: 100%;
+          padding: 10px 10px 10px 50px;
+          float: left;
+          position: relative;
+          a {
+            .drug-icon {
+              background: transparent url(https://dwbxi9io9o7ce.cloudfront.net/build/36a669361fb05d808bfe625516023b2e.png) no-repeat -245px -37px/405px auto;
+              display: block;
+              height: 40px;
+              left: 0;
+              position: absolute;
+              top: 2px;
+              width: 40px;
+            }
+          }
+          .body {
+            h4 {
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 1.4;
+              margin: 0 0 2px;
+              a {
+                color: #333;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}

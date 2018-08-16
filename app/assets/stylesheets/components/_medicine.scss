@@ -1,0 +1,108 @@
+.mask {
+  background: url('https://dwbxi9io9o7ce.cloudfront.net/build/5617c57286dd67cefa61ac7100f1c416.jpg') no-repeat 50% 50%/cover;
+  height: 150px;
+  border-radius: 15px 15px 0 0;
+}
+
+.bg {
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  .bg-landing {
+    background-color: #fff;
+    margin: 0 0 20px;
+    position: relative;
+    border-radius: 15px 15px 0 0;
+    p {
+      font-size: 20px;
+      font-weight: 300;
+      left: 60px;
+      margin: 0;
+      position: absolute;
+      text-align: center;
+      top: 40px;
+      width: 300px;
+    }
+    h4 {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  }
+}
+
+.position {
+  margin: auto;
+}
+
+.drug-class-list {
+  padding-left: 20px;
+  .item {
+    background-color: #fff;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 20px;
+    margin: 10px;
+    width: 30%;
+    &:hover {
+      box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.3);
+    }
+    h3 {
+      border-radius: 15px 15px 0 0;
+      background: #f5f5f5;
+      border-top: 1px solid #ebebeb;
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0;
+      padding: 13px 24px 13px 12px;
+      overflow: hidden;
+      text-align: center;
+    }
+    div {
+      ul {
+        background-color: #fff;
+        display: block;
+        list-style: none;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0;
+        -webkit-margin-end: 0;
+        li {
+          overflow: hidden;
+          display: list-item;
+          text-align: -webkit-match-parent;
+          list-style: none;
+          &:after, &:before {
+            box-sizing: inherit;
+          }
+          a {
+            border-top: 1px solid #ebebeb;
+            color: #333;
+            float: left;
+            font-size: 14px;
+            padding: 12px 12px 12px 40px;
+            text-decoration: none;
+            width: 100%;
+            position: relative;
+            &:before {
+              background: transparent url(https://dwbxi9io9o7ce.cloudfront.net/build/36a669361fb05d808bfe625516023b2e.png) no-repeat -375px 0/1000px auto;
+              content: '';
+              height: 13px;
+              left: 12px;
+              margin-top: -7px;
+              position: absolute;
+              top: 50%;
+              width: 18px;
+            }
+            &:hover {
+              color: #00a2a2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
