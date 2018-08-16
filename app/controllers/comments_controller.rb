@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
   end
 
   def check_login
-    return if logged_in?
+    return if user_signed_in?
     flash[:warning] = t "global.message.please_login_action"
     redirect_to questions_path
   end

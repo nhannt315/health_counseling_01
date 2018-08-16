@@ -39,7 +39,8 @@ class User < ApplicationRecord
   end
 
   def doctor_active?
-    is_a?(Doctor) && doctor_activated?
+    return doctor_activated? if is_a? Doctor
+    true
   end
 
   def status
