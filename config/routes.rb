@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   resources :medicine_classes, only: [:index]
   resources :medicine_types, only: [:show]
   resources :medicines, only: [:show]
+  resources :notifications, only: [:update] do
+    post :mark_all_as_checked, on: :collection
+  end
 
   namespace :admin do
     get "/", to: "dashboards#index"

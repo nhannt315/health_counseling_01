@@ -252,6 +252,7 @@ vi:
   notification:
     doctor_noti: Một câu hỏi mới đã được hỏi trong %{major_name} bởi %{asker_name}
     user_noti: Câu hỏi của bạn đã được trả lời bởi %{name}
+    answer_noti: "%{name} đã trả lời vào một câu hỏi mà bạn đang theo dõi"
   like:
     question: Đồng cảm
     answer: Cảm ơn

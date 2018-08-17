@@ -30,6 +30,10 @@ class User < ApplicationRecord
     where "name LIKE ? ", "%#{sanitize_sql_like keyword}%" unless keyword.blank?
   end)
 
+  def unchecked_notifications
+    notifications.where checked: false
+  end
+
   def current_user? user
     self == user
   end

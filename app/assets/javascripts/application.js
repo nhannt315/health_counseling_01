@@ -16,3 +16,4 @@
 //= require channels/notifications
 //= require masonry.pkgd.min
 //= require medicine
+//= require notification

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_150853) do
+ActiveRecord::Schema.define(version: 2018_08_17_043613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,16 +101,14 @@ ActiveRecord::Schema.define(version: 2018_08_15_150853) do
 
   create_table "notifications", force: :cascade do |t|
     t.bigint "sender_id"
-    t.bigint "question_id"
-    t.bigint "major_id"
-    t.boolean "checked"
-    t.integer "notification_type"
+    t.boolean "checked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "read"
+    t.boolean "read", default: false
     t.integer "receiver_id"
-    t.index ["major_id"], name: "index_notifications_on_major_id"
-    t.index ["question_id"], name: "index_notifications_on_question_id"
+    t.string "notifiable_type"
+    t.bigint "notifiable_id"
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
     t.index ["sender_id"], name: "index_notifications_on_sender_id"
   end
 
@@ -188,8 +186,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_150853) do
   add_foreign_key "doctor_majors", "users"
   add_foreign_key "medicine_types", "medicine_classes"
   add_foreign_key "medicines", "medicine_types"
-  add_foreign_key "notifications", "majors"
-  add_foreign_key "notifications", "questions"
   add_foreign_key "notifications", "users", column: "sender_id"
   add_foreign_key "question_categories", "majors"
   add_foreign_key "question_categories", "questions"
