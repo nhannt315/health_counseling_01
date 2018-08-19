@@ -70,6 +70,7 @@ en:
       user_update_failed: Update user error!
   questions:
     index:
+      name: Question
       title: Ask a doctor
       categories: Categories
       view_all: View all
@@ -256,6 +257,7 @@ en:
     question: Like
     answer: Like
   diseases:
+    name: Disease
     index:
       title: Disease List
     show:
@@ -269,6 +271,7 @@ en:
     show:
       error: Could not find the medicine type
   medicines:
+    name: Medicine
     show:
       medicine_info: Medicine info %{name}
       drug_collection: Drug collection

@@ -1,9 +1,11 @@
 class NotificationsController < ApplicationController
   def update
     notification = Notification.find_by id: params[:id]
-    render status: 404, json: {
-      message: "Not found!"
-    } unless notification
+    unless notification
+      render status: 404, json: {
+        message: "Not found!"
+      }
+    end
     notification.read = true
     notification.save
   end
@@ -24,5 +26,4 @@ class NotificationsController < ApplicationController
       message: "Complete!"
     }
   end
-
 end

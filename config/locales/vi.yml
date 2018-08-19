@@ -70,6 +70,7 @@ vi:
       user_update_failed: Lỗi cập nhật thông tin người dùng
   questions:
     index:
+      name: Câu hỏi
       title: Đặt câu hỏi
       categories: Chuyên mục
       view_all: Xem tất cả
@@ -257,6 +258,7 @@ vi:
     question: Đồng cảm
     answer: Cảm ơn
   diseases:
+    name: Bệnh
     index:
       title: Danh sách bệnh
     show:
@@ -270,6 +272,7 @@ vi:
     show:
       error: Không thể tìm thấy trang bạn yêu cầu
   medicines:
+    name: Thuốc
     show:
       medicine_info: Thông tin thuốc %{name}
       drug_collection: Các thuốc liên quan

@@ -10,9 +10,9 @@ $(document).on('turbolinks:load', function () {
   });
 
   $('#toTop').on('click', function () {
-     $('body,html').animate({
-       scrollTop: 0
-     }, 800);
+    $('body,html').animate({
+      scrollTop: 0
+    }, 800);
     return false;
   });
 
@@ -44,8 +44,8 @@ $(document).on('turbolinks:load', function () {
       if (!data.data('added')) {
         $(this).addClass('selected')
         $('.mf_float_categories_list ul').append('\
-          <li id=\"float-categories-'+ data.data('id') + '\">\
-            <a href=\"#\">'+ data.data('name') + '</a>\
+          <li id=\"float-categories-' + data.data('id') + '\">\
+            <a href=\"#\">' + data.data('name') + '</a>\
           </li>'
         );
         data.data('added', true)
@@ -67,7 +67,7 @@ $(document).on('turbolinks:load', function () {
 
       $('.create_question_form').append(
         '<input multiple=\"multiple\"\
-          value=\"'+ data.data('id') + '\" type=\"hidden"\
+          value=\"' + data.data('id') + '\" type=\"hidden"\
           name=\"question[category_ids][]\"\
           id=\"question_categories\">'
       )
@@ -85,7 +85,7 @@ $(document).on('turbolinks:load', function () {
   }
 
   $('.mf_auto_complete').on('input', _.debounce(showQuery, 1000,
-    { 'maxWait': 1000 }));
+    {'maxWait': 1000}));
   var wowAnimation = new WOW({
     boxClass: 'wow',
     animateClass: 'animated',
@@ -97,8 +97,8 @@ $(document).on('turbolinks:load', function () {
 
   wowAnimation['init']();
 
-  $(document).click(function(event) {
-    if($('.mf_search--suggest').hasClass('show')) {
+  $(document).click(function (event) {
+    if ($('.mf_search--suggest').hasClass('show')) {
       $('.mf_search--suggest').removeClass('show')
     }
   });
@@ -131,14 +131,32 @@ var showQuery = function () {
   })
 }
 
-function showSuggest(data){
+function showSuggest(data) {
   var list = $('.mf_search--autocomplete');
-  var cotent = ""
-  for(var i = 0 ; i < data.length ; i++){
-    cotent += '<li><a href=\"'+data[i].link+'\">'+data[i].suggest+'</a>'
+  var content = "";
+  var questions = data.questions.results;
+  var diseases = data.diseases.results;
+  var medicines = data.medicines.results;
+  if (questions.length > 0) {
+    content += `<li class="search-result-header">${data.questions.title}</li>`;
+    questions.forEach(question => {
+      content += `<li><a href="${question.link}">${question.suggest}</a></li>`;
+    });
   }
-  list.html(cotent);
-  if(data.length > 0){
+  if (diseases.length > 0) {
+    content += `<li class="search-result-header">${data.diseases.title}</li>`;
+    diseases.forEach(disease => {
+      content += `<li><a href="${disease.link}">${disease.suggest}</a></li>`;
+    });
+  }
+  if (medicines.length > 0) {
+    content += `<li class="search-result-header">${data.medicines.title}</li>`;
+    medicines.forEach(medicine => {
+      content += `<li><a href="${medicine.link}">${medicine.suggest}</a></li>`;
+    });
+  }
+  list.html(content);
+  if ((questions.length + diseases.length + medicines.length) > 0) {
     $('.mf_search--suggest').addClass('show')
   }
 }
