@@ -39,20 +39,20 @@ Bác sĩ Nguyễn Thị Hoàn đã có trên 130 công trình nghiên cứu đư
 
 
 doctor = Doctor.create!(
-          name: "Nguyễn Thị Hoàn",
-          email: "hoannt@gmail.com",
-          phone_number: "0123213213",
-          type: "Doctor",
-          prof_place: "Phòng khám Nhi - Bác sĩ Nguyễn Thị Hoàn",
-          bio: bio,
-          recommend: true,
-          address: "Ngõ 165 - Xuân Thủy - Dịch Vọng Hậu - Cầu Giấy - Hà Nội",
-          prof_position: "Nguyên trưởng khoa Nội Tiết - Chuyển Hóa Di Truyền, Bệnh viện Nhi Trung ương",
-          activated: true,
-          request_doctor: true,
-          doctor_activated: true,
-          password: "foobar",
-          password_confirmation: "foobar"
+  name: "Nguyễn Thị Hoàn",
+  email: "hoannt@gmail.com",
+  phone_number: "0123213213",
+  type: "Doctor",
+  prof_place: "Phòng khám Nhi - Bác sĩ Nguyễn Thị Hoàn",
+  bio: bio,
+  recommend: true,
+  address: "Ngõ 165 - Xuân Thủy - Dịch Vọng Hậu - Cầu Giấy - Hà Nội",
+  prof_position: "Nguyên trưởng khoa Nội Tiết - Chuyển Hóa Di Truyền, Bệnh viện Nhi Trung ương",
+  activated: true,
+  request_doctor: true,
+  doctor_activated: true,
+  password: "foobar",
+  password_confirmation: "foobar"
 )
 majors = Major.all.distinct 5
 doctor.majors << majors

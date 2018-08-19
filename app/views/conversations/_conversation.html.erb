@@ -1,0 +1,30 @@
+<div class="chat_frame conversation-<%= conversation.id %>"
+  data-conversation-id="<%= conversation.id %>">
+  <div class="chat_header">
+    <%= link_to conversation.opposed_user(user).name,
+      conversation.opposed_user(user) %>
+    <%= link_to close_conversation_path(conversation),
+      class: "chat-close-icon", remote: true, method: :post do %>
+      <i class=" icon-cancel-circled-1"></i>
+    <% end %>
+  </div>
+  <div class="chat_content chat_content-<%= conversation.id %>">
+    <div class="chat_timeline--view">
+      <% conversation.messages.each do |mess| %>
+        <%= render "messages/message", message: mess %>
+      <% end %>
+    </div>
+    <div class="chat_form">
+      <%= form_for [conversation, conversation.messages.build],
+        html:{class:"form-group massges_form"}, remote: true do |f| %>
+        <%= f.hidden_field :user_id, value: user.id %>
+        <%= f.text_area :content, rows: 1,
+          placeholder: "Nhập để gửi tin...",
+          class: "form-control input_message_content" %>
+        <%= f.button :submit, class: "sent_btn" do %>
+        <i class="icon-right-circled"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

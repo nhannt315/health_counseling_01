@@ -28,6 +28,12 @@ Rails.application.routes.draw do
   resources :medicine_types, only: [:show]
   resources :medicines, only: [:show]
   resources :bookings
+  resources :conversations do
+    member do
+      post :close
+    end
+    resources :messages
+  end
 
   namespace :admin do
     get "/", to: "dashboards#index"

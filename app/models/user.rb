@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :notifications, dependent: :destroy, foreign_key: :receiver_id
+  has_many :messages
+  has_many :converstions, foreign_key: :sender_id
 
   mount_uploader :avatar, ImageUploader
 

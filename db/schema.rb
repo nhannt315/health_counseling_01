@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_150853) do
+ActiveRecord::Schema.define(version: 2018_08_17_015648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,27 @@ ActiveRecord::Schema.define(version: 2018_08_15_150853) do
     t.string "schedule_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.text "title"
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.boolean "closed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id", "sender_id"], name: "index_conversations_on_receiver_id_and_sender_id", unique: true
+    t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
+  create_table "diseases", force: :cascade do |t|
+    t.string "name"
+    t.text "content_html"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.integer "category_id"
   end
 
   create_table "doctor_majors", force: :cascade do |t|
@@ -113,6 +134,16 @@ ActiveRecord::Schema.define(version: 2018_08_15_150853) do
     t.text "preservation"
     t.string "slug"
     t.index ["medicine_type_id"], name: "index_medicines_on_medicine_type_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "conversation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -204,6 +235,8 @@ ActiveRecord::Schema.define(version: 2018_08_15_150853) do
   add_foreign_key "doctor_majors", "users"
   add_foreign_key "medicine_types", "medicine_classes"
   add_foreign_key "medicines", "medicine_types"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "notifications", "majors"
   add_foreign_key "notifications", "questions"
   add_foreign_key "notifications", "users", column: "sender_id"

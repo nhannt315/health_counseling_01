@@ -28,6 +28,11 @@
                 <i class="icon_pin"></i><%= t ".view_on_map" %>
             <% end %>
           </div>
+          <%= form_for :conversation, url: "/conversations", class: "text-center", remote: true do |f| %>
+            <%= f.hidden_field :sender_id, value: current_user.id %>
+            <%= f.hidden_field :receiver_id, value: @doctor.id %>
+            <%= f.submit "Chat", class: "btn_1 outline" %>
+          <% end %>
         </div>
       </aside>
       <div class="col-xl-9 col-lg-8">

@@ -1,0 +1,3 @@
+var conversationId = <%= @conversation.id %>
+$('.chat_content-'+conversationId+' .chat_timeline--view')
+  .append('<%= j render "messages/message", message: @message %>')
