@@ -4,6 +4,7 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require wow
+//= require moment
 //= require owl.carousel
 //= require lodash
 //= require functions
@@ -11,6 +12,10 @@
 //= require bootstrap-datepicker/core
 //= require turbolinks
 //= require BsMultiSelect
+//= require calendar.snippet
+//= require calendar.picker.time
+//= require calendar.picker.date
+//= require calendar
 //= require functions.mf
 //= require cable
 //= require channels/notifications

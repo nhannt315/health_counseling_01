@@ -22,8 +22,8 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    del_question = current_user.questions.friendly_id.find_by slug: params[:id]
-    if logged_in? && del_question.present?
+    del_question = current_user.questions.find_by id: params[:id]
+    if user_signed_in? && del_question.present?
       flash[:success] = del_question.destroy ? t(".deleted") : t(".error")
     else
       flash[:warning] = t "global.login_require"

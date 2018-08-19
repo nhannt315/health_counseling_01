@@ -1,6 +1,7 @@
 class Doctor < User
   has_many :doctor_majors, foreign_key: :user_id, dependent: :destroy
   has_many :majors, through: :doctor_majors
+  has_many :schedules, class_name: Booking.name, dependent: :destroy, foreign_key: :doctor_id
 
   mount_uploader :identity_card, ImageUploader
   mount_uploader :license, ImageUploader
