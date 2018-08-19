@@ -77,6 +77,10 @@ $(document).on('turbolinks:load', function () {
     });
   })
 
+  $('.mf_comment--delete').each(function(){
+    deleteCommentEvent(this)
+  });
+
   textAutoResize.keydown(autosize);
 
   function autosize(e) {
@@ -532,9 +536,10 @@ function initCalendar(){
     cal.clear();
     $.ajax({
       type: 'GET',
-      url: window.location.href+'/schedules.json',
-      success: function (response, textStatus, jqXHR) {
-        generateSchedules(response);
+      url: '/schedules.json',
+      data: {id:$('.mf_doctor--details').data('doctor-id')},
+      success: function (respond, textStatus, jqXHR) {
+        generateSchedules(respond);
         cal.createSchedules(ScheduleList);
         refreshScheduleVisibility();
       }
@@ -701,6 +706,7 @@ function ScheduleInfo() {
   this.end = null;
   this.category = '';
   this.dueDateClass = '';
+  this.description = '';
 
   this.color = null;
   this.bgColor = null;
@@ -735,7 +741,7 @@ function generateSchedule(calendar, raw_schedule) {
   schedule.calendarId = calendar.id;
 
   schedule.title = raw_schedule.title;
-  schedule.isReadOnly = true;
+  schedule.description = raw_schedule.description;
   generateTime(schedule, new Date(raw_schedule.start), new Date(raw_schedule.end));
   schedule.category = raw_schedule.type
   schedule.isAllday = false
@@ -761,11 +767,11 @@ function generateTime(schedule, renderStart, renderEnd) {
   schedule.end = renderEnd
 }
 
-function generateSchedules(data) {
+function generateSchedules(datas) {
   ScheduleList.length = 0
-  length = data.schedules.length
+  length = datas.schedules.length
   for (var i = 0; i < length; i ++) {
-    generateSchedule(CalendarList[0], data.schedules[i]);
+    generateSchedule(CalendarList[0], datas.schedules[i]);
   }
 }
 
@@ -802,4 +808,26 @@ function showChatContent(id){
   if(!chatContent.hasClass('show')){
     chatContent.addClass('show')
   }
+}
+
+function deleteCommentEvent(selecter){
+  $(selecter).on('click',function(){
+    swal({
+      title: "Bạn có muốn xóa bình luận này không ?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        $.ajax({
+          type: "POST",
+          url: "/comments/" + $(this).data('id'),
+          data: {"_method":"delete"},
+          complete: function(){}
+        });
+        event.preventDefault();
+      }
+    });
+  })
 }

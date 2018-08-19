@@ -32,7 +32,6 @@ class QuestionsController < ApplicationController
   end
 
   private
-
   def question_params
     params.require(:question).permit :content, :category_ids
   end

@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
   def index
-    @doctor = Doctor.friendly.find_by slug: params[:doctor_id]
+    @doctor = Doctor.find_by id: params[:id]
   end
 
   def create

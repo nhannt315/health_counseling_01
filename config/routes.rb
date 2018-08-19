@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    sessions:      "users/sessions",
+    passwords:     "users/passwords",
+    confirmations: "users/confirmations"
   }
+
   concern :paginatable do
     get "(page/:page)", action: :index, on: :collection, as: ""
   end
@@ -10,12 +14,9 @@ Rails.application.routes.draw do
   get "password_resets/new"
   get "password_resets/edit"
   get "pages/:page" => "pages#show"
+
   resources :users
-
-  resources :doctors do
-    resources :schedules, only: [:index]
-  end
-
+  resources :doctors
   resources :account_activations, only: [:edit]
   resource :likes, only: [:create, :destroy]
   resources :password_resets, only: [:new, :create, :edit, :update]
@@ -27,7 +28,9 @@ Rails.application.routes.draw do
   resources :medicine_classes, only: [:index]
   resources :medicine_types, only: [:show]
   resources :medicines, only: [:show]
-  resources :bookings
+  resources :bookings, only: [:create, :update, :destroy]
+  resources :schedules, only: [:index]
+
   resources :conversations do
     member do
       post :close
