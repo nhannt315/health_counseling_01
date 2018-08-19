@@ -3,3 +3,4 @@ $('#comment-'+<%= @rawcomment.id %>)
   .html('<%= j render "comments/content", comment: @rawcomment %>')
 $('#question-'+<%= @rawcomment.question.id %>)
   .removeClass('hidden');
+deleteCommentEvent('.mf_comment--delete.comment-'+<%= @rawcomment.id %>)

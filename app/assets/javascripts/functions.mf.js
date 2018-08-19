@@ -77,6 +77,10 @@ $(document).on('turbolinks:load', function () {
     });
   })
 
+  $('.mf_comment--delete').each(function(){
+    deleteCommentEvent(this)
+  });
+
   textAutoResize.keydown(autosize);
 
   function autosize(e) {
@@ -802,4 +806,26 @@ function showChatContent(id){
   if(!chatContent.hasClass('show')){
     chatContent.addClass('show')
   }
+}
+
+function deleteCommentEvent(selecter){
+  $(selecter).on('click',function(){
+    swal({
+      title: "Bạn có muốn xóa bình luận này không ?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        $.ajax({
+          type: "POST",
+          url: "/comments/" + $(this).data('id'),
+          data: {"_method":"delete"},
+          complete: function(){}
+        });
+        event.preventDefault();
+      }
+    });
+  })
 }
