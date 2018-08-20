@@ -5,7 +5,7 @@ App.notifications = App.cable.subscriptions.create("NotificationsChannel", {
   },
   received: function (data) {
     $count = $('#notifications-count');
-    let count = parseInt($count.text()) + 1;
+    var count = parseInt($count.text()) + 1;
     $count.text(count);
     $('#notifications-list').prepend(data.html);
   }

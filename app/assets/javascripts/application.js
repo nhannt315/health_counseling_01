@@ -20,6 +20,7 @@
 //= require functions.mf
 //= require cable
 //= require channels/notifications
+//= require channels/messages
 //= require masonry.pkgd.min
 //= require medicine
 //= require notification

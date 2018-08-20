@@ -1,6 +1,5 @@
-$(document).on('turbolinks:load', () => {
+$(document).on('turbolinks:load', function() {
   $('.grid').masonry({
-    // options...
     itemSelector: '.grid-item',
   });
 
@@ -8,7 +7,7 @@ $(document).on('turbolinks:load', () => {
 
   $('.show-all').click(function (event) {
     event.preventDefault();
-    medicineInfos.forEach(ele => {
+    medicineInfos.forEach(function(ele) {
       ele.removeClass('hide')
     });
   });
@@ -16,17 +15,17 @@ $(document).on('turbolinks:load', () => {
   $('.hide-other-trigger').each(function () {
     $(this).click(function (event) {
       event.preventDefault();
-      let name = $(this).attr('data');
-      medicineInfos.forEach(info => {
+      var name = $(this).attr('data');
+      medicineInfos.forEach(function(info) {
         info.addClass('hide');
       });
-      $(`.drug-${name}`).removeClass('hide');
+      $('.drug-' + name).removeClass('hide');
     });
   })
 });
 
 
-getMedicineInfoArray = () => {
+getMedicineInfoArray = function() {
   medicineInfos = [];
   medicineInfos.push($('.drug-instruction'));
   medicineInfos.push($('.drug-info'));

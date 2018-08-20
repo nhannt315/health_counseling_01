@@ -1,9 +1,9 @@
 const SEARCH_KEY = 'search';
 
-$(document).on('turbolinks:load', () => {
-  $('#search-doctor').submit(event => {
+$(document).on('turbolinks:load', function(){
+  $('#search-doctor').submit(function(event) {
     event.preventDefault();
-    let searchKey = encodeURIComponent($('#search-input').val());
+    var searchKey = encodeURIComponent($('#search-input').val());
     location.href = urlAddParameter(location.href, SEARCH_KEY, searchKey);
   });
 });

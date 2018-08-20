@@ -9,7 +9,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def destroy
-    @question = Question.find_by id: params[:id]
+    @question = Question.friendly_id.find_by slug: params[:id]
     @is_success = @question.destroy
     respond_to do |format|
       format.js

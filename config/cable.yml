@@ -1,8 +1,0 @@
-production:
-  adapter: aysnc
-
-development:
-  adapter: async
-
-test:
-  adapter: async

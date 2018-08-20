@@ -151,21 +151,21 @@ function showSuggest(data) {
   var diseases = data.diseases.results;
   var medicines = data.medicines.results;
   if (questions.length > 0) {
-    content += `<li class="search-result-header">${data.questions.title}</li>`;
-    questions.forEach(question => {
-      content += `<li><a href="${question.link}">${question.suggest}</a></li>`;
+    content += '<li class=\"search-result-header\">'+data.questions.title+'</li>';
+    questions.forEach(function(question){
+      content += '<li><a href=\"'+question.link+'\">'+question.suggest+'</a></li>';
     });
   }
   if (diseases.length > 0) {
-    content += `<li class="search-result-header">${data.diseases.title}</li>`;
-    diseases.forEach(disease => {
-      content += `<li><a href="${disease.link}">${disease.suggest}</a></li>`;
+    content += '<li class=\"search-result-header\">'+data.diseases.title+'</li>';
+    diseases.forEach(function(disease){
+      content += '<li><a href=\"'+disease.link+'\">'+disease.suggest+'</a></li>';
     });
   }
   if (medicines.length > 0) {
-    content += `<li class="search-result-header">${data.medicines.title}</li>`;
-    medicines.forEach(medicine => {
-      content += `<li><a href="${medicine.link}">${medicine.suggest}</a></li>`;
+    content += '<li class=\"search-result-header\">'+data.medicines.title+'</li>';
+    medicines.forEach(function(medicine){
+      content += '<li><a href=\"'+medicine.link+'\">'+medicine.suggest+'</a></li>';
     });
   }
   list.html(content);
@@ -553,7 +553,8 @@ function initCalendar(){
     cal.clear();
     $.ajax({
       type: 'GET',
-      url: window.location.href+'/schedules.json',
+      url: '/schedules.json',
+      data: {id: $('.mf_doctor--details').data('doctor-id')},
       success: function (response, textStatus, jqXHR) {
         generateSchedules(response);
         cal.createSchedules(ScheduleList);
@@ -785,7 +786,8 @@ function generateTime(schedule, renderStart, renderEnd) {
 function generateSchedules(data) {
   ScheduleList.length = 0
   length = data.schedules.length
-  for (var i = 0; i < length; i ++) {
+  var i = 0;
+  for (i = 0; i < length; i ++) {
     generateSchedule(CalendarList[0], data.schedules[i]);
   }
 }
@@ -833,7 +835,7 @@ function deleteCommentEvent(selecter){
       buttons: true,
       dangerMode: true,
     })
-    .then((willDelete) => {
+    .then(function(willDelete){
       if (willDelete) {
         $.ajax({
           type: "POST",

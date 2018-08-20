@@ -12,6 +12,9 @@
           <span class="caret-inner"></span>
         </div>
         <ul>
+          <li>
+            <%= link_to "Chia sẻ", "http://www.facebook.com/sharer.php?u=" << question_url(item), method: :delete %>
+          </li>
           <% if can? :edit, item %>
             <li>
                 <%= link_to  t(".edit"), edit_question_url(item) %>

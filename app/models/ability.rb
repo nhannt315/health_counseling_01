@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize user
-    if user.present?
+    if !user.present?
       can :read, :all
     elsif user.admin?
       can :manage, :all

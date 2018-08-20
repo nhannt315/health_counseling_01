@@ -34,6 +34,6 @@ class Admin::DoctorsController < Admin::BaseController
   private
 
   def find_doctor
-    @doctor = Doctor.find_by id: params[:id]
+    @doctor = Doctor.friendly_id.find_by slug: params[:id]
   end
 end

@@ -8,6 +8,7 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
   },
 
   received: function(data) {
-    console.log(data)
+    console.log('data', data);
+    $('.chat_content-' + data.conversation_id + ' .chat_timeline--view').append(data.html)
   }
 });

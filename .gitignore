@@ -48,24 +48,24 @@ bower.json
 node_modules/
 
 /test
-# /config/database.yml
-# /config/master.key
-# /config/credentials.yml.enc
-# /config/secrets.yml
-# /config/cable.yml
+/config/database.yml
+/config/master.key
+/config/credentials.yml.enc
+/config/secrets.yml
+/config/cable.yml
 
-# config/settings.local.yml
-# config/settings/*.local.yml
-# config/environments/*.local.yml
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
 
 # # IDEA
-# /.idea
+/.idea
 # # Ignore application configuration
-# /config/application.yml
+/config/application.yml
 
 # # Image upload folder
-# /public/uploads/*
+/public/uploads/*
 
-# # Admin assets
-# /vendor/assets/javascripts/admin
-# /vendor/assets/stylesheets/admin
+# Admin assets
+/vendor/assets/javascripts/admin
+/vendor/assets/stylesheets/admin
