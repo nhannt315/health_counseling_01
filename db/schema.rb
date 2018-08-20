@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_015648) do
+ActiveRecord::Schema.define(version: 2018_08_19_073149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -228,8 +228,6 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
   add_foreign_key "medicines", "medicine_types"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
-  add_foreign_key "notifications", "majors"
-  add_foreign_key "notifications", "questions"
   add_foreign_key "notifications", "users", column: "sender_id"
   add_foreign_key "question_categories", "majors"
   add_foreign_key "question_categories", "questions"
