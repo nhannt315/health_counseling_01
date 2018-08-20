@@ -1,0 +1,15 @@
+var raw_data = {
+  id: '<%= @booking.id %>',
+  title: '<%= @booking.title %>',
+  start: '<%= @booking.start_time %>',
+  end: '<%= @booking.stop_time %>',
+  isAllDay: false,
+  category: '<%= @booking.category.name %>',
+  location: '<%= @booking.location %>',
+  state: '<%= @booking.state %>',
+  type: '<%= @booking.schedule_type %>',
+  user_editable: '<%= @booking.user.current_user?(current_user) %>',
+  doctor_editable: <%= @booking.doctor.current_user?(current_user) %>
+};
+generateSchedule(window.cal,raw_data)
+refreshcalendar(window.cal)

@@ -1,0 +1,13 @@
+var conversationId = '<%= @conversation.id %>';
+var chatFrame = $('.chat_frame.conversation-'+conversationId);
+
+if(chatFrame.length <= 0){
+  $('.mf_conversation--frame')
+    .append('<%= j render "conversations/conversation",
+  conversation: @conversation, user: current_user %>');
+  var chatHeader = $('.chat_frame.conversation-' + conversationId
+    + ' .chat_header');
+  initConversationEvent(chatHeader);
+}
+
+showChatContent(conversationId)

@@ -20,6 +20,7 @@ gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
 gem "owlcarousel-rails"
 gem "pg"
+gem "mysql2"
 gem "pg_search"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.0"
@@ -35,6 +36,7 @@ gem "jquery-rails"
 gem "rails-i18n"
 gem "turbolinks", "~> 5"
 gem "wow-rails"
+gem "momentjs-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

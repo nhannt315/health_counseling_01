@@ -6,5 +6,13 @@
     <%= yield %>
     <%= render "layouts/footer" %>
     <%= render "shared/show_error" %>
+    <div class="row mf_conversation--frame">
+    <% if load_current_conversations != nil %>
+      <% load_current_conversations.each do |conversation| %>
+        <%= render "conversations/conversation",
+          conversation: conversation, user: current_user %>
+      <% end %>
+    <% end %>
+    </div>
   </body>
 </html>

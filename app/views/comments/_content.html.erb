@@ -12,7 +12,9 @@
     <%= link_to t(".edit"), edit_comment_url(comment),
       class: "mf_comment--edit comment-#{comment.id}", data: {id: comment.id},
       remote: true %>
-    <%= link_to t(".delete"), comment_url(comment), method: :delete,
+    <%= link_to t(".delete"), "#",
+      class: "mf_comment--delete comment-#{comment.id}",
+      data: {id: comment.id},
       remote: true %>
   <% end %>
   <% if comment.liked? current_user %>

@@ -188,6 +188,7 @@ vi:
       view_on_map: Xem trên bản đồ
       asked: "Được hỏi : %{count}"
       answer: "Trả lời : %{count}"
+      not_found_any_question: Chưa có câu hỏi nào!
   admin:
     title: Quản trị viên
     main: Các danh mục chính
