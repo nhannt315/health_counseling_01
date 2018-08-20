@@ -45,7 +45,7 @@
                     length: Settings.admin.truncate_length %></th>
                   <th><%= doctor.status %></th>
                   <th>
-                    <%= link_to admin_doctor_path(doctor.id) do %>
+                    <%= link_to admin_doctor_path(doctor) do %>
                       <button class="btn btn-primary">
                         <%= t "admin.doctors.detail" %>
                       </button>

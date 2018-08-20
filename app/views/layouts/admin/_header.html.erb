@@ -14,7 +14,7 @@
         </div>
         <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
           <li class="nav-item">
-            <%= link_to logout_url, method: :delete,
+            <%= link_to destroy_user_session_path, method: :delete,
               class: "nav-link logout" do %>
               <span class="d-none d-sm-inline-block">
                 <%= t "admin.common.logout" %>
