@@ -269,12 +269,12 @@ strong {
 
 .main_title_3 h3:before {
   left: 25%;
-  background: url('arrow_left.png') no-repeat
+  background: image_url('arrow_left.png') no-repeat
 }
 
 .main_title_3 h3:after {
   right: 25%;
-  background: url('arrow_right.png') no-repeat
+  background: image_url('arrow_right.png') no-repeat
 }
 
 .main_title_4 {
@@ -484,7 +484,7 @@ ul#top_access li#user figure img {
     width: 136px;
     height: 36px;
     display: block;
-    background: url('./logo.png') no-repeat;
+    background: image_url('./logo.png') no-repeat;
     background-size: 36px 36px;
     text-indent: 40px;
     font-size: 14px;
@@ -496,7 +496,7 @@ only screen and (-o-min-device-pixel-ratio:2 / 1),
 only screen and (-webkit-min-device-pixel-ratio:2),
 only screen and (min-device-pixel-ratio:2) {
   .logo_home h1 a {
-    background-image: url('./logo_2x.png');
+    background-image: image_url('./logo_2x.png');
     background-size: 163px 36px;
   }
 }
@@ -671,7 +671,7 @@ ul#additional_links li:after {
 }
 
 .hero_home.version_2:before {
-  background: url('home_1_bg.jpg') center center no-repeat fixed $violent-color;
+  background: image_url('home_1_bg.jpg') center center no-repeat fixed $violent-color;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -700,7 +700,7 @@ ul#additional_links li:after {
 }
 
 .hero_home.version_3 {
-  background: url('hero_home_bg_1.svg') center bottom no-repeat $violent-color;
+  background: image_url('hero_home_bg_1.svg') center bottom no-repeat $violent-color;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -977,7 +977,7 @@ ul#additional_links li:after {
 @media (max-width: 575px) {
   #custom-search-input input[type=submit] {
     text-indent: -999px;
-    background: url('search.svg') center center no-repeat $green-gray-color
+    background: image_url('search.svg') center center no-repeat $green-gray-color
   }
 }
 
@@ -1006,15 +1006,15 @@ a.box_cat_home {
 }
 
 .box_feat#icon_1 {
-  background: url('icon-home-1.svg') center 45px no-repeat white
+  background: image_url('icon-home-1.svg') center 45px no-repeat white
 }
 
 .box_feat#icon_2 {
-  background: url('icon-home-2.svg') center 45px no-repeat white
+  background: image_url('icon-home-2.svg') center 45px no-repeat white
 }
 
 .box_feat#icon_3 {
-  background: url('icon-home-3.svg') center 45px no-repeat white
+  background: image_url('icon-home-3.svg') center 45px no-repeat white
 }
 
 .box_feat span {
@@ -1029,7 +1029,7 @@ a.box_cat_home {
   -ms-border-radius: 50%;
   border-radius: 50%;
   border: 2px solid $hr-color;
-  background: url('arrow-gray-1.svg') center center no-repeat white;
+  background: image_url('arrow-gray-1.svg') center center no-repeat white;
   display: block;
   z-index: 9
 }
@@ -1331,7 +1331,7 @@ a.box_cat_home ul li strong {
 }
 
 #app_section {
-  background: url('hero_bg_1.svg') fixed $violent-color;
+  background: image_url('hero_bg_1.svg') fixed $violent-color;
   padding: 90px 0 60px;
   color: white
 }
@@ -1536,7 +1536,7 @@ video {
 
 @media (max-width: 1024px) {
   #hero_video {
-    background: url('hero_bg_1.svg') fixed $violent-color
+    background: image_url('hero_bg_1.svg') fixed $violent-color
   }
   .header-video {
     background: 0 0
@@ -2217,7 +2217,7 @@ a.wish_bt.liked:before {
   border: 0;
   width: 35px;
   height: 35px;
-  background: url('search.svg') center right no-repeat;
+  background: image_url('search.svg') center right no-repeat;
   cursor: pointer
 }
 
@@ -2944,7 +2944,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 }
 
 label.css-label {
-  background-image: url('checkbox.png');
+  background-image: image_url('checkbox.png');
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -3526,7 +3526,7 @@ a.social_bt.linkedin:before {
 
 #error_page,
 #hero_register {
-  background: url('hero_bg_1.svg') fixed $violent-color
+  background: image_url('hero_bg_1.svg') fixed $violent-color
 }
 
 #hero_register,
@@ -3696,7 +3696,7 @@ a.social_bt.linkedin:before {
 }
 
 .bg_color_2 {
-  background: url('hero_bg_1.svg') fixed $violent-color
+  background: image_url('hero_bg_1.svg') fixed $violent-color
 }
 
 .form-control {

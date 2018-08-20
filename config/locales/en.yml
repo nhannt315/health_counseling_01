@@ -70,6 +70,7 @@ en:
       user_update_failed: Update user error!
   questions:
     index:
+      name: Question
       title: Ask a doctor
       categories: Categories
       view_all: View all
@@ -248,10 +249,15 @@ en:
   messages:
     post_questions_placehoder: Sent your question for us...
     post_comment_placeholder: Type here to comment...
+  notification:
+    doctor_noti: Một câu hỏi mới đã được hỏi trong %{major_name} bởi %{asker_name}
+    user_noti: Câu hỏi của bạn đã được trả lời bởi %{name}
+    answer_noti: "%{name} đã trả lời vào một câu hỏi mà bạn đang theo dõi"
   like:
     question: Like
     answer: Like
   diseases:
+    name: Disease
     index:
       title: Disease List
     show:
@@ -265,6 +271,7 @@ en:
     show:
       error: Could not find the medicine type
   medicines:
+    name: Medicine
     show:
       medicine_info: Medicine info %{name}
       drug_collection: Drug collection

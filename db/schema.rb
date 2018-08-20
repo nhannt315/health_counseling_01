@@ -10,9 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_015648) do
+ActiveRecord::Schema.define(version: 2018_08_19_073149) do
 
-  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
     t.string "content"
     t.bigint "user_id"
     t.bigint "question_id"
@@ -20,15 +23,6 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
-  end
-
-  create_table "diseases", force: :cascade do |t|
-    t.string "name"
-    t.text "content_html"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "slug"
-    t.integer "category_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -51,7 +45,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
     t.text "title"
     t.integer "sender_id"
     t.integer "receiver_id"
-    t.boolean "closed"
+    t.boolean "closed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["receiver_id", "sender_id"], name: "index_conversations_on_receiver_id_and_sender_id", unique: true
@@ -98,7 +92,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "majors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "majors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -145,20 +139,18 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
 
   create_table "notifications", force: :cascade do |t|
     t.bigint "sender_id"
-    t.bigint "question_id"
-    t.bigint "major_id"
-    t.boolean "checked"
-    t.integer "notification_type"
+    t.boolean "checked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "read"
+    t.boolean "read", default: false
     t.integer "receiver_id"
-    t.index ["major_id"], name: "index_notifications_on_major_id"
-    t.index ["question_id"], name: "index_notifications_on_question_id"
+    t.string "notifiable_type"
+    t.bigint "notifiable_id"
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
     t.index ["sender_id"], name: "index_notifications_on_sender_id"
   end
 
-  create_table "question_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "question_categories", force: :cascade do |t|
     t.bigint "question_id"
     t.bigint "major_id"
     t.datetime "created_at", null: false
@@ -167,7 +159,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
     t.index ["question_id"], name: "index_question_categories_on_question_id"
   end
 
-  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "questions", force: :cascade do |t|
     t.string "title"
     t.string "content"
     t.bigint "user_id"
@@ -178,7 +170,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "name"
     t.string "phone_number"
@@ -220,6 +212,8 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
     t.string "unlock_token"
     t.datetime "locked_at"
     t.string "slug"
+    t.integer "provider", default: 0
+    t.string "uid"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -234,8 +228,6 @@ ActiveRecord::Schema.define(version: 2018_08_17_015648) do
   add_foreign_key "medicines", "medicine_types"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
-  add_foreign_key "notifications", "majors"
-  add_foreign_key "notifications", "questions"
   add_foreign_key "notifications", "users", column: "sender_id"
   add_foreign_key "question_categories", "majors"
   add_foreign_key "question_categories", "questions"

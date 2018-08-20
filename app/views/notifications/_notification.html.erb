@@ -1,5 +1,6 @@
-<li>
-  <%= link_to notification.url, class: "dropdown-item" do %>
+<li class="<% if notification.read? %>read<% else %>unread<% end %>">
+  <%= link_to notification.url, class: "dropdown-item noti-a",
+    "data-noti-id": notification.id, "data-read": notification.read do %>
     <span class="text-success">
       <strong><%= notification.sender.name %></strong>
     </span>

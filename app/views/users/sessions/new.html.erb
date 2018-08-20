@@ -7,14 +7,16 @@
         <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
           <div class="box_form clearfix">
             <div class="box_login">
-              <%= link_to t("sessions.new.fb_login"), "#", class: "social_bt facebook" %>
-              <%= link_to t("sessions.new.gg_login"), "#", class: "social_bt google" %>
+              <%= link_to t("sessions.new.fb_login"), user_facebook_omniauth_authorize_path,
+                class: "social_bt facebook" %>
+              <%= link_to t("sessions.new.gg_login"), user_google_oauth2_omniauth_authorize_path,
+                class: "social_bt google" %>
               <%= link_to t("sessions.new.lk_login"), "#", class: "social_bt linkedin" %>
             </div>
             <div class="box_login last">
               <div class="form-group">
                 <%= f.email_field :email, autofocus: true, autocomplete: "email",
-                  class: "form-control", placeholder: t("sessions.new.your_email") %>
+                  class: "form-control", placeholder: t("sessions.new.your_email")%>
               </div>
               <div class="form-group">
                 <%= f.password_field :password, autocomplete: "off",

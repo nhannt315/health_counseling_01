@@ -7,6 +7,7 @@ json.schedules @doctor.schedules do |schedule|
   json.isAllDay false
   json.category schedule.category.name
   json.location schedule.location
+  json.description schedule.reason
   json.state schedule.state
   json.type schedule.schedule_type
   json.user_editable schedule.user.current_user?(current_user)
