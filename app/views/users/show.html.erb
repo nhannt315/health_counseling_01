@@ -26,6 +26,11 @@
             <%= link_to t(".edit"), edit_user_path(@user),
               class:"btn_1 full-width"%>
           <% end %>
+          <%= form_for :conversation, url: "/conversations", class: "text-center", remote: true do |f| %>
+            <%= f.hidden_field :sender_id, value: current_user.id %>
+            <%= f.hidden_field :receiver_id, value: @user.id %>
+            <%= f.submit "Chat", class: "btn_1 outline" %>
+          <% end %>
         </div>
       </aside>
       <div class="col-xl-8 col-lg-8">

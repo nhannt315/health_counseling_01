@@ -1,0 +1,27 @@
+<% provide :title, "Danh mục" %>
+<main>
+  <div class="container margin_60 page-full-height">
+    <h1 class="title-category">Danh mục tra cứu</h1>
+    <div class="row" style="margin-top: 100px">
+      <div class="col-md-5 col-lg-5">
+        <div class="card medicine-main">
+          <div class="text">
+            <%= link_to medicine_classes_path do %>
+              <%= t "medicines.name" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 col-lg-1"></div>
+      <div class="col-md-5 col-lg-5">
+        <div class="card medicine-main">
+          <div class="text">
+            <%= link_to diseases_path do %>
+                <%= t "diseases.name" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

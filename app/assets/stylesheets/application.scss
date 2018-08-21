@@ -3,6 +3,7 @@
  *= require BsMultiSelect
  *= require font-awesome.css.erb
 */
+@import 'components/calendar';
 @import 'bootstrap';
 @import 'variables';
 @import 'mixins/shadow';
@@ -17,3 +18,6 @@
 @import 'components/disease';
 @import 'components/medicine';
 @import 'components/medicine_type';
+@import 'components/notification';
+@import 'components/conversation';
+@import 'components/sweetalert';

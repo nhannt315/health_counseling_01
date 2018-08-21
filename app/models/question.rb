@@ -5,6 +5,7 @@ class Question < ApplicationRecord
   has_many :likes, as: :target
   has_many :likers, through: :likes, source: :user
   has_many :answers, dependent: :destroy
+  has_many :commented_users, through: :answers, source: :user
   has_many :question_categories, foreign_key: :question_id, dependent: :destroy
   has_many :categories, through: :question_categories, source: :major
   scope :order_desc, ->{order updated_at: :desc}

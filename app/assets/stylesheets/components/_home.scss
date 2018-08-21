@@ -79,6 +79,12 @@
       }
       ul{
         margin: 0 !important;
+        .search-result-header {
+          color: #ff6759;
+          font-weight: bold;
+          font-size: 25px;
+          border-bottom: 1px solid #e8e8e8;
+        }
         li{
           display: block !important;
           margin: 0;

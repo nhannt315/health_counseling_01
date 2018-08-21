@@ -23,7 +23,7 @@
       <div class="card-body">
         <div class="table-responsive">
           <table class="table table-hover">
-            <thead>
+           <thead>
               <tr>
                 <th>#</th>
                 <th><%= t "admin.users.name" %></th>
@@ -40,7 +40,7 @@
                   <th><%= user.created_at %></th>
                   <th><%= user.status %></th>
                   <th>
-                    <%= link_to admin_user_path(user.id) do %>
+                    <%= link_to admin_user_path(user) do %>
                       <button class="btn btn-primary">
                         <%= t "admin.doctors.detail" %>
                       </button>
@@ -51,7 +51,7 @@
                   </th>
                 </tr>
               <% end %>
-              <%= paginate @users, theme: "twitter-bootstrap-3" %>
+              <%= paginate @users %>
             </tbody>
           </table>
         </div>

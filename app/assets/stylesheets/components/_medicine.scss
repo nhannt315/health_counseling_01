@@ -106,3 +106,24 @@
   }
 }
 
+.medicine-main {
+  border-radius: 20px;
+  @include shadow-card(0.3);
+  @include shadow-card-hover(0.5);
+  min-height: 200px;
+  min-width: 200px;
+  text-align: center;
+  font-size: 40px;
+  padding-top: 70px !important;
+  a {
+    .text {
+      margin: auto;
+    }
+  }
+}
+
+.title-category {
+  color: #8344ff;
+  text-align: center;
+  font-weight: bold;
+}

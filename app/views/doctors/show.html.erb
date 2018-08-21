@@ -1,6 +1,6 @@
 <% provide :title, t(".doctor_name_html", name: @doctor.name) %>
 <main>
-  <div class="container margin_60">
+  <div class="container margin_60 mf_doctor--details" data-doctor-id="<%= @doctor.id %>">
     <div class="row">
       <aside class="col-xl-3 col-lg-4" id="sidebar">
         <div class="box_profile">
@@ -28,6 +28,13 @@
                 <i class="icon_pin"></i><%= t ".view_on_map" %>
             <% end %>
           </div>
+          <% if user_signed_in? %>
+            <%= form_for :conversation, url: "/conversations", class: "text-center", remote: true do |f| %>
+              <%= f.hidden_field :sender_id, value: current_user.id %>
+              <%= f.hidden_field :receiver_id, value: @doctor.id %>
+              <%= f.submit "Chat", class: "btn_1 outline" %>
+            <% end %>
+          <% end %>
         </div>
       </aside>
       <div class="col-xl-9 col-lg-8">
@@ -43,6 +50,12 @@
                 class: "nav-link",id: "reviews-tab",
                 "data-toggle": "tab", role: "tab",
                 "aria-controls": "reviews" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to t(".booking"), "#booking",
+                class: "nav-link",id: "booking-tab",
+                "data-toggle": "tab", role: "tab",
+                "aria-controls": "booking" %>
             </li>
           </ul>
           <div class="tab-content">
@@ -94,9 +107,81 @@
             <div class="tab-pane fade" id="reviews"
               role="tabpanel" aria-labelledby="reviews-tab">
               <div class="reviews-container">
-                <% @questions.each do |question| %>
-                  <%= render "shared/question", question: question %>
+                <% if @questions.size > 0 %>
+                  <% @questions.each do |question| %>
+                    <%= render "shared/question", question: question %>
+                  <% end %>
+                <% else %>
+                  <span><%= t ".not_found_any_question" %></span>
                 <% end %>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="booking"
+              role="tabpanel" aria-labelledby="boooking-tab">
+              <div class="booking-container">
+                <div id="menu">
+                  <span class="dropdown">
+                      <button id="dropdownMenu-calendarType"
+                        class="btn btn-default btn-sm dropdown-toggle mf_white_bg"
+                        type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                          <i id="calendarTypeIcon" class="calendar-icon ic_view_month" style="margin-right: 4px;"></i>
+                          <span id="calendarTypeName">Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu-calendarType">
+                          <li role="presentation">
+                              <a class="dropdown-menu-title" role="menuitem" data-action="toggle-daily">
+                                  <i class="calendar-icon ic_view_day"></i>Daily
+                              </a>
+                          </li>
+                          <li role="presentation">
+                              <a class="dropdown-menu-title" role="menuitem" data-action="toggle-weekly">
+                                  <i class="calendar-icon ic_view_week"></i>Weekly
+                              </a>
+                          </li>
+                          <li role="presentation">
+                              <a class="dropdown-menu-title" role="menuitem" data-action="toggle-monthly">
+                                  <i class="calendar-icon ic_view_month"></i>Month
+                              </a>
+                          </li>
+                          <li role="presentation" class="dropdown-divider"></li>
+                          <li role="presentation">
+                              <a role="menuitem" data-action="toggle-workweek">
+                                  <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-workweek" checked>
+                                  <span class="checkbox-title"></span>Show weekends
+                              </a>
+                          </li>
+                          <li role="presentation">
+                              <a role="menuitem" data-action="toggle-start-day-1">
+                                  <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-start-day-1">
+                                  <span class="checkbox-title"></span>Start Week on Monday
+                              </a>
+                          </li>
+                          <li role="presentation">
+                              <a role="menuitem" data-action="toggle-narrow-weekend">
+                                  <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-narrow-weekend">
+                                  <span class="checkbox-title"></span>Narrower than weekdays
+                              </a>
+                          </li>
+                      </ul>
+                  </span>
+                  <span id="menu-navi">
+                      <button type="button"
+                        class="btn btn-default btn-sm move-today mf_white_bg"
+                        data-action="move-today">Today</button>
+                      <button type="button"
+                        class="btn btn-default btn-sm move-day mf_white_bg"
+                        data-action="move-prev">
+                          <i class="calendar-icon icon-left-dir"
+                            data-action="move-prev"></i>
+                      </button>
+                      <button type="button" class="btn btn-default btn-sm move-day mf_white_bg" data-action="move-next">
+                          <i class="calendar-icon icon-right-dir" data-action="move-next"></i>
+                      </button>
+                  </span>
+                  <span id="renderRange" class="render-range"></span>
+              </div>
+              <div id="calendar"></div>
               </div>
             </div>
           </div>

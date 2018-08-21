@@ -70,6 +70,7 @@ vi:
       user_update_failed: Lỗi cập nhật thông tin người dùng
   questions:
     index:
+      name: Câu hỏi
       title: Đặt câu hỏi
       categories: Chuyên mục
       view_all: Xem tất cả
@@ -187,6 +188,7 @@ vi:
       view_on_map: Xem trên bản đồ
       asked: "Được hỏi : %{count}"
       answer: "Trả lời : %{count}"
+      not_found_any_question: Chưa có câu hỏi nào!
   admin:
     title: Quản trị viên
     main: Các danh mục chính
@@ -252,10 +254,12 @@ vi:
   notification:
     doctor_noti: Một câu hỏi mới đã được hỏi trong %{major_name} bởi %{asker_name}
     user_noti: Câu hỏi của bạn đã được trả lời bởi %{name}
+    answer_noti: "%{name} đã trả lời vào một câu hỏi mà bạn đang theo dõi"
   like:
     question: Đồng cảm
     answer: Cảm ơn
   diseases:
+    name: Bệnh
     index:
       title: Danh sách bệnh
     show:
@@ -269,6 +273,7 @@ vi:
     show:
       error: Không thể tìm thấy trang bạn yêu cầu
   medicines:
+    name: Thuốc
     show:
       medicine_info: Thông tin thuốc %{name}
       drug_collection: Các thuốc liên quan

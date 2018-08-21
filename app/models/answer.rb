@@ -21,9 +21,6 @@ class Answer < ApplicationRecord
   private
 
   def notify
-    Notification.create sender_id: user.id, receiver_id: question.user.id,
-      question_id: question.id, major_id: question.categories.first,
-      checked: false, read: false,
-      notification_type: Notification.notification_types[:user_noti]
+    Notifications::AnswerReplyService.new(self).perform
   end
 end

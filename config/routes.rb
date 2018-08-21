@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks",
+    sessions:      "users/sessions",
+    passwords:     "users/passwords",
+    confirmations: "users/confirmations"
   }
+
   concern :paginatable do
     get "(page/:page)", action: :index, on: :collection, as: ""
   end
@@ -10,6 +15,7 @@ Rails.application.routes.draw do
   get "password_resets/new"
   get "password_resets/edit"
   get "pages/:page" => "pages#show"
+
   resources :users
   resources :doctors
   resources :account_activations, only: [:edit]
@@ -23,6 +29,18 @@ Rails.application.routes.draw do
   resources :medicine_classes, only: [:index]
   resources :medicine_types, only: [:show]
   resources :medicines, only: [:show]
+  resources :notifications, only: [:update] do
+    post :mark_all_as_checked, on: :collection
+  end
+  resources :bookings, only: [:create, :update, :destroy]
+  resources :schedules, only: [:index]
+
+  resources :conversations do
+    member do
+      post :close
+    end
+    resources :messages
+  end
 
   namespace :admin do
     get "/", to: "dashboards#index"

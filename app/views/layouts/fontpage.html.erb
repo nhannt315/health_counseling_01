@@ -38,6 +38,18 @@
                     <i class="icon-question"></i><%= t "global.menu.make_question" %>
                   <% end %>
                 </li>
+                <li>
+                  <%= link_to "#{root_url}pages/list", class: "show-submenu" do %>
+                    <i class="icon-question"></i><%= "Danh mục" %>
+                  <% end %>
+                </li>
+                <% if user_signed_in? && current_user.admin %>
+                  <li>
+                    <%= link_to admin_path, class: "show-submenu" do %>
+                      <i class="icon-question"></i>Admin
+                    <% end %>
+                  </li>
+                <% end %>
               </ul>
               <div class="user_menu">
                 <ul>

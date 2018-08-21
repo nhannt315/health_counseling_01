@@ -17,16 +17,18 @@
                   class: "nav-link noti", data: {toggle: "dropdown"},
                   aria: {haspopup: false, expanded: false} do %>
                   <i class="fa fa-bell"></i>
-                  <span id="notifications-count" class="badge badge-warning">
-                    <%= current_user.notifications.length %>
+                  <span id="notifications-count" data-user-id="<%= current_user.id %>"
+                    class="badge badge-warning">
+                    <%= current_user.unchecked_notifications.length %>
                   </span>
                 <% end %>
                 <ul id="notifications-list" aria-labelledby="notifications"
-                  class="dropdown-menu noti_margin">
+                  class="noti_margin dropdown-menu">
                   <% current_user.notifications.each do |notification| %>
                     <%= render "notifications/notification",
                       notification: notification %>
                   <% end %>
+                  <li>test</li>
                 </ul>
               <% end %>
             </li>
@@ -36,7 +38,8 @@
               <% end %>
             </li>
           </ul>
-          <div class="user_menu">
+          <div class="user_menu"
+            data-user-id="<%= current_user.id if current_user.present? %>">
             <ul>
               <%= render "shared/user_menu" %>
             </ul>

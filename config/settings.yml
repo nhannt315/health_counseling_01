@@ -32,7 +32,7 @@ default_page: 1
 default_load_more: 2
 home:
   suggest_text_len: 100
-  suggest_limit: 10
+  suggest_limit: 5
 questions: question
 answer: answer
 medicine:

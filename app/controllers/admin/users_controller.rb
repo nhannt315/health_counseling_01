@@ -5,7 +5,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def show
-    @user = User.find_by id: params[:id]
+    @user = User.friendly_id.find_by slug: params[:id]
     @questions = @user.questions.page(Settings.default_page)
                       .per Settings.admin.per_page
     @answers = @user.answers.page(Settings.default_page)
@@ -13,7 +13,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-    @user = User.find_by id: params[:id]
+    @user = User.friendly_id.find_by slug: params[:id]
     respond_to do |format|
       case params[:type]
       when Settings.admin.block

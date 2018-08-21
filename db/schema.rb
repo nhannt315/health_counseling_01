@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_150853) do
+ActiveRecord::Schema.define(version: 2018_08_19_073149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,34 @@ ActiveRecord::Schema.define(version: 2018_08_15_150853) do
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id"
+    t.integer "doctor_id"
+    t.integer "category_id"
+    t.datetime "start_time"
+    t.datetime "stop_time"
+    t.boolean "accept"
+    t.string "reason"
+    t.string "state"
+    t.string "location"
+    t.string "schedule_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.text "title"
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.boolean "closed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id", "sender_id"], name: "index_conversations_on_receiver_id_and_sender_id", unique: true
+    t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
   create_table "diseases", force: :cascade do |t|
@@ -99,18 +127,26 @@ ActiveRecord::Schema.define(version: 2018_08_15_150853) do
     t.index ["medicine_type_id"], name: "index_medicines_on_medicine_type_id"
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.bigint "sender_id"
-    t.bigint "question_id"
-    t.bigint "major_id"
-    t.boolean "checked"
-    t.integer "notification_type"
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "conversation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "read"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "sender_id"
+    t.boolean "checked", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "read", default: false
     t.integer "receiver_id"
-    t.index ["major_id"], name: "index_notifications_on_major_id"
-    t.index ["question_id"], name: "index_notifications_on_question_id"
+    t.string "notifiable_type"
+    t.bigint "notifiable_id"
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
     t.index ["sender_id"], name: "index_notifications_on_sender_id"
   end
 
@@ -176,6 +212,8 @@ ActiveRecord::Schema.define(version: 2018_08_15_150853) do
     t.string "unlock_token"
     t.datetime "locked_at"
     t.string "slug"
+    t.integer "provider", default: 0
+    t.string "uid"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -188,8 +226,8 @@ ActiveRecord::Schema.define(version: 2018_08_15_150853) do
   add_foreign_key "doctor_majors", "users"
   add_foreign_key "medicine_types", "medicine_classes"
   add_foreign_key "medicines", "medicine_types"
-  add_foreign_key "notifications", "majors"
-  add_foreign_key "notifications", "questions"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "notifications", "users", column: "sender_id"
   add_foreign_key "question_categories", "majors"
   add_foreign_key "question_categories", "questions"
