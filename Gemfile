@@ -32,14 +32,19 @@ gem "bootstrap", "~> 4.1.1"
 gem "bootstrap-datepicker-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "momentjs-rails"
 gem "rails-i18n"
 gem "turbolinks", "~> 5"
 gem "wow-rails"
-gem "momentjs-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "capybara"
+  gem "database_cleaner"
+  gem "factory_bot_rails"
   gem "faker"
+  gem "rspec-rails"
+  gem "shoulda-matchers"
 end
 
 group :development do

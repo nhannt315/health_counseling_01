@@ -1,6 +1,7 @@
 module ConversationsHelper
   def load_current_conversations
+    return if session[:conversations].nil?
     @conversations = Conversation.includes(:receiver, :messages)
-      .find(session[:conversations]) if session[:conversations] != nil
+                                 .find_by id: session[:conversations]
   end
 end

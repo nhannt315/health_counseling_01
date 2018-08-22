@@ -3,7 +3,5 @@ class SchedulesController < ApplicationController
     @doctor = Doctor.find_by id: params[:id]
   end
 
-  def create
-
-  end
+  def create; end
 end

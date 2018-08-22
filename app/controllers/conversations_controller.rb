@@ -5,9 +5,7 @@ class ConversationsController < ApplicationController
     add_to_conversations unless conversated?
   end
 
-  def destroy
-
-  end
+  def destroy; end
 
   def close
     @conversation = Conversation.find(params[:id])
@@ -22,6 +20,6 @@ class ConversationsController < ApplicationController
   end
 
   def conversated?
-    session[:conversations].include? @conversation.id if session[:conversations]
+    session[:conversations]&.include? @conversation.id
   end
 end

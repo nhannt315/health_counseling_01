@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   extend FriendlyId
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable,
-         :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
+    :recoverable, :rememberable, :trackable, :validatable, :lockable,
+    :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
   enum block_status: {blocked: 0, non_block: 1}

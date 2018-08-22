@@ -5,15 +5,9 @@ class Notification < ApplicationRecord
 
   def content
     if notifiable_type == QuestionCategory.name
-      I18n.t "notification.doctor_noti",
-        major_name: notifiable.major.name,
-        asker_name: notifiable.question.user.name
-    elsif notifiable.question.user == receiver
-      I18n.t "notification.user_noti",
-        name: notifiable.user.name
+      doctor_noti
     else
-      I18n.t "notification.answer_noti",
-        name: notifiable.user.name
+      user_noti
     end
   end
 
@@ -22,6 +16,22 @@ class Notification < ApplicationRecord
       Rails.application.routes.url_helpers.question_path notifiable.question
     else
       Rails.application.routes.url_helpers.question_path notifiable
+    end
+  end
+
+  private
+
+  def doctor_noti
+    I18n.t "notification.doctor_noti",
+      major_name: notifiable.major.name,
+      asker_name: notifiable.question.user.name
+  end
+
+  def user_noti
+    if notifiable.question.user == receiver
+      I18n.t "notification.user_noti", name: notifiable.user.name
+    else
+      I18n.t "notification.answer_noti", name: notifiable.user.name
     end
   end
 end
