@@ -37,3 +37,6 @@ questions: question
 answer: answer
 medicine:
   per_page: 20
+test:
+  question:
+    title_min: 6
