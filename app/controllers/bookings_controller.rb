@@ -32,5 +32,4 @@ class BookingsController < ApplicationController
       :start_time, :stop_time, :category_id, :location,
       :state, :accept, :schedule_type, :reason
   end
-
 end

@@ -5,11 +5,11 @@ class Conversation < ApplicationRecord
 
   validates :sender_id, uniqueness: {scope: :receiver_id}
 
-  scope :between, lambda{|s_id, r_id|
+  scope :between, lambda do |s_id, r_id|
     where(sender_id: s_id, receiver_id: r_id).or(
       where(sender_id: r_id, receiver_id: s_id)
     )
-  }
+  end
 
   def self.get s_id, r_id
     conversation = between(s_id, r_id).first
@@ -20,5 +20,4 @@ class Conversation < ApplicationRecord
   def opposed_user user
     user == receiver ? sender : receiver
   end
-
 end

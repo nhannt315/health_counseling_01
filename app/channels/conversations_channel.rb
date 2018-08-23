@@ -3,7 +3,5 @@ class ConversationsChannel < ApplicationCable::Channel
     stream_from "conversations:#{current_user.id}"
   end
 
-  def unsubscribed
-
-  end
+  def unsubscribed; end
 end
