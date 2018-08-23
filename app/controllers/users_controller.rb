@@ -46,8 +46,7 @@ class UsersController < ApplicationController
 
   def logged_in_user
     return if user_signed_in?
-    store_location
     flash[:success] = t "global.auth.login_please"
-    redirect_to login_url
+    redirect_to new_user_session_path
   end
 end
