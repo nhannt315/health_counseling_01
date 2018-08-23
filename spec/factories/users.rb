@@ -6,6 +6,6 @@ FactoryBot.define do
     address {Faker::Address.street_address}
     bio {Faker::HowIMetYourMother.quote}
     prof_place {Faker::LordOfTheRings.location}
-    password {Faker::BreakingBad.character}
+    password {Faker::Lorem.sentence}
   end
 end
