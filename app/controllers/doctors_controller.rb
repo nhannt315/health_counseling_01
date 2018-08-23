@@ -1,5 +1,7 @@
 class DoctorsController < ApplicationController
   before_action :find_doctor, only: [:show, :update, :edit]
+  before_action :authenticate_user!, except: [:show]
+  before_action :correct_user, only: [:edit, :update]
 
   def show
     majors = @doctor.majors
@@ -22,9 +24,14 @@ class DoctorsController < ApplicationController
     major_ids = params[:doctor][:majors]
     major_ids.shift
     @doctor.add_majors major_ids
+    redirect_to doctor_path @doctor
   end
 
   private
+
+  def correct_user
+    redirect_to root_url unless @doctor.current_user? current_user
+  end
 
   def find_doctor
     @doctor = Doctor.friendly.find_by slug: params[:id]
