@@ -1,11 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Medicine, type: :model do
-  let!(:medicine_class) {create(:medicine_class)}
-  let!(:medicine_type) do create(:medicine_type,
-    medicine_class_id: medicine_class.id)
-  end
-  let! (:medicine) {create(:medicine, medicine_type_id: medicine_type.id)}
+  let! (:medicine) {create(:medicine)}
   describe "associations" do
     it {is_expected.to belong_to :medicine_type}
   end

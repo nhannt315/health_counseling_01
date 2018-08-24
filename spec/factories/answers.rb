@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :answer do
-    content {Faker::Twitter.status include_user: false}
+    content {Faker::Lorem.sentence}
+    association(:user)
+    association(:question)
   end
 end

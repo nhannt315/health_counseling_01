@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
+
   def create
     doctor = Doctor.find_by id: params[:booking][:doctor_id]
     @booking = doctor.schedules.build booking_params

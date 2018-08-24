@@ -11,5 +11,6 @@ FactoryBot.define do
     note {Faker::Lorem.sentence}
     overdose {Faker::Lorem.sentence}
     preservation {Faker::Lorem.sentence}
+    association(:medicine_type)
   end
 end
